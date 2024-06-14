@@ -1799,6 +1799,18 @@
             author       : rajeshdubey293
             source       : 'git clone https://github.com/rajeshdubey293/Optimus_Drunk_Potter.git -b 9.0'
             features     : [HID]
+- pyxis:
+    model   : Xiaomi Mi 9 Lite / CC9
+    kernels :
+      - id          : pyxis
+        description : LineageOS
+        versions    :
+          - android      : fourteen
+            linux        : '4.9'
+            description  : LineageOS 21
+            author       : yesimxev
+            source       : 'git clone https://github.com/yesimxev/android_kernel_xiaomi_sdm710 -b lineage-21'
+            features     : [BT_RFCOMM, HID-4, CDROM, QCACLD, NFS, Internal BT]
 - rmx1911:
     model   : Realme 5/5i/5s
     kernels :
