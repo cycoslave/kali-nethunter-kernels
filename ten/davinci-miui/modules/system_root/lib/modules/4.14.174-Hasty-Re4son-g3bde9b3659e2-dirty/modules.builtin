@@ -21,6 +21,13 @@ kernel/fs/fat/fat.ko
 kernel/fs/fat/vfat.ko
 kernel/fs/fuse/fuse.ko
 kernel/fs/jbd2/jbd2.ko
+kernel/fs/lockd/lockd.ko
+kernel/fs/nfs/nfs.ko
+kernel/fs/nfs/nfsv2.ko
+kernel/fs/nfs/nfsv3.ko
+kernel/fs/nfs/nfsv4.ko
+kernel/fs/nfs_common/grace.ko
+kernel/fs/nfsd/nfsd.ko
 kernel/fs/nls/nls_base.ko
 kernel/fs/nls/nls_cp437.ko
 kernel/fs/nls/nls_iso8859-1.ko
@@ -316,6 +323,10 @@ kernel/drivers/net/wireless/ralink/rt2x00/rt2800usb.ko
 kernel/drivers/net/wireless/realtek/rtl818x/rtl8187/rtl8187.ko
 kernel/drivers/net/wireless/realtek/rtl8812au/88XXau.ko
 kernel/drivers/net/wireless/realtek/rtl8xxxu/rtl8xxxu.ko
+kernel/drivers/net/wireless/realtek/rtlwifi/rtlwifi.ko
+kernel/drivers/net/wireless/realtek/rtlwifi/rtl_usb.ko
+kernel/drivers/net/wireless/realtek/rtlwifi/rtl8192c/rtl8192c-common.ko
+kernel/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/rtl8192cu.ko
 kernel/drivers/net/wireless/zydas/zd1201.ko
 kernel/drivers/net/wireless/zydas/zd1211rw/zd1211rw.ko
 kernel/drivers/nfc/nq-nci.ko
@@ -536,6 +547,7 @@ kernel/net/can/can.ko
 kernel/net/can/can-raw.ko
 kernel/net/can/can-bcm.ko
 kernel/net/can/can-gw.ko
+kernel/net/dns_resolver/dns_resolver.ko
 kernel/net/ipv4/ip_tunnel.ko
 kernel/net/ipv4/udp_tunnel.ko
 kernel/net/ipv4/ip_vti.ko
@@ -702,6 +714,8 @@ kernel/net/sched/em_meta.ko
 kernel/net/sched/em_text.ko
 kernel/net/sctp/sctp.ko
 kernel/net/sctp/sctp_diag.ko
+kernel/net/sunrpc/sunrpc.ko
+kernel/net/sunrpc/auth_gss/auth_rpcgss.ko
 kernel/net/unix/unix.ko
 kernel/net/wireless/cfg80211.ko
 kernel/net/xfrm/xfrm_algo.ko
@@ -718,6 +732,7 @@ kernel/lib/ts_kmp.ko
 kernel/lib/ts_bm.ko
 kernel/lib/ts_fsm.ko
 kernel/lib/asn1_decoder.ko
+kernel/lib/oid_registry.ko
 kernel/lib/lzo/lzo_compress.ko
 kernel/lib/lzo/lzo_decompress.ko
 kernel/lib/mpi/mpi.ko
