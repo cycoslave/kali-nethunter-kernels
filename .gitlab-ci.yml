@@ -26,7 +26,8 @@ linting:
       when: always
   script:
     - *install_prerequesites_pip
-    - yamllint kernels.yml
+    - grep '^\#\#\*' devices.cfg > devices.yml
+    - yamllint devices.yml
 
 pages:
   stage: generate_documentation

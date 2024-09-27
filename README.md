@@ -70,7 +70,7 @@ Alternatively, use the build-scripts mentioned below which do this already!
 
 So really all you need is a kernel image and sometimes a `dtb.img` to build for a new device.
 
-Don't forget to add your newly supported device's kernel sources to the `kernels.yml` file!
+Don't forget to add your newly supported device's kernel sources to the `devices.cfg` file!
 
 ## Building a kernel for your device
 
