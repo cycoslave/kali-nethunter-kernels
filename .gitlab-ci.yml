@@ -14,14 +14,16 @@ variables:
 
 .setup_for_html: &setup_for_html |
   apt-get update
-  apt-get -y install pandoc
+  apt-get --yes --no-install-recommends install pandoc
 
 linting:
   stage: linting
   allow_failure: yes
   rules:
-    - if: $CI_MERGE_REQUEST_ID             # Execute jobs in merge request context
-    - if: $CI_COMMIT_BRANCH == 'master'    # Execute jobs when a new commit is pushed to master branch
+    - if: $CI_MERGE_REQUEST_ID                      # Execute jobs in merge request context
+      when: always
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH   # Execute jobs when a new commit is pushed to default branch
+      when: always
   script:
     - *install_prerequesites_pip
     - yamllint kernels.yml
@@ -29,23 +31,24 @@ linting:
 pages:
   stage: generate_documentation
   rules:
-    - if: $CI_COMMIT_BRANCH == 'master'    # Execute jobs when a new commit is pushed to master branch
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH   # Execute jobs when a new commit is pushed to default branch
+      when: always
   script:
     - *install_prerequesites_pip
     - *setup_for_html
-    - ./scripts/generate_images_stats.py
-    - ./scripts/generate_images_table.py
-    - ./scripts/generate_kernels_stats.py
-    - ./scripts/generate_kernels_table.py
+    - ./bin/generate_image_details.py
+    - ./bin/generate_image_summary.py
+    - ./bin/generate_kernel_detail.py
+    - ./bin/generate_kernel_summary.py
     - mkdir -pv ./public/
     - cp -v ./.gitlab/404.html   ./public/
     - cp -v ./.gitlab/public.css ./public/
-    - pandoc --standalone ./.gitlab/www.md  --css=public.css --include-in-header=./.gitlab/header.html --output=./public/index.html
-    - pandoc --standalone ./image-stats.md  --css=public.css --include-in-header=./.gitlab/header.html --output=./public/image-stats.html
-    - pandoc --standalone ./images.md       --css=public.css --include-in-header=./.gitlab/header.html --output=./public/images.html
-    - pandoc --standalone ./kernel-stats.md --css=public.css --include-in-header=./.gitlab/header.html --output=./public/kernel-stats.html
-    - pandoc --standalone ./kernels.md      --css=public.css --include-in-header=./.gitlab/header.html --output=./public/kernels.html
-    - find public/ -type f -name '*.html' -exec sed -i 's_<table>_<table id="pretty">_' {} +
+    - pandoc --standalone ./.gitlab/www.md    --css=public.css --include-in-header=./.gitlab/header.html --output=./public/index.html
+    - pandoc --standalone ./images.md         --css=public.css --include-in-header=./.gitlab/header.html --output=./public/images.html
+    - pandoc --standalone ./image-summary.md  --css=public.css --include-in-header=./.gitlab/header.html --output=./public/image-summary.html
+    - pandoc --standalone ./kernels.md        --css=public.css --include-in-header=./.gitlab/header.html --output=./public/kernels.html
+    - pandoc --standalone ./kernel-summary.md --css=public.css --include-in-header=./.gitlab/header.html --output=./public/kernel-summary.html
+    - find public/ -type f -name '*.html' -print -exec sed -i -E 's_<table( |>)_<table id="pretty"\1_' {} +
   artifacts:
     paths:
       - ./public

@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 from datetime import datetime
 import sys
-import yaml # python3 -m pip install pyyaml --user
+import yaml # $ python3 -m pip install pyyaml --user
 
-OUTPUT_FILE = './kernels.md'
-INPUT_FILE = './kernels.yml'
-repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/kernels.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
-qty_models = 0
+OUTPUT_FILE = "./kernels.md"
+INPUT_FILE = "./kernels.yml"
+repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
+qty_total_models = 0
 qty_kernels = 0
 
 ## Input:
+## $ grep -v '^#' ./kernels.yml
+## [...]
 ## ------------------------------------------------------------ ##
-##- a5uelte:
+##- a5ulte:
 ##    model   : Samsung Galaxy A5 (2015)
 ##    kernels :
 ##      - id          : a5ulte
@@ -40,19 +42,20 @@ def yaml_parse(data):
     lines = data.split('\n')
     for line in lines:
         if len(line) > 0 and line[0] != '#':
-            result += line + '\n'
+            result += '{}\n'.format(line)
     return yaml.safe_load(result)
 
 def generate_table(data):
-    global qty_kernels, qty_models
+    global qty_kernels, qty_total_models
     default = ""
-    table  = "| Display Name | Kernel ID | [Android Version](kernel-stats.html) | Linux Version | Kernel Version | Description | Features | Author | Source |\n"
-    table += "|--------------|-----------|--------------------------------------|---------------|----------------|-------------|----------|--------|--------|\n"
+    kernels = []
 
+    # iterate over all the models
     for element in data:
+        # iterate over all the versions
         for kernel_name in element.keys():
+            qty_total_models += 1
             model = element[kernel_name]['model']
-            qty_models += 1
             for kernel in element[kernel_name]['kernels']:
                 for version in kernel['versions']:
                     qty_kernels += 1
@@ -63,7 +66,8 @@ def generate_table(data):
                             features += ", "
                         features += f
                         i += 1
-                    table += "| {} | {} | {} | {} | {} | {} | {} | {} | `{}` |\n".format(model,
+                    kernels.append("| {} | {} | {} | {} | {} | {} | {} | {} | `{}` |\n".format(
+                                                                                         model,
                                                                                          kernel.get('id', default),
                                                                                          version.get('android', default),
                                                                                          version.get('linux', default),
@@ -71,41 +75,52 @@ def generate_table(data):
                                                                                          version.get('description', default),
                                                                                          features,
                                                                                          version.get('author', default),
-                                                                                         version.get('source', default))
-    #qty_kernels = len(table.split('\n'))-3
+                                                                                         version.get('source', default)
+                                                                                 )
+                                                                             )
+
+    table  = "| Display Name | Kernel ID | [Android Version](kernel-summary.html) | Linux Version | Kernel Version | Description | Features | Author | Source |\n"
+    table += "|--------------|-----------|----------------------------------------|---------------|----------------|-------------|----------|--------|--------|\n"
+    # iterate over all the kernels
+    for kernel in sorted(kernels):
+        table += "{}".format(kernel)
+
     return table
 
 def read_file(file):
     try:
+        print('[i] Reading: {}'.format(file))
         with open(file) as f:
             data = f.read()
             f.close()
     except Exception as e:
-        print("[-] Cannot open input file: {} - {}".format(file, e))
+        print('[-] Cannot open input file: {} - {}'.format(file, e))
+        sys.exit(1)
     return data
 
 def write_file(data, file):
     try:
         with open(file, 'w') as f:
             meta  = '---\n'
-            meta += 'title: Kali NetHunter Kernels\n'
+            meta += 'title: Kali NetHunter Kernel Details\n'
             meta += '---\n\n'
-            stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) is using [**{}** kernels](kernel-stats.html) _([config](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/kernels.yml))_\n".format(str(qty_kernels))
-            stats += "- These kernels can be used on **{}** models\n".format(str(qty_models))
-            stats += "- [Kali NetHunter Statistics](index.html)\n\n"
+            stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) is using [**{}** kernels](kernel-summary.html)\n".format(str(qty_kernels))
+            stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/kernels.yml))_\n"
+            stats += "  - These kernels can be used on **{} device models**\n".format(str(qty_total_models))
+            stats += "- [Kali NetHunter Statistics Overview](index.html)\n\n"
             f.write(str(meta))
             f.write(str(stats))
             f.write(str(data))
             f.write(str(repo_msg))
             f.close()
-            print('[+] File: {} successfully written'.format(OUTPUT_FILE))
+            print('[+] Writing: {}'.format(OUTPUT_FILE))
     except Exception as e:
-        print("[-] Cannot write to output file: {} - {}".format(file, e))
+        print('[-] Cannot write to output file: {} - {}'.format(file, e))
     return 0
 
 def print_summary():
-    print('Kernels: {}'.format(qty_kernels))
-    print('Models : {}'.format(qty_models))
+    print('[i] Known kernels                : {}'.format(qty_kernels))
+    print('[i] Total supported device models: {}'.format(qty_total_models))
 
 def main(argv):
     # Assign variables
@@ -113,13 +128,15 @@ def main(argv):
 
     # Get data
     res = yaml_parse(data)
-    generated_markdown = generate_table(res)
 
-    # Create markdown file
-    write_file(generated_markdown, OUTPUT_FILE)
+    # Generate stats & markdown
+    generated_markdown = generate_table(res)
 
     # Print result
     print_summary()
+
+    # Create markdown file
+    write_file(generated_markdown, OUTPUT_FILE)
 
     # Exit
     exit(0)

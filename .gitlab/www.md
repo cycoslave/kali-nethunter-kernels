@@ -1,24 +1,24 @@
 ---
-title: Kali NetHunter Statistics
+title: Kali NetHunter Statistics Overview
 ---
 
-## Images
+## Pre-created Images
 
-- [Images](images.html)
-- [Images Stats](image-stats.html)
+- [Pre-created Images Details](images.html) <!-- Breakdown? Details? -->
+- [Pre-created Images Overview](image-summary.html)
 
-## Kernel
+## Kernels
 
-- [Kernel](kernels.html)
-- [Kernel Stats](kernel-stats.html)
+- [Kernel Details](kernels.html) <!-- Breakdown? Details? -->
+- [Kernel Summary](kernel-summary.html)
 
 - - -
 
 ## Links
 
 - [Kali Linux Home](https://www.kali.org/)
-- [Kali NetHunter Home](https://www.kali.org/kali-nethunter/)
-- [Download NetHunter images](https://www.kali.org/get-kali/#kali-mobile)
+- [Kali NetHunter Documentation](https://www.kali.org/docs/nethunter/)
+- [Download Kali NetHunter pre-created images](https://www.kali.org/get-kali/#kali-mobile)
 - [Kali NetHunter Build-Scripts](https://gitlab.com/kalilinux/nethunter/build-scripts)
 - [Kali NetHunter Build-Scripts (Installer)](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/tree/master/nethunter-installer)
 - [Kali NetHunter Build-Scripts (Devices)](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)
