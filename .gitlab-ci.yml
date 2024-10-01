@@ -41,6 +41,7 @@ pages:
     - ./bin/generate_image_summary.py
     - ./bin/generate_kernel_detail.py
     - ./bin/generate_kernel_summary.py
+    - ./bin/kernel_integrity.py
     - mkdir -pv ./public/
     - cp -v ./.gitlab/404.html   ./public/
     - cp -v ./.gitlab/public.css ./public/

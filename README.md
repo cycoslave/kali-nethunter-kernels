@@ -50,7 +50,10 @@ If porting for something other than sock, it is recommended to append to the `co
 
 - CyanogenMod -> `-cm` (e.g. `[codename-cm]`)
 - LineageOS -> `-los` (e.g. `[codename-los]`)
+- One UI -> `-oui` (e.g. `[codename-oui]`)
 - OxygenOS -> `-oos` (e.g. `[codename-oos]`)
+- Paranoid Android -> `-pa` (e.g. `[codename-pa]`)
+- TouchWiz -> `-tw` (e.g. `[codename-tw]`)
 
 Once you have a device added to `devices.cfg`, you need to add a pre-built kernel to the device's folder. It should be formatted as:
 

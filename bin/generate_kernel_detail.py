@@ -18,8 +18,8 @@ qty_no_kernels = 0
 ## ##* - a5ulte:
 ## ##*     model   : Samsung Galaxy A5 (2015)
 ## ##*     kernels :
-## ##*       - id          : a5ulte
-## ##*         description : Galaxy A5 (2015) for CyanogenMod
+## ##*       - id          : a5ulte-cm
+## ##*         description : Samsung Galaxy A5 (2015) for CyanogenMod
 ## ##*         versions    :
 ## ##*           - android      : marshmallow
 ## ##*             linux        : '3.10'
@@ -28,8 +28,8 @@ qty_no_kernels = 0
 ## ##*             author       : DeadSquirrel01
 ## ##*             source       : 'git clone https://github.com/DeadSquirrel01/nethunter-kernel-a5ulte.git -b cm-13.0'
 ## ##*             features     : []
-## ##*       - id          : a5ulte-touchwiz
-## ##*         description : Galaxy A5 (2015) for TouchWiz (Europe)
+## ##*       - id          : a5ulte-tw
+## ##*         description : Samsung Galaxy A5 (2015) for TouchWiz (Europe)
 ## ##*         versions    :
 ## ##*           - android      : marshmallow
 ## ##*             linux        : '3.10'
