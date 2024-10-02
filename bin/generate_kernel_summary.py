@@ -3,11 +3,14 @@ from datetime import datetime
 import os
 import re
 import sys
+import yaml # $ python3 -m pip install pyyaml --user
 
 OUTPUT_FILE = "./kernel-summary.md"
+INPUT_FILE = "./devices.cfg"
 ROOT_DIR = "./"
 repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
-qty_kernels = 0
+qty_dir_kernels = 0
+qty_yml_kernels = 0
 qty_versions = { }
 
 ## Input:
@@ -17,6 +20,69 @@ qty_versions = { }
 ## ./
 ##  |---> [Android Version]/
 ##      |-> [Device]/
+## $ grep '##*' ./devices.cfg
+## [...]
+## ------------------------------------------------------------ ##
+## ##* - a5ulte:
+## ##*     model   : Samsung Galaxy A5 (2015)
+## ##*     kernels :
+## ##*       - id          : a5ulte-cm
+## ##*         description : Samsung Galaxy A5 (2015) for CyanogenMod
+## ##*         versions    :
+## ##*           - android      : marshmallow
+## ##*             linux        : '3.10'
+## ##*             kernel       : 1.3
+## ##*             description  : CyanogenMod 13
+## ##*             author       : DeadSquirrel01
+## ##*             source       : 'git clone https://github.com/DeadSquirrel01/nethunter-kernel-a5ulte.git -b cm-13.0'
+## ##*             features     : []
+## ##*       - id          : a5ulte-tw
+## ##*         description : Samsung Galaxy A5 (2015) for TouchWiz (Europe)
+## ##*         versions    :
+## ##*           - android      : marshmallow
+## ##*             linux        : '3.10'
+## ##*             kernel       : 1.3
+## ##*             description  : TouchWiz 6
+## ##*             author       : DeadSquirrel01
+## ##*             source       : 'git clone https://github.com/DeadSquirrel01/nethunter-kernel-a5ulte.git -b touchwiz-6.0'
+## ##*             features     : []
+
+def yaml_parse(data):
+    result = ""
+    lines = data.split('\n')
+    for line in lines:
+        if line.startswith('##*'):
+            ## yaml doesn't like tabs so let's replace them with four spaces
+            result += "{}\n".format(line.replace('\t', '    ')[3:])
+    return yaml.safe_load(result)
+
+def read_file(file):
+    try:
+        print('[i] Reading: {}'.format(file))
+        with open(file) as f:
+            data = f.read()
+            f.close()
+    except Exception as e:
+        print('[-] Cannot open input file: {} - {}'.format(file, e))
+        sys.exit(1)
+    return data
+
+def yml_count(yml):
+    default = ""
+    yml_kernels = []
+
+    # iterate over all device models
+    for element in yml:
+        # iterate over all model's entries in yaml file
+        for device_model in element.keys():
+            # iterate over all model's kernels
+            for kernel in element[device_model].get('kernels', default):
+                # iterate over all model kernels version's
+                for version in kernel['versions']:
+                    android_version = version.get('android', default)
+                    yml_kernels.append(android_version)
+    return len(yml_kernels)
+
 
 def dir_count(path):
     print('[i] Searching in: {}'.format(path))
@@ -71,7 +137,8 @@ def write_file(data, file):
             meta  = '---\n'
             meta += 'title: Kali NetHunter Kernel Summary\n'
             meta += '---\n\n'
-            stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) has a total of [**{}** kernels](kernels.html) directories\n".format(str(qty_kernels))
+            stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) has a total of [**{}** kernels](kernels.html) directories\n".format(str(qty_dir_kernels))
+            stats += "  - **{} kernels** are in ./devices.cfg\n".format(qty_yml_kernels) # See: ./bin/kernel_integrity.py
             stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.cfg), [directories](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel))_\n"
             stats += "  - NetHunter is on **{} Android versions**\n".format(len(qty_versions))
             stats += "- [Kali NetHunter Statistics Overview](index.html)\n\n"
@@ -87,16 +154,24 @@ def write_file(data, file):
 
 def print_summary():
     print('[i] Android versions count: {}'.format(len(qty_versions)))
-    print('[i] Kernel directories: {}'.format(qty_kernels))
+    print('[i] Kernels in directories: {}'.format(qty_dir_kernels))
+    print('[i] Kernels in YAML       : {}'.format(qty_yml_kernels))
 
 def main(argv):
-    global qty_kernels
+    global qty_dir_kernels, qty_yml_kernels
 
-    # Get data
+    # Assign variables
+    data = read_file(INPUT_FILE)
+
+    # Get data (YAML)
+    yml = yaml_parse(data)
+
+    # Get data (Directories)
     get_versions()
 
     # Generate stats
-    qty_kernels = calc_kernels()
+    qty_dir_kernels = calc_kernels()
+    qty_yml_kernels = yml_count(yml)
 
     # Print result
     print_summary()
