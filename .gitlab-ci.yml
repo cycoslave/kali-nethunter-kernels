@@ -24,24 +24,38 @@ linting:
       when: always
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH   # Execute jobs when a new commit is pushed to default branch
       when: always
-  script:
+  before_script:
     - *install_prerequesites_pip
     - grep '^\#\#\*' devices.cfg > devices.yml
+  script:
     - yamllint devices.yml
+
+kernel_integrity:
+  stage: linting
+  allow_failure: yes
+  rules:
+    - if: $CI_MERGE_REQUEST_ID                      # Execute jobs in merge request context
+      when: always
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH   # Execute jobs when a new commit is pushed to default branch
+      when: always
+  before_script:
+    - *install_prerequesites_pip
+  script:
+    - ./bin/kernel_integrity.py
 
 pages:
   stage: generate_documentation
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH   # Execute jobs when a new commit is pushed to default branch
       when: always
-  script:
+  before_script:
     - *install_prerequesites_pip
     - *setup_for_html
+  script:
     - ./bin/generate_image_details.py
     - ./bin/generate_image_summary.py
     - ./bin/generate_kernel_detail.py
     - ./bin/generate_kernel_summary.py
-    - ./bin/kernel_integrity.py
     - mkdir -pv ./public/
     - cp -v ./.gitlab/404.html   ./public/
     - cp -v ./.gitlab/public.css ./public/
