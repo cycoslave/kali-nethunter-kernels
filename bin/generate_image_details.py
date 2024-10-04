@@ -12,27 +12,29 @@ qty_images = 0
 qty_no_images = 0
 
 ## Input:
-## $ grep '##*' ./devices.cfg
-## [...]
-## ------------------------------------------------------------ ##
-##* - angler:
-##*     model:   Nexus 6P
-##*     note:
-##*     images:
-##*       - name:    Nexus 6P (Oreo)
-##*         id:      xangler
-##*         os:      oreo
-##*         status:  Stable
-##*         rootfs : full
-##*         doco   : ""
-##*         note:    "** Our preferred low end device **"
-##*       - name:    Nexus 6P (LineageOS 17.1)
-##*         id:      angler-los
-##*         os:      ten
-##*         status:  Latest
-##*         rootfs : full
-##*         doco   : ""
-##*         note:    "** Warning: Android ten is very unstable at the moment. **"
+##   $ grep '##*' ./devices.cfg
+##   ##* - angler:
+##   ##*     model  : Nexus 6P
+##   ##*     images :
+##   ##*       - id      : angler
+##   ##*         name    : Nexus 6P (Oreo)
+##   ##*         android : oreo
+##   ##*         status  : stable
+##   ##*         rootfs  : full
+##   ##*         docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
+##   ##*         note    : >-
+##   ##*                   Nexmon support<br>
+##   ##*                   **Our preferred low end device**<br>
+##   ##*       - id      : angler-los
+##   ##*         name    : Nexus 6P (LineageOS 17.1)
+##   ##*         android : ten
+##   ##*         status  : latest
+##   ##*         rootfs  : full
+##   ##*         docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
+##   ##*         note    : >-
+##   ##*                   Nexmon support<br>
+##   ##*                   **Our preferred low end device**<br>
+##   ##*                   Warning: Android Ten is still experimental
 
 def yaml_parse(content):
     result = ""
@@ -59,19 +61,19 @@ def generate_table(data):
                     print("[i]   Multiple images for: {}".format(element[kernel_name].get('model', default)))
                 for image in element[kernel_name]['images']:
                     qty_images += 1
-                    doco = image.get('doco', default)
+                    docs = image.get('docs', default)
                     if len(element[kernel_name]['images']) > 1:
                         print("[i]     - {}".format(image['name']))
-                    if doco:
-                        doco = "<{}>".format(doco)
+                    if docs:
+                        docs = "<{}>".format(docs)
                     images.append("| {} | {} | {} | {} | {} | {} | {} | {} |\n".format(
                                                                                   image.get('name', default).ljust(25),
                                                                                   kernel_name.ljust(6),
                                                                                   image.get('id', default).ljust(9),
-                                                                                  image.get('os', default).ljust(38),
+                                                                                  image.get('android', default).ljust(38),
                                                                                   image.get('rootfs', default).ljust(6),
-                                                                                  image.get('status', default).ljust(6),
-                                                                                  doco.ljust(53),
+                                                                                  image.get('status', default).ljust(6).title(),
+                                                                                  docs.ljust(53),
                                                                                   image.get('note', default).strip('<br>').ljust(5)
                                                                                  )
                                                                              )

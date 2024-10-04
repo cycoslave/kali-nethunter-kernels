@@ -12,27 +12,29 @@ qty_images = 0
 qty_no_images = 0
 
 ## Input:
-## $ grep '##*' ./devices.cfg
-## [...]
-## ------------------------------------------------------------ ##
-## ##* - angler:
-## ##*     model:   Nexus 6P
-## ##*     note:
-## ##*     images:
-## ##*       - name:    Nexus 6P (Oreo)
-## ##*         id:      xangler
-## ##*         os:      oreo
-## ##*         status:  Stable
-## ##*         rootfs : full
-## ##*         doco   : ""
-## ##*         note:    "** Our preferred low end device **"
-## ##*       - name:    Nexus 6P (LineageOS 17.1)
-## ##*         id:      angler-los
-## ##*         os:      ten
-## ##*         status:  Latest
-## ##*         rootfs : full
-## ##*         doco   : ""
-## ##*         note:    "** Warning: Android ten is very unstable at the moment. **"
+##   $ grep '##*' ./devices.cfg
+##   ##* - angler:
+##   ##*     model  : Nexus 6P
+##   ##*     images :
+##   ##*       - id      : angler
+##   ##*         name    : Nexus 6P (Oreo)
+##   ##*         android : oreo
+##   ##*         status  : stable
+##   ##*         rootfs  : full
+##   ##*         docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
+##   ##*         note    : >-
+##   ##*                   Nexmon support<br>
+##   ##*                   **Our preferred low end device**<br>
+##   ##*       - id      : angler-los
+##   ##*         name    : Nexus 6P (LineageOS 17.1)
+##   ##*         android : ten
+##   ##*         status  : latest
+##   ##*         rootfs  : full
+##   ##*         docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
+##   ##*         note    : >-
+##   ##*                   Nexmon support<br>
+##   ##*                   **Our preferred low end device**<br>
+##   ##*                   Warning: Android Ten is still experimental
 
 def yaml_parse(content):
     result = ""

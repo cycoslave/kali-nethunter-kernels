@@ -14,38 +14,58 @@ ROOT_DIR = "./"
 repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
 
 ## Input:
-## $ ls -l
-## [...]
-## ------------------------------------------------------------ ##
-## ./
-##  |---> [Android Version]/
-##      |-> [Device]/
-## $ grep '##*' ./devices.cfg
-## [...]
-## ------------------------------------------------------------ ##
-## ##* - a5ulte:
-## ##*     model   : Samsung Galaxy A5 (2015)
-## ##*     kernels :
-## ##*       - id          : a5ulte-cm
-## ##*         description : Samsung Galaxy A5 (2015) for CyanogenMod
-## ##*         versions    :
-## ##*           - android      : marshmallow
-## ##*             linux        : '3.10'
-## ##*             kernel       : 1.3
-## ##*             description  : CyanogenMod 13
-## ##*             author       : DeadSquirrel01
-## ##*             source       : 'git clone https://github.com/DeadSquirrel01/nethunter-kernel-a5ulte.git -b cm-13.0'
-## ##*             features     : []
-## ##*       - id          : a5ulte-tw
-## ##*         description : Samsung Galaxy A5 (2015) for TouchWiz (Europe)
-## ##*         versions    :
-## ##*           - android      : marshmallow
-## ##*             linux        : '3.10'
-## ##*             kernel       : 1.3
-## ##*             description  : TouchWiz 6
-## ##*             author       : DeadSquirrel01
-## ##*             source       : 'git clone https://github.com/DeadSquirrel01/nethunter-kernel-a5ulte.git -b touchwiz-6.0'
-## ##*             features     : []
+##   $ ls -l
+##   ./
+##    |---> [Android Version]/
+##        |-> [Device]/
+##   $ grep '##*' ./devices.cfg
+##   ##* - angler:
+##   ##*     model  : Nexus 6P
+##   ##*     kernels:
+##   ##*       - id         : angler
+##   ##*         description: Stock Android
+##   ##*         versions   :
+##   ##*           - android     : nougat
+##   ##*             linux       : 3.10
+##   ##*             description : Android 7.1
+##   ##*             author      : jcadduono
+##   ##*             source      : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
+##   ##*             features    : [CDROM, HID, Injection]
+##   ##*           - android     : oreo
+##   ##*             linux       : 3.10
+##   ##*             description : Android 8.1
+##   ##*             author      : Re4son & yesimxev
+##   ##*             source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
+##   ##*             features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
+##   ##*       - id         : angler-los
+##   ##*         description: LineageOS
+##   ##*         versions   :
+##   ##*           - android     : ten
+##   ##*             linux       : 3.10
+##   ##*             description : LineageOS 17.1 & Pixel Experience 10
+##   ##*             author      : Re4son & yesimxev
+##   ##*             source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
+##   ##*             features    : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
+##   $ grep -v '##*' ./devices.cfg
+##   # Nexus 6P
+##   [angler]
+##   author = "Binkybear & jcadduono & re4son & yesimxev"
+##   kernelstring = "NetHunter kernel for Nexus 6P"
+##   arch = arm64
+##   devicenames = angler
+##   block = /dev/block/platform/soc.0/f9824900.sdhci/by-name/boot
+##
+##   # Nexus 6P for LineageOS 17.1 and Pixel Experience 10
+##   [angler-los]
+##   author = "Re4son & yesimxev"
+##   kernelstring = "NetHunter kernel for Nexus 6P"
+##   arch = arm64
+##   flasher = anykernel
+##   modules = 1
+##   block = /dev/block/bootdevice/by-name/boot
+##   slot_device = 0
+##   #* Note: when using "anykernel" flasher, use commas to separate device names
+##   devicenames = angler
 
 def yaml_parse(data):
     result = ""
