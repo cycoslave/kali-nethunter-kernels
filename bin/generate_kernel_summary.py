@@ -137,9 +137,9 @@ def write_file(data, file):
             meta  = '---\n'
             meta += 'title: Kali NetHunter Kernel Summary\n'
             meta += '---\n\n'
-            stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) has a total of [**{}** kernels](kernels.html) directories\n".format(str(qty_dir_kernels))
-            stats += "  - **{} kernels** are in ./devices.cfg\n".format(qty_yml_kernels) # See: ./bin/kernel_integrity.py
+            stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) has a total of [**{}** kernels](kernels-summary.html) directories\n".format(str(qty_dir_kernels))
             stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.cfg), [directories](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel))_\n"
+            stats += "  - **{} kernels** are in ./devices.cfg\n".format(qty_yml_kernels) # See: ./bin/kernel_integrity.py
             stats += "  - NetHunter is on **{} Android versions**\n".format(len(qty_versions))
             stats += "- [Kali NetHunter Statistics Overview](index.html)\n\n"
             f.write(str(meta))
