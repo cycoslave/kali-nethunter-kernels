@@ -83,7 +83,7 @@ def ini_parse():
         Config.read(INPUT_FILE)
         return Config.sections()
     except Exception as e:
-        print('[-] Cannot parse ini input file: {} - {}'.format(file, e))
+        print('[-] Cannot parse ini input file: {} - {}'.format(file, e), file=sys.stderr)
         sys.exit(1)
 
 def read_file(file):
@@ -93,7 +93,7 @@ def read_file(file):
             data = f.read()
             f.close()
     except Exception as e:
-        print('[-] Cannot open input file: {} - {}'.format(file, e))
+        print('[-] Cannot open input file: {} - {}'.format(file, e), file=sys.stderr)
         sys.exit(1)
     return data
 
@@ -134,7 +134,7 @@ def compare_dir_yml(android_version_dir, kernel_id_dir, yml):
                         if android_version == android_version_dir:
                             return
 
-    print("[-]   Found on disk ({}), but hasn't be added to: {}".format(path,  INPUT_FILE))
+    print("[-]   Found on disk ({}), but hasn't be added to: {}".format(path,  INPUT_FILE), file=sys.stderr)
 
 def compare_yml_dir(yml):
     print("[i] Comparing whats in {} -> {}*".format(INPUT_FILE, ROOT_DIR))
@@ -149,28 +149,28 @@ def compare_yml_dir(yml):
 
             # is there a kernel entry in the YAML file?
             if 'kernels' not in element[device_model]:
-                print("[-]   In {}, found model ({}/{}), but is missing kernel entry".format(INPUT_FILE, device_model, model))
+                print("[-]   In {}, found model ({}/{}), but is missing kernel entry".format(INPUT_FILE, device_model, model), file=sys.stderr)
 
             kernels = [x['id'] for x in element[device_model].get('kernels', default)]
             dup_kernels = {x for x in kernels if kernels.count(x) > 1}
             if dup_kernels:
-                print("[-]   In {}, found model ({}/{}), but has multiple kernels with the same ID: {}".format(INPUT_FILE, device_model, model, dup_kernels))
+                print("[-]   In {}, found model ({}/{}), but has multiple kernels with the same ID: {}".format(INPUT_FILE, device_model, model, dup_kernels), file=sys.stderr)
 
             for kernel in element[device_model].get('kernels', default):
                 kernel_id = kernel.get('id', default)
                 if not kernel_id.startswith(device_model):
-                    print("[-]   In {}, kernel_id doesn't start with model id: model: {}   kernel_id: {}".format(INPUT_FILE, device_model, kernel_id))
+                    print("[-]   In {}, kernel_id doesn't start with model id: model: {}   kernel_id: {}".format(INPUT_FILE, device_model, kernel_id), file=sys.stderr)
 
                 versions = [x['android'] for x in kernel.get('versions', default)]
                 dup_versions = {x for x in versions if versions.count(x) > 1}
                 if dup_versions:
-                    print("[-]   In {}, found model ({}/{}), but {} kernel id with multiple same android version: {}".format(INPUT_FILE, device_model, model, kernel_id, dup_versions))
+                    print("[-]   In {}, found model ({}/{}), but {} kernel id with multiple same android version: {}".format(INPUT_FILE, device_model, model, kernel_id, dup_versions), file=sys.stderr)
 
                 for version in kernel['versions']:
                     android_version = version.get('android', default)
                     path = os.path.join(ROOT_DIR, android_version, kernel_id)
                     if not os.path.isdir(path):
-                        print("[-]   In {}, found model ({}/{}), but missing on disk: {}".format(INPUT_FILE, device_model, model, path))
+                        print("[-]   In {}, found model ({}/{}), but missing on disk: {}".format(INPUT_FILE, device_model, model, path), file=sys.stderr)
 
 def compare_yml_ini(yml, ini):
     print("[i] Comparing YAML to INI in: {}".format(INPUT_FILE))
@@ -186,7 +186,7 @@ def compare_yml_ini(yml, ini):
                     ini.remove(kernel_id)
 
     for x in ini:
-        print("[-]   In {}, found {} kernel build profile, but not a matching kernel-id in YAML".format(INPUT_FILE, x))
+        print("[-]   In {}, found {} kernel build profile, but not a matching kernel-id in YAML".format(INPUT_FILE, x), file=sys.stderr)
 
 
 

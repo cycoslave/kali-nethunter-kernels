@@ -41,7 +41,8 @@ kernel_integrity:
   before_script:
     - *install_prerequesites_pip
   script:
-    - ./bin/kernel_integrity.py
+    - ./bin/kernel_integrity.py > >(tee -a stdout.log) 2> >(tee -a stderr.log >&2)
+    - grep -q '[^[:space:]]' stderr.log && exit 1 || exit 0
 
 pages:
   stage: generate_documentation
