@@ -50,7 +50,7 @@ def yaml_parse(data):
 
 def generate_table(data):
     global qty_kernels, qty_no_kernels, qty_total_models, qty_kernels_models
-    default = ""
+    default = " " # Isn't a mistake to be a space - as if source is 'empty', messes up the <code> blocks (via `)
     kernels = []
 
     # iterate over all the models
