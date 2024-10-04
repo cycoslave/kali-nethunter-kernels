@@ -6,6 +6,7 @@ import os
 import re
 import sys
 import yaml # $ python3 -m pip install pyyaml --user
+import configparser
 
 OUTPUT_FILE = "./kernel-summary.md"
 INPUT_FILE = "./devices.cfg"
@@ -54,6 +55,16 @@ def yaml_parse(data):
             ## yaml doesn't like tabs so let's replace them with four spaces
             result += "{}\n".format(line.replace('\t', '    ')[3:])
     return yaml.safe_load(result)
+
+def ini_parse():
+    try:
+        print('[i] Parsing: {}'.format(INPUT_FILE))
+        Config = configparser.ConfigParser(strict=False)
+        Config.read(INPUT_FILE)
+        return Config.sections()
+    except Exception as e:
+        print('[-] Cannot parse ini input file: {} - {}'.format(file, e))
+        sys.exit(1)
 
 def read_file(file):
     try:
@@ -141,19 +152,44 @@ def compare_yml_dir(yml):
                     if not os.path.isdir(path):
                         print("[-]   In {}, found model ({}/{}), but missing on disk: {}".format(INPUT_FILE, device_model, model, path))
 
+def compare_yml_ini(yml, ini):
+    print("[i] Comparing YAML to INI in: {}".format(INPUT_FILE))
+    default = ""
+
+    # iterate over all device models
+    for element in yml:
+        # iterate over all model's entries in yaml file
+        for device_model in element.keys():
+            for kernel in element[device_model].get('kernels', default):
+                kernel_id = kernel.get('id', default)
+                if kernel_id in ini:
+                    ini.remove(kernel_id)
+
+    for x in ini:
+        print("[-]   In {}, found {} kernel build profile, but not a matching kernel-id in YAML".format(INPUT_FILE, x))
+
+
+
+
 def main(argv):
     # Assign variables
     data = read_file(INPUT_FILE)
 
     # Get data (YAML)
-    res = yaml_parse(data)
+    yml = yaml_parse(data)
+
+    # Get data (INI)
+    ini = ini_parse()
 
     # Compare YAML to directory structure
-    compare_yml_dir(res)
+    compare_yml_dir(yml)
+
+    # Compare YAML to INI
+    compare_yml_ini(yml, ini)
 
     # Get data (directory)
     #   and Compare directory structure to YAML
-    get_versions(res)
+    get_versions(yml)
 
     # Exit
     exit(0)

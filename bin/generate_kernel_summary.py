@@ -4,12 +4,14 @@ import os
 import re
 import sys
 import yaml # $ python3 -m pip install pyyaml --user
+import configparser
 
 OUTPUT_FILE = "./kernel-summary.md"
 INPUT_FILE = "./devices.cfg"
 ROOT_DIR = "./"
 repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
 qty_dir_kernels = 0
+qty_ini_kernels = 0
 qty_yml_kernels = 0
 qty_versions = { }
 
@@ -55,6 +57,16 @@ def yaml_parse(data):
             ## yaml doesn't like tabs so let's replace them with four spaces
             result += "{}\n".format(line.replace('\t', '    ')[3:])
     return yaml.safe_load(result)
+
+def ini_parse():
+    try:
+        print('[i] Parsing: {}'.format(INPUT_FILE))
+        Config = configparser.ConfigParser(strict=False)
+        Config.read(INPUT_FILE)
+        return Config.sections()
+    except Exception as e:
+        print('[-] Cannot parse ini input file: {} - {}'.format(file, e))
+        sys.exit(1)
 
 def read_file(file):
     try:
@@ -140,6 +152,7 @@ def write_file(data, file):
             stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) has a total of [**{}** kernels](kernels-summary.html) directories\n".format(str(qty_dir_kernels))
             stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.cfg), [directories](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel))_\n"
             stats += "  - **{} kernels** are in ./devices.cfg\n".format(qty_yml_kernels) # See: ./bin/kernel_integrity.py
+            stats += "  - **{} kernels build profiles** are in ./devices.cfg\n".format(qty_ini_kernels)
             stats += "  - NetHunter is on **{} Android versions**\n".format(len(qty_versions))
             stats += "- [Kali NetHunter Statistics Overview](index.html)\n\n"
             f.write(str(meta))
@@ -155,13 +168,18 @@ def write_file(data, file):
 def print_summary():
     print('[i] Android versions count: {}'.format(len(qty_versions)))
     print('[i] Kernels in directories: {}'.format(qty_dir_kernels))
+    print('[i] Kernels in INI        : {}'.format(qty_ini_kernels))
     print('[i] Kernels in YAML       : {}'.format(qty_yml_kernels))
 
 def main(argv):
-    global qty_dir_kernels, qty_yml_kernels
+    global qty_dir_kernels, qty_ini_kernels, qty_yml_kernels
 
     # Assign variables
     data = read_file(INPUT_FILE)
+
+    # Get data (INI)
+    ini = ini_parse()
+    qty_ini_kernels = len(ini)
 
     # Get data (YAML)
     yml = yaml_parse(data)
