@@ -540,6 +540,11 @@
             source     : 'git clone https://gitlab.com/vvvbbbcz/android_kernel_huawei_hi3650.git -b upstream'
             features   : [HID, Injection, RTL88XXAU]
     builds:
+      - id          : eva-emui
+        author      : vvvbbbcz
+        devicenames : eva
+        kernelstring: NetHunter Kernel For Huawei P9
+        arch        : arm64
       - id          : eva-los
         author      : vvvbbbcz
         devicenames : eva
@@ -879,8 +884,12 @@
             source     : 'git clone https://github.com/yesimxev/android_kernel_lge_msm8996 -b lineage-19.1'
             features   : [HID, Injection, CDROM, RTL8188EUS, RTL88XXAU, Internal BT, NFS]
     builds:
+      - id          : h990
+        author      : re4son
+        arch        : arm64
+        devicenames : elsa LG-H990
       - id          : h990-los
-        author      : re4son & yesimxev
+        author      : yesimxev
         arch        : arm64
         devicenames : elsa LG-H990
 - hammerhead:
@@ -933,8 +942,12 @@
             source     : 'git clone https://github.com/chrisk44/android_kernel_lge_hammerhead.git -b cm-14.1-caf'
             features   : [HID, Injection]
     builds:
-      - id          : hammerhead-los
+      - id          : hammerhead
         author      : Binkybear (5.1-6.0) & Re4son (7.0+)
+        devicenames : hammerhead
+        block       : /dev/block/platform/msm_sdcc.1/by-name/boot
+      - id          : hammerhead-los
+        author      : Re4son (7.0+)
         devicenames : hammerhead
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
       - id          : hammerhead-caf-los
@@ -997,14 +1010,17 @@
         author      : jcadduono (6.0) & Svirusx (8.0) & Svirusx (9.0)
         arch        : arm64
         devicenames : hero2lte hero2ltexx hero2ltecan
+      - id          : hero2lte-los
+        author      : Svirusx
+        devicenames : hero2lte hero2ltexx
+      - id          : hero2lte-oui
+        author      : Svirusx
+        arch        : arm64
+        devicenames : hero2lte hero2ltexx
       - id          : hero2lte-kor-tw
         author      : jcadduono
         arch        : arm64
         devicenames : hero2lte hero2ltekor
-      - id          : hero2lte-los
-        author      : Svirusx
-        arch        : arm64
-        devicenames : hero2lte hero2ltexx
 - herolte:
     model  : Samsung Galaxy S7
     kernels:
@@ -1057,6 +1073,14 @@
             source     : 'git clone https://github.com/jcadduono/android_kernel_samsung_universal8890 -b nethunter-6.0'
             features   : [CDROM, HID, Injection]
     builds:
+      - id          : herolte-tw
+        author      : jcadduono
+        arch        : arm64
+        devicenames : herolte heroltexx
+      - id          : herolte-los
+        author      : Svirusx
+        arch        : arm64
+        devicenames : herolte heroltexx
       - id          : herolte-oui
         author      : jcadduono (6.0) & Svirusx (8.0) & Svirusx (9.0)
         arch        : arm64
@@ -1065,10 +1089,6 @@
         author      : jcadduono
         arch        : arm64
         devicenames : herolte heroltekor
-      - id          : herolte-los
-        author      : Svirusx
-        arch        : arm64
-        devicenames : herolte heroltexx
 - hlte:
     model  : Samsung Galaxy Note 3
     kernels:
@@ -1989,8 +2009,12 @@
             source     : 'git clone https://github.com/yesimxev/android_kernel_oppo_msm8974.git -b lineage-18.1 oneplus18.1'
             features   : [BT_RFCOMM, HID, Injection, CDROM, Internal BT]
     builds:
-      - id          : oneplus1-los
+      - id          : oneplus1-cm
         author      : binkybear & yesimxev
+        devicenames : bacon A0001 one OnePlus
+        block       : /dev/block/platform/msm_sdcc.1/by-name/boot
+      - id          : oneplus1-los
+        author      : yesimxev
         devicenames : bacon A0001 one OnePlus
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
 - oneplus2:
@@ -2054,8 +2078,13 @@
             source     : 'git clone https://github.com/Re4son/android_kernel_oneplus_msm8994.git -b cm-16.0'
             features   : [CDROM, HID, Injection]
     builds:
+      - id          : oneplus2-cm
+        author      : Binkybear (13.0)
+        arch        : arm64
+        devicenames : A2001 A2003 A2005 OnePlus2 oneplus2
+        block       : /dev/block/bootdevice/by-name/boot
       - id          : oneplus2-los
-        author      : Binkybear (13.0) & Re4son (14.1+)
+        author      : Re4son (14.1+)
         arch        : arm64
         devicenames : A2001 A2003 A2005 OnePlus2 oneplus2
         block       : /dev/block/bootdevice/by-name/boot
@@ -2171,6 +2200,10 @@
         arch        : arm64
         devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
       - id          : oneplus3t-los
+        author      : zanezam
+        arch        : arm64
+        devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
+      - id          : oneplus3-oos
         author      : zanezam
         arch        : arm64
         devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
@@ -2309,6 +2342,14 @@
             source     : 'git clone https://github.com/kimocoder/android_kernel_oneplus6 -b nethunter'
             features   : [HID-4, Injection, QCACLD, RTL8812AU, RTL8188EUS]
     builds:
+      - id          : oneplus6-oos
+        author      : kimocoder
+        arch        : arm64
+        flasher     : anykernel
+        modules     : 1
+        block       : /dev/block/bootdevice/by-name/boot
+        devicenames : oneplus6,op6,oneplus6t,op6t,enchilada,fajita,OnePlus6,OnePlus6T
+        resolution  : 1080x2340
       - id          : oneplus6-los
         author      : kimocoder
         arch        : arm64

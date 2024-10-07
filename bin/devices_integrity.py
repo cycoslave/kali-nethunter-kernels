@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-## TODO:
-##   - Check if ID is in or missing: kernels, builds, images
-##   - Check to see if there is any kernel IDs missing in build IDs  ( $ grep '^\[' devices.cfg | sed -E 's/\[//; s/\]//' | while read -r x do; do grep -q " - id .*: ${x}$" devices.cfg || echo ${x}; done )
 from datetime import datetime
 import os
 import sys
@@ -159,6 +156,40 @@ def check_yml(yml):
                             print("[-]   Found unknown value '{} -> builds -> {}': {}".format(device_model, key, build.get(key, default)), file=sys.stderr)
 
 
+def compare_yml(yml):
+    print("[i] Checking YAML's <models>: images <-> builds <-> kernels")
+
+    default = ""
+    # iterate over all device models
+    for element in yml:
+        # iterate over all model's entries in yaml file
+        for device_model in element.keys():
+            image_array = []
+            kernel_array = []
+            build_array = []
+
+            for image in element[device_model].get('images', default):
+                image_array.append(image.get('id', default))
+
+            for kernel in element[device_model].get('kernels', default):
+                kernel_array.append(kernel.get('id', default))
+
+            for build in element[device_model].get('builds', default):
+                build_array.append(build.get('id', default))
+
+            for image in image_array:
+                if image not in build_array:
+                    print("[-]   Found unknown image id, without matching build id: {} -> images -> id: {}".format(device_model, image), file=sys.stderr)
+
+            for kernel in kernel_array:
+                if kernel not in build_array:
+                    print("[-]   Found unknown kernel id, without matching build id: {} -> kernels -> id: {}".format(device_model, kernel), file=sys.stderr)
+
+            for build in build_array:
+                if build not in kernel_array:
+                    print("[-]   Found unknown build id, without matching kernel id: {} -> builds -> id: {}".format(device_model, build), file=sys.stderr)
+
+
 def compare_yml_dir(yml):
     print("[i] Comparing YAML: {} -> {}*".format(INPUT_FILE, ROOT_DIR))
 
@@ -245,6 +276,9 @@ def main(argv):
 
     # Check YAML keys
     check_yml(yml)
+
+    # Compare YAML's builds section to kernels
+    compare_yml(yml)
 
     # Compare YAML to directory structure
     compare_yml_dir(yml)
