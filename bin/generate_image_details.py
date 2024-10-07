@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from datetime import datetime
 import sys
-import yaml # $ python3 -m pip install pyyaml --user
+import yaml # $ python3 -m venv .env; source .env/bin/activate; python3 -m pip install pyyaml
 
 OUTPUT_FILE = "./images.md"
 INPUT_FILE = "./devices.yml"

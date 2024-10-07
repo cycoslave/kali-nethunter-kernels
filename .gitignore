@@ -3,3 +3,5 @@ public/
 # Generated documentation
 kernel*.md
 image*.md
+# Python virtual environments
+.env
