@@ -120,30 +120,30 @@
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : alioth aliothin
 - angler:
-    model  : Nexus 6P
+    model  : Google Nexus 6P
     images :
-      - id      : angler
-        name    : Nexus 6P (Oreo)
-        android : oreo
-        status  : stable
-        rootfs  : full
-        docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
-        note    : >-
-                  Nexmon support<br>
-                  **Our preferred low end device**<br>
-      - id      : angler-los
-        name    : Nexus 6P (LineageOS 17.1)
-        android : ten
-        status  : latest
-        rootfs  : full
-        docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
-        note    : >-
-                  Nexmon support<br>
-                  **Our preferred low end device**<br>
-                  Warning: Android Ten is still experimental
+      - id     : angler
+        name   : Google Nexus 6P (Oreo)
+        android: oreo
+        status : stable
+        rootfs : full
+        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
+        note   : >-
+                 Nexmon support<br>
+                 **Our preferred low end device**
+      - id     : angler-los
+        name   : Google Nexus 6P (LineageOS 17.1)
+        android: ten
+        status : latest
+        rootfs : full
+        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
+        note   : >-
+                 Nexmon support<br>
+                 **Our preferred low end device**<br>
+                 Warning: Android Ten is still experimental
     kernels:
       - id          : angler
-        description : Nexus 6P for stock Android
+        description : Google Nexus 6P for stock Android
         versions    :
           - android    : marshmallow
             linux      : 3.10
@@ -164,7 +164,7 @@
             source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
             features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
       - id          : angler-los
-        description : Nexus 6P for LineageOS and Pixel Experience
+        description : Google Nexus 6P for LineageOS and Pixel Experience
         versions    :
           - android    : ten
             linux      : 3.10
@@ -205,17 +205,17 @@
 - beryllium:
     model  : Xiaomi Pocophone F1
     images :
-      - id      : beryllium
-        name    : Xiaomi Pocophone F1 (Eleven)
-        android : eleven
-        status  : stable
-        rootfs  : full
-      - id      : beryllium-los
-        name    : Xiaomi Pocophone F1 (LineageOS 21)
-        android : fourteen
-        status  : stable
-        rootfs  : full
-        note    : "Kernel build for LineageOS 21"
+      - id     : beryllium
+        name   : Xiaomi Pocophone F1 (Eleven)
+        android: eleven
+        status : stable
+        rootfs : full
+      - id     : beryllium-los
+        name   : Xiaomi Pocophone F1 (LineageOS 21)
+        android: fourteen
+        status : stable
+        rootfs : full
+        note   : "Kernel build for LineageOS 21"
     kernels:
       - id          : beryllium
         description : Xiaomi Pocophone F1 for stock Android
@@ -287,16 +287,16 @@
         devicenames : bramble
         block       : /dev/block/bootdevice/by-name/boot
 - bullhead:
-    model  : Nexus 5X
+    model  : Google Nexus 5X
     images :
-      - id      : bullhead
-        name    : Nexus 5X (Oreo)
-        android : oreo
-        status  : stable
-        rootfs  : full
+      - id     : bullhead
+        name   : Google Nexus 5X (Oreo)
+        android: oreo
+        status : stable
+        rootfs : full
     kernels:
       - id          : bullhead
-        description : Nexus 5X for stock Android
+        description : Google Nexus 5X for stock Android
         versions    :
           - android    : marshmallow
             linux      : 3.04
@@ -391,15 +391,15 @@
 - davinci:
     model  : Xiaomi Mi 9T
     images :
-      - id      : davinci-miui
-        name    : Xiaomi Mi 9T (MIUI 11)
-        android : ten
-        status  : stable
-        rootfs  : full
-        note    : >-
-                  **Our preferred mid-range device**<br>
-                  Important: Install Disable_Dm-Verity_ForceEncrypt<br>
-                  Important: Update NetHunter app after flashing
+      - id     : davinci-miui
+        name   : Xiaomi Mi 9T (MIUI 11)
+        android: ten
+        status : stable
+        rootfs : full
+        note   : >-
+                 **Our preferred mid-range device**<br>
+                 Important: Install Disable_Dm-Verity_ForceEncrypt<br>
+                 Important: Update NetHunter app after flashing
     kernels:
       - id          : davinci-miui
         description : Xiaomi Mi 9T for MIUI
@@ -456,12 +456,12 @@
 - drg:
     model  : Nokia 6.1 Plus
     images :
-      - id      : drg-los
-        name    : Nokia 6.1 Plus (LineageOS 21)
-        android : fourteen
-        status  : stable
-        rootfs  : full
-        docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-nokia-6-1-plus-los18-1.4399273/"
+      - id     : drg-los
+        name   : Nokia 6.1 Plus (LineageOS 21)
+        android: fourteen
+        status : stable
+        rootfs : full
+        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-nokia-6-1-plus-los18-1.4399273/"
     kernels:
       - id          : drg-los
         description : Nokia 6.1 Plus for LineageOS
@@ -493,13 +493,13 @@
 - es2:
     model  : Nokia 3.1
     images :
-      - id      : es2
-        name    : Nokia 3.1 (Pie)
-        android : pie
-        status  : stable
-        rootfs  : minimal
-        docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-nokia-3-1-android-9.4157681/"
-        note    : "Important: Built with minimal rootfs. Full is not supported."
+      - id     : es2
+        name   : Nokia 3.1 (Pie)
+        android: pie
+        status : stable
+        rootfs : minimal
+        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-nokia-3-1-android-9.4157681/"
+        note   : "Important: Built with minimal rootfs. Full is not supported."
     kernels:
       - id          : es2
         description : Nokia 3.1 for stock Android
@@ -546,10 +546,10 @@
         kernelstring: NetHunter Kernel For Huawei P9
         arch        : arm64
 - flo:
-    model  : Nexus 7 (2013)
+    model  : Google Nexus 7 (2013)
     kernels:
       - id          : flo
-        description : Nexus 7 (2013) for stock Android
+        description : Google Nexus 7 (2013) for stock Android
         versions    :
           - android    : kitkat
             linux      : 3.04
@@ -569,7 +569,7 @@
             source     : 'git clone https://github.com/binkybear/flo.git -b ElementalX-5.00'
             features   : [BT_RFCOMM, CDROM, HID, Injection]
       - id          : flo-cm
-        description : Nexus 7 (2013) for CyanogenMod
+        description : Google Nexus 7 (2013) for CyanogenMod
         versions    :
           - android    : marshmallow
             linux      : 3.04
@@ -587,16 +587,16 @@
         devicenames : flo deb
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
 - flounder:
-    model  : Nexus 9
+    model  : Google Nexus 9
     images :
-      - id      : flounder
-        name    : Nexus 9 (Nougat)
-        android : nougat
-        status  : stable
-        rootfs  : full
+      - id     : flounder
+        name   : Google Nexus 9 (Nougat)
+        android: nougat
+        status : stable
+        rootfs : full
     kernels:
       - id          : flounder
-        description : Nexus 9 for stock Android
+        description : Google Nexus 9 for stock Android
         versions    :
           - android    : lollipop
             linux      : 3.10
@@ -625,12 +625,12 @@
 - gemini4g:
     model  : Planet Computers Gemini PDA
     images :
-      - id      : gemini4g-p1
-        name    : Gemini PDA (Nougat)
-        android : nougat
-        status  : stable
-        rootfs  : full
-        docs    : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-gemini-pda/"
+      - id     : gemini4g-p1
+        name   : Gemini PDA (Nougat)
+        android: nougat
+        status : stable
+        rootfs : full
+        docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-gemini-pda/"
     kernels:
       - id          : gemini4g-p1
         description : Planet Computers Gemini PDA 4G (Partition 1) for stock Android
@@ -724,10 +724,10 @@
         arch        : arm64
         devicenames : gracelte graceltekor
 - grouper:
-    model  : Nexus 7 (2012)
+    model  : Google Nexus 7 (2012)
     kernels:
       - id          : grouper
-        description : Nexus 7 (2012) for stock Android
+        description : Google Nexus 7 (2012) for stock Android
         versions    :
           - android    : kitkat
             linux      : 3.01
@@ -742,14 +742,14 @@
 - gts4llte:
     model  : Samsung Galaxy Tab S4 LTE
     images :
-      - id      : gts4llte
-        name    : Samsung Galaxy Tab S4 LTE (Oreo)
-        android : oreo
-        status  : stable
-        rootfs  : full
-        note    : >-
-                  **Our preferred tablet**<br>
-                  The LTE device currently uses the WiFi version of TWRP so we have to be flexible for a while
+      - id     : gts4llte
+        name   : Samsung Galaxy Tab S4 LTE (Oreo)
+        android: oreo
+        status : stable
+        rootfs : full
+        note   : >-
+                 **Our preferred tablet**<br>
+                 The LTE device currently uses the WiFi version of TWRP so we have to be flexible for a while
     kernels:
       - id          : gts4llte
         description : Samsung Galaxy Tab S4 LTE for stock Android
@@ -768,11 +768,11 @@
 - gts4lwifi:
     model  : Samsung Galaxy Tab S4 WiFi
     images :
-      - id      : gts4lwifi
-        name    : Samsung Galaxy Tab S4 WiFi (Oreo)
-        android : oreo
-        status  : stable
-        rootfs  : full
+      - id     : gts4lwifi
+        name   : Samsung Galaxy Tab S4 WiFi (Oreo)
+        android: oreo
+        status : stable
+        rootfs : full
     kernels:
       - id          : gts4lwifi
         description : Samsung Galaxy Tab S4 WiFi for stock Android
@@ -842,11 +842,11 @@
 - h990:
     model  : LG V20 (International)
     images :
-      - id      : h990-los
-        name    : LG V20 International (LineageOS 19.1)
-        android : twelve
-        status  : stable
-        rootfs  : full
+      - id     : h990-los
+        name   : LG V20 International (LineageOS 19.1)
+        android: twelve
+        status : stable
+        rootfs : full
     kernels:
       - id          : h990
         description : LG V20 (International) for stock Android
@@ -884,17 +884,17 @@
         arch        : arm64
         devicenames : elsa LG-H990
 - hammerhead:
-    model  : Nexus 5
+    model  : Google Nexus 5
     images :
-      - id      : hammerhead-los
-        name    : Nexus 5 (LineageOS 14.1)
-        android : nougat
-        status  : latest
-        rootfs  : full
-        note    : "Nexmon support"
+      - id     : hammerhead-los
+        name   : Google Nexus 5 (LineageOS 14.1)
+        android: nougat
+        status : latest
+        rootfs : full
+        note   : "Nexmon support"
     kernels:
       - id          : hammerhead
-        description : Nexus 5 for stock Android
+        description : Google Nexus 5 for stock Android
         versions    :
           - android    : kitkat
             linux      : 3.04
@@ -915,7 +915,7 @@
             source     : 'git clone https://github.com/Re4son/android_kernel_lge_hammerhead -b nethunter-7.1'
             features   : [BT_RFCOMM, HID, Injection, Nexmon]
       - id          : hammerhead-los
-        description : Nexus 5 for LineageOS
+        description : Google Nexus 5 for LineageOS
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -924,7 +924,7 @@
             source     : 'git clone https://github.com/Re4son/android_kernel_lge_hammerhead -b nethunter-7.1'
             features   : [BT_RFCOMM, HID, Injection, Nexmon]
       - id          : hammerhead-caf-los
-        description : Nexus 5 for CAF LineageOS
+        description : Google Nexus 5 for CAF LineageOS
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1255,11 +1255,11 @@
 - honami:
     model  : Sony Xperia Z1
     images :
-      - id      : honami-los
-        name    : Sony Xperia Z1 (LineageOS 16)
-        android : pie
-        status  : latest
-        rootfs  : full
+      - id     : honami-los
+        name   : Sony Xperia Z1 (LineageOS 16)
+        android: pie
+        status : latest
+        rootfs : full
     kernels:
       - id          : honami-los
         description : Sony Xperia Z1 for LineageOS
@@ -1676,12 +1676,12 @@
 - laurel-sprout:
     model  : Xiaomi Mi A3
     images :
-      - id      : laurel-sprout-los
-        name    : Xiaomi Mi A3 (LineageOS 20)
-        android : thirteen
-        status  : stable
-        rootfs  : full
-        docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-xiaomi-mi-a3-linageos18-1.4288889/"
+      - id     : laurel-sprout-los
+        name   : Xiaomi Mi A3 (LineageOS 20)
+        android: thirteen
+        status : stable
+        rootfs : full
+        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-xiaomi-mi-a3-linageos18-1.4288889/"
     kernels:
       - id          : laurel-sprout-los
         description : Xiaomi Mi A3 for LineageOS
@@ -1732,10 +1732,10 @@
         kernelstring: NetHunter kernel for LG K20 Plus
         arch        : arm64
 - mako:
-    model  : Nexus 4
+    model  : Google Nexus 4
     kernels:
       - id          : mako
-        description : Nexus 4 for stock Android
+        description : Google Nexus 4 for stock Android
         versions    :
           - android    : kitkat
             linux      : 3.04
@@ -1750,7 +1750,7 @@
             source     : 'git clone https://github.com/binkybear/kernel_msm.git -b android-msm-mako-3.4-lollipop-release'
             features   : [HID, Injection]
       - id          : mako-cm
-        description : Nexus 4 for CyanogenMod
+        description : Google Nexus 4 for CyanogenMod
         versions    :
           - android    : marshmallow
             linux      : 3.04
@@ -1785,10 +1785,10 @@
         block       : /dev/block/platform/mtk-msdc.0/by-name/boot
         devicenames : manning
 - manta:
-    model  : Nexus 10
+    model  : Google Nexus 10
     kernels:
       - id          : manta
-        description : Nexus 10 for stock Android
+        description : Google Nexus 10 for stock Android
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1904,12 +1904,12 @@
 - oneplus-nord:
     model  : OnePlus Nord
     images :
-      - id      : oneplus-nord-oos
-        name    : OnePlus Nord AC2003 (OxygenOS 11)
-        android : eleven
-        status  : stable
-        rootfs  : full
-        note    : "Important: NFC is not working yet."
+      - id     : oneplus-nord-oos
+        name   : OnePlus Nord AC2003 (OxygenOS 11)
+        android: eleven
+        status : stable
+        rootfs : full
+        note   : "Important: NFC is not working yet."
     kernels:
       - id          : oneplus-nord-oos
         description : OnePlus Nord for OxygenOS
@@ -1933,12 +1933,12 @@
 - oneplus1:
     model  : OnePus One
     images :
-      - id      : oneplus1-los
-        name    : OnePlus One (LineageOS 18.1)
-        android : eleven
-        status  : stable
-        rootfs  : full
-        docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-oneplus-one-lineageos-18-1-r.4303579/"
+      - id     : oneplus1-los
+        name   : OnePlus One (LineageOS 18.1)
+        android: eleven
+        status : stable
+        rootfs : full
+        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-oneplus-one-lineageos-18-1-r.4303579/"
     kernels:
       - id          : oneplus1-cm
         description : OnePlus One for CyanogenMod
@@ -1996,11 +1996,11 @@
 - oneplus2:
     model  : OnePlus 2
     images :
-      - id      : oneplus2-los
-        name    : OnePlus 2 (LineageOS 16.0)
-        android : pie
-        status  : latest
-        rootfs  : full
+      - id     : oneplus2-los
+        name   : OnePlus 2 (LineageOS 16.0)
+        android: pie
+        status : latest
+        rootfs : full
     kernels:
       - id          : oneplus2-oos
         description : OnePlus 2 for OxygenOS
@@ -2067,17 +2067,17 @@
 - oneplus3:
     model  : OnePlus 3 / 3T
     images :
-      - id      : oneplus3-3t-los
-        name    : OnePlus 3 / 3T (LineageOS 17.1)
-        android : ten
-        status  : latest
-        rootfs  : full
-        note    : >-
-                  Important: Flash boot-patched-9.0.6-OP3T.img to disable DM-Verity, and<br>
-                  flash Force_Encryption_Disabler_For_OOS_Pie_v1.zip, format data<br>
-                  before rooting<br>
-                  Important: Update NetHunter app after flashing<br>
-                  Warning: Android Ten is still experimental
+      - id     : oneplus3-3t-los
+        name   : OnePlus 3 / 3T (LineageOS 17.1)
+        android: ten
+        status : latest
+        rootfs : full
+        note   : >-
+                 Important: Flash boot-patched-9.0.6-OP3T.img to disable DM-Verity, and<br>
+                 flash Force_Encryption_Disabler_For_OOS_Pie_v1.zip, format data<br>
+                 before rooting<br>
+                 Important: Update NetHunter app after flashing<br>
+                 Warning: Android Ten is still experimental
     kernels:
       - id          : oneplus3-3t-oos
         description : OnePlus 3 / 3T for OxygenOS using anykernel flasher
@@ -2275,14 +2275,14 @@
 - oneplus6:
     model  : OnePlus 6 / 6T
     images :
-      - id      : oneplus6-los
-        name    : OnePlus 6 / 6T (Lineageos 19.1)
-        android : twelve
-        status  : stable
-        rootfs  : full
-        note    : >-
-                  Important: Install Disable_Dm-Verity_ForceEncrypt<br>
-                  Important: Update NetHunter app after flashing
+      - id     : oneplus6-los
+        name   : OnePlus 6 / 6T (Lineageos 19.1)
+        android: twelve
+        status : stable
+        rootfs : full
+        note   : >-
+                 Important: Install Disable_Dm-Verity_ForceEncrypt<br>
+                 Important: Update NetHunter app after flashing
     kernels:
       - id          : oneplus6-oos
         description : OnePlus 6 for OxygenOS
@@ -2320,21 +2320,21 @@
 - oneplus7:
     model  : OnePlus 7 / 7 Pro / 7T / 7T Pro
     images :
-      - id      : oneplus7-oos
-        name    : OnePlus 7 / 7 Pro / 7T / 7T Pro (OxygenOS 11)
-        android : eleven
-        status  : stable
-        rootfs  : full
-        docs    : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-oneplus-7/"
-        note    : "Important: Update NetHunter app after flashing"
-      - id      : oneplus7-v2-oos
-        name    : OnePlus 7 / 7 Pro / 7T / 7T Pro (OxygenOS 11 / Custom A11)
-        android : eleven
-        status  : stable
-        rootfs  : full
-        docs    : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-oneplus-7/"
-        note    : >-
-                  Important: Update NetHunter app after flashing
+      - id     : oneplus7-oos
+        name   : OnePlus 7 / 7 Pro / 7T / 7T Pro (OxygenOS 11)
+        android: eleven
+        status : stable
+        rootfs : full
+        docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-oneplus-7/"
+        note   : "Important: Update NetHunter app after flashing"
+      - id     : oneplus7-v2-oos
+        name   : OnePlus 7 / 7 Pro / 7T / 7T Pro (OxygenOS 11 / Custom A11)
+        android: eleven
+        status : stable
+        rootfs : full
+        docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-oneplus-7/"
+        note   : >-
+                 Important: Update NetHunter app after flashing
     kernels:
       - id          : oneplus7-oos
         description : OnePlus 7 / 7 Pro / 7T / 7T Pro for OxygenOS
@@ -2384,13 +2384,14 @@
 - oneplus8:
     model  : OnePlus 8 / 8T / 8 Pro
     images :
-      - id      : oneplus8-oos
-        name    : OnePlus 8 / 8T / 8 Pro (OxygenOS 12 / Custom A12)
-        android : twelve
-        status  : stable
-        note    : >-
-                  Important: Install Universal Mount SystemRW script<br>
-                  Important: Update NetHunter app after flashing<br>
+      - id     : oneplus8-oos
+        name   : OnePlus 8 / 8T / 8 Pro (OxygenOS 12 / Custom A12)
+        android: twelve
+        status : stable
+        rootfs : full
+        note   : >-
+                 Important: Install Universal Mount SystemRW script<br>
+                 Important: Update NetHunter app after flashing
     kernels:
       - id          : oneplus8-oos
         description : OnePlus 8 / 8T / 8 Pro for OxygenOS/Custom Axx
@@ -2504,13 +2505,13 @@
 - pl2:
     model  : Nokia 6.1
     images :
-      - id      : pl2-los
-        name    : Nokia 6.1 (LineageOS 21)
-        android : fourteen
-        status  : stable
-        rootfs  : minimal
-        docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-nokia-6-1-los18-1.4330657/"
-        note    : "Important: Built with minimal rootfs. Full is not supported."
+      - id     : pl2-los
+        name   : Nokia 6.1 (LineageOS 21)
+        android: fourteen
+        status : stable
+        rootfs : minimal
+        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-nokia-6-1-los18-1.4330657/"
+        note   : "Important: Built with minimal rootfs. Full is not supported."
     kernels:
       - id          : pl2-los
         description : Nokia 6.1 for LineageOS
@@ -2647,22 +2648,22 @@
 - rmx2185:
     model  : Realme C15 Mediatek
     images :
-      - id      : rmx2185-los
-        name    : Realme C15 (LineageOS 17.1)
-        android : ten
-        status  : latest
-        rootfs  : full
+      - id     : rmx2185-los
+        name   : Realme C15 (LineageOS 17.1)
+        android: ten
+        status : latest
+        rootfs : full
     kernels:
       - id          : rmx2185-los
         description : Realme C15 (MTK) for LineageOS
         versions    :
-          - android      : ten
-            linux        : '4.9'
-            kernel       : 4.9
-            description  : LineageOS 17.1
-            author       : Frostleaft07
-            source       : 'git clone https://github.com/Frostleaft07/android_kernel_realme_mt6765 -b Nethunter'
-            features     : [Injection, RTL88XXAU, RTL8812AU, RTL8188EUS, RTL8814AU, RTL8188FU, RTL8192FU, RTL8192EU, HID-4, BT_RFCOMM, NFS, Internal BT]
+          - android    : ten
+            linux      : 4.9
+            kernel     : 4.9
+            description: LineageOS 17.1
+            author     : Frostleaft07
+            source     : 'git clone https://github.com/Frostleaft07/android_kernel_realme_mt6765 -b Nethunter'
+            features   : [Injection, RTL88XXAU, RTL8812AU, RTL8188EUS, RTL8814AU, RTL8188FU, RTL8192FU, RTL8192EU, HID-4, BT_RFCOMM, NFS, Internal BT]
     builds:
       - id          : rmx2185-los
         author      : Frostleaft07
@@ -2776,16 +2777,16 @@
         arch        : arm64
         block       : /dev/block/mmcblk0p21
 - shamu:
-    model  : Nexus 6
+    model  : Google Nexus 6
     images :
-      - id      : shamu-los
-        name    : Nexus 6 (LineageOS 16.0)
-        android : pie
-        status  : latest
-        rootfs  : full
+      - id     : shamu-los
+        name   : Google Nexus 6 (LineageOS 16.0)
+        android: pie
+        status : latest
+        rootfs : full
     kernels:
       - id          : shamu
-        description : Nexus 6 for stock Android
+        description : Google Nexus 6 for stock Android
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -2806,7 +2807,7 @@
             source     : 'git clone https://github.com/binkybear/kernel_msm.git -b android-msm-shamu-3.10-n'
             features   : [CDROM, HID, Injection]
       - id          : shamu-los
-        description : Nexus 6 for LineageOS
+        description : Google Nexus 6 for LineageOS
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -2959,13 +2960,13 @@
 - ticwatchpro:
     model  : TicWatch Pro / Pro 4G/LTE / Pro 2020
     images :
-      - id      : ticwatchpro
-        name    : TicWatch Pro / Pro 4G/LTE / Pro 2020 (Wear OS)
-        android : wearos
-        status  : stable
-        rootfs  : nano
-        docs    : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-ticwatch-pro/"
-        note    : "Uses nano fs"
+      - id     : ticwatchpro
+        name   : TicWatch Pro / Pro 4G/LTE / Pro 2020 (Wear OS)
+        android: wearos
+        status : stable
+        rootfs : nano
+        docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-ticwatch-pro/"
+        note   : "Uses nano fs"
     kernels:
       - id          : ticwatchpro
         description : TicWatch Pro for Wear OS
@@ -2984,13 +2985,13 @@
 - ticwatchpro3:
     model  : TicWatch Pro 3 GPS/LTE / Pro 3 Ultra GPS/LTE
     images :
-      - id      : ticwatchpro3
-        name    : TicWatch Pro 3 GPS/LTE / Pro 3 Ultra GPS/LTE (Wear OS)
-        android : wearos
-        status  : stable
-        rootfs  : nano
-        docs    : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-ticwatch-pro3/"
-        note    : "Uses nano fs"
+      - id     : ticwatchpro3
+        name   : TicWatch Pro 3 GPS/LTE / Pro 3 Ultra GPS/LTE (Wear OS)
+        android: wearos
+        status : stable
+        rootfs : nano
+        docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-ticwatch-pro3/"
+        note   : "Uses nano fs"
     kernels:
       - id          : ticwatchpro3
         description : TicWatch Pro 3 for Wear OS
@@ -3151,11 +3152,11 @@
 - zerolte:
     model  : Samsung Galaxy S6 Edge
     images :
-      - id      : zerolte-los
-        name    : Samsung Galaxy S6 Edge (LineageOS 14.1)
-        android : nougat
-        status  : stable
-        rootfs  : full
+      - id     : zerolte-los
+        name   : Samsung Galaxy S6 Edge (LineageOS 14.1)
+        android: nougat
+        status : stable
+        rootfs : full
     kernels:
       - id          : zerolte-los
         description : Samsung Galaxy S6 Edge (International Exynos) for LineageOS

@@ -4,7 +4,6 @@
 ##   - Check to see if there is any kernel IDs missing in build IDs  ( $ grep '^\[' devices.cfg | sed -E 's/\[//; s/\]//' | while read -r x do; do grep -q " - id .*: ${x}$" devices.cfg || echo ${x}; done )
 from datetime import datetime
 import os
-import re
 import sys
 import yaml # $ python3 -m venv .env; source .env/bin/activate; python3 -m pip install pyyaml
 
@@ -17,33 +16,33 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##   $ ls -l
 ##   ./
 ##    |---> [Android Version]/
-##        |-> [Device]/
+##        |-> [Device-ROM]/
 ##   $ cat ./devices.yml
 ##   - angler:
-##       model  : Nexus 6P
+##       model  : Google Nexus 6P
 ##       images :
-##         - id      : angler
-##           name    : Nexus 6P (Oreo)
-##           android : oreo
-##           status  : stable
-##           rootfs  : full
-##           docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
-##           note    : >-
-##                     Nexmon support<br>
-##                     **Our preferred low end device**<br>
-##         - id      : angler-los
-##           name    : Nexus 6P (LineageOS 17.1)
-##           android : ten
-##           status  : latest
-##           rootfs  : full
-##           docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
-##           note    : >-
-##                     Nexmon support<br>
-##                     **Our preferred low end device**<br>
-##                     Warning: Android Ten is still experimental
+##         - id     : angler
+##           name   : Google Nexus 6P (Oreo)
+##           android: oreo
+##           status : stable
+##           rootfs : full
+##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
+##           note   : >-
+##                    Nexmon support<br>
+##                    **Our preferred low end device**
+##         - id     : angler-los
+##           name   : Google Nexus 6P (LineageOS 17.1)
+##           android: ten
+##           status : latest
+##           rootfs : full
+##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
+##           note   : >-
+##                    Nexmon support<br>
+##                    **Our preferred low end device**<br>
+##                    Warning: Android Ten is still experimental
 ##       kernels:
 ##         - id         : angler
-##           description: Nexus 6P for stock Android
+##           description: Google Nexus 6P for stock Android
 ##           versions   :
 ##             - android     : nougat
 ##               linux       : 3.10
@@ -58,7 +57,7 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
 ##               features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
 ##         - id         : angler-los
-##           description: Nexus 6P for LineageOS and Pixel Experience
+##           description: Google Nexus 6P for LineageOS and Pixel Experience
 ##           versions   :
 ##             - android     : ten
 ##               linux       : 3.10
@@ -83,14 +82,6 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##           slot_device : 0
 ##           devicenames : angler
 
-def yaml_parse(data):
-    result = ""
-    lines = data.split('\n')
-    for line in lines:
-        if not line.startswith('#'):
-            ## yaml doesn't like tabs so let's replace them with four spaces
-            result += "{}\n".format(line.replace('\t', '    '))
-    return yaml.safe_load(result)
 
 def read_file(file):
     try:
@@ -99,91 +90,25 @@ def read_file(file):
             data = f.read()
             f.close()
     except Exception as e:
-        print('[-] Cannot open input file: {} - {}'.format(file, e), file=sys.stderr)
+        print("[-] Cannot open input file: {} - {}".format(file, e), file=sys.stderr)
         sys.exit(1)
     return data
 
-def get_versions(yml):
-    # Discovery directories
-    subdirectories = [ x.path for x in os.scandir(ROOT_DIR) if x.is_dir() and not x.path.startswith('{}.'.format(ROOT_DIR))]
-    # Remove non Android version directories
-    subdirectories.remove('{}bin'.format(ROOT_DIR))
-    subdirectories.remove('{}example_scripts'.format(ROOT_DIR))
-    subdirectories.remove('{}patches'.format(ROOT_DIR))
 
-    for android_version_dir in subdirectories:
-        android_version_dir = android_version_dir.lower()
-        android_version_dir = re.sub(ROOT_DIR, '', android_version_dir)
-        print("[i] Comparing whats in {}{}/* -> {}".format(ROOT_DIR, android_version_dir, INPUT_FILE))
-
-        root, dirs, files = next(os.walk(android_version_dir))
-        for kernel_id_dir in dirs:
-            compare_dir_yml(android_version_dir, kernel_id_dir, yml)
-
-def compare_dir_yml(android_version_dir, kernel_id_dir, yml):
-    default = ""
-    path = os.path.join(ROOT_DIR, android_version_dir, kernel_id_dir)
-
-    # iterate over all device models
-    for element in yml:
-        # iterate over all model's entries in yaml file
-        for device_model in element.keys():
-            # iterate over all model's kernels
-            for kernel in element[device_model].get('kernels', default):
-                kernel_id = kernel.get('id', default)
-                # have we got a kernel id/name match?
-                if kernel_id == kernel_id_dir:
-                    # iterate over all model kernels version's
-                    for version in kernel['versions']:
-                        android_version = version.get('android', default)
-                        # have we got a kernel version match?
-                        if android_version == android_version_dir:
-                            return
-
-    print("[-]   Found on disk ({}), but hasn't be added to: {}".format(path,  INPUT_FILE), file=sys.stderr)
-
-def compare_yml_dir(yml):
-    print("[i] Comparing whats in {} -> {}*".format(INPUT_FILE, ROOT_DIR))
-
-    default = ""
-
-    # iterate over all device models
-    for element in yml:
-        # iterate over all model's entries in yaml file
-        for device_model in element.keys():
-            model = element[device_model].get('model', default)
-
-            # is there a kernel entry in the YAML file?
-            if 'kernels' not in element[device_model]:
-                print("[-]   In {}, found model ({}/{}), but is missing kernel entry".format(INPUT_FILE, device_model, model), file=sys.stderr)
-
-            kernels = [x['id'] for x in element[device_model].get('kernels', default)]
-            dup_kernels = {x for x in kernels if kernels.count(x) > 1}
-            if dup_kernels:
-                print("[-]   In {}, found model ({}/{}), but has multiple kernels with the same ID: {}".format(INPUT_FILE, device_model, model, dup_kernels), file=sys.stderr)
-
-            for kernel in element[device_model].get('kernels', default):
-                kernel_id = kernel.get('id', default)
-                if not kernel_id.startswith(device_model):
-                    print("[-]   In {}, kernel_id doesn't start with model id: model: {}   kernel_id: {}".format(INPUT_FILE, device_model, kernel_id), file=sys.stderr)
-
-                versions = [x['android'] for x in kernel.get('versions', default)]
-                dup_versions = {x for x in versions if versions.count(x) > 1}
-                if dup_versions:
-                    print("[-]   In {}, found model ({}/{}), but {} kernel id with multiple same android version: {}".format(INPUT_FILE, device_model, model, kernel_id, dup_versions), file=sys.stderr)
-
-                for version in kernel['versions']:
-                    android_version = version.get('android', default)
-                    path = os.path.join(ROOT_DIR, android_version, kernel_id)
-                    if not os.path.isdir(path):
-                        print("[-]   In {}, found model ({}/{}), but missing on disk: {}".format(INPUT_FILE, device_model, model, path), file=sys.stderr)
+def yml_parse(data):
+    result = ""
+    lines = data.split('\n')
+    for line in lines:
+        if not line.startswith('#'):
+            ## yaml doesn't like tabs so let's replace them with four spaces
+            result += "{}\n".format(line.replace('\t', '    '))
+    return yaml.safe_load(result)
 
 
 def check_yml(yml):
     print("[i] Checking YAML's values")
 
     default = ""
-
     # iterate over all device models
     for element in yml:
         # iterate over all model's entries in yaml file
@@ -234,12 +159,89 @@ def check_yml(yml):
                             print("[-]   Found unknown value '{} -> builds -> {}': {}".format(device_model, key, build.get(key, default)), file=sys.stderr)
 
 
+def compare_yml_dir(yml):
+    print("[i] Comparing YAML: {} -> {}*".format(INPUT_FILE, ROOT_DIR))
+
+    default = ""
+    # iterate over all device models
+    for element in yml:
+        # iterate over all model's entries in yaml file
+        for device_model in element.keys():
+            model = element[device_model].get('model', default)
+
+            # is there a kernel entry in the YAML file?
+            if 'kernels' not in element[device_model]:
+                print("[-]   In {}, found model ({}/{}), but is missing kernel entry".format(INPUT_FILE, device_model, model), file=sys.stderr)
+
+            kernels = [x['id'] for x in element[device_model].get('kernels', default)]
+            dup_kernels = {x for x in kernels if kernels.count(x) > 1}
+            if dup_kernels:
+                print("[-]   In {}, found model ({}/{}), but has multiple kernels with the same ID: {}".format(INPUT_FILE, device_model, model, dup_kernels), file=sys.stderr)
+
+            for kernel in element[device_model].get('kernels', default):
+                kernel_id = kernel.get('id', default)
+                if not kernel_id.startswith(device_model):
+                    print("[-]   In {}, kernel_id doesn't start with model id: model: {}   kernel_id: {}".format(INPUT_FILE, device_model, kernel_id), file=sys.stderr)
+
+                versions = [x['android'] for x in kernel.get('versions', default)]
+                dup_versions = {x for x in versions if versions.count(x) > 1}
+                if dup_versions:
+                    print("[-]   In {}, found model ({}/{}), but {} kernel id with multiple same android version: {}".format(INPUT_FILE, device_model, model, kernel_id, dup_versions), file=sys.stderr)
+
+                for version in kernel.get('versions', default):
+                    android_version = version.get('android', default)
+                    path = os.path.join(ROOT_DIR, android_version, kernel_id)
+                    if not os.path.isdir(path):
+                        print("[-]   In {}, found model ({}/{}), but missing on disk: {}".format(INPUT_FILE, device_model, model, path), file=sys.stderr)
+
+
+def get_versions(yml):
+    # Discovery directories
+    subdirectories = [ x.path for x in os.scandir(ROOT_DIR) if x.is_dir() and not x.path.startswith('{}.'.format(ROOT_DIR))]
+    # Remove non Android version directories
+    subdirectories.remove('{}bin'.format(ROOT_DIR))
+    subdirectories.remove('{}example_scripts'.format(ROOT_DIR))
+    subdirectories.remove('{}patches'.format(ROOT_DIR))
+
+    for android_version_dir in subdirectories:
+        android_version_dir = android_version_dir.lower()
+        android_version_dir = android_version_dir.replace(ROOT_DIR, '')
+        print("[i] Comparing dir: {}{}/* -> {}".format(ROOT_DIR, android_version_dir, INPUT_FILE))
+
+        root, dirs, files = next(os.walk(android_version_dir))
+        for kernel_id_dir in dirs:
+            compare_dir_yml(android_version_dir, kernel_id_dir, yml)
+
+
+def compare_dir_yml(android_version_dir, kernel_id_dir, yml):
+    default = ""
+    path = os.path.join(ROOT_DIR, android_version_dir, kernel_id_dir)
+
+    # iterate over all device models
+    for element in yml:
+        # iterate over all model's entries in yaml file
+        for device_model in element.keys():
+            # iterate over all model's kernels
+            for kernel in element[device_model].get('kernels', default):
+                kernel_id = kernel.get('id', default)
+                # have we got a kernel id/name match?
+                if kernel_id == kernel_id_dir:
+                    # iterate over all model kernels version's
+                    for version in kernel.get('versions', default):
+                        android_version = version.get('android', default)
+                        # have we got a kernel version match?
+                        if android_version == android_version_dir:
+                            return
+
+    print("[-]   Found on disk ({}), but hasn't be added to: {}".format(path,  INPUT_FILE), file=sys.stderr)
+
+
 def main(argv):
     # Assign variables
     data = read_file(INPUT_FILE)
 
     # Get data (YAML)
-    yml = yaml_parse(data)
+    yml = yml_parse(data)
 
     # Check YAML keys
     check_yml(yml)
@@ -248,7 +250,7 @@ def main(argv):
     compare_yml_dir(yml)
 
     # Get data (directory)
-    #   and Compare directory structure to YAML
+    #   and compare directory structure to YAML
     get_versions(yml)
 
     # Exit

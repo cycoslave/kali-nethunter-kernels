@@ -14,10 +14,10 @@ qty_no_kernels = 0
 ## Input:
 ##   $ cat ./devices.yml
 ##   - angler:
-##       model  : Nexus 6P
+##       model  : Google Nexus 6P
 ##       kernels:
 ##         - id         : angler
-##           description: Nexus 6P for stock Android
+##           description: Google Nexus 6P for stock Android
 ##           versions   :
 ##             - android     : nougat
 ##               linux       : 3.10
@@ -32,7 +32,7 @@ qty_no_kernels = 0
 ##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
 ##               features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
 ##         - id         : angler-los
-##           description: Nexus 6P for LineageOS and Pixel Experience
+##           description: Google Nexus 6P for LineageOS and Pixel Experience
 ##           versions   :
 ##             - android     : ten
 ##               linux       : 3.10
@@ -40,6 +40,19 @@ qty_no_kernels = 0
 ##               author      : Re4son & yesimxev
 ##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
 ##               features    : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
+
+
+def read_file(file):
+    try:
+        print('[i] Reading: {}'.format(file))
+        with open(file) as f:
+            data = f.read()
+            f.close()
+    except Exception as e:
+        print("[-] Cannot open input file: {} - {}".format(file, e), file=sys.stderr)
+        sys.exit(1)
+    return data
+
 
 def yaml_parse(data):
     result = ""
@@ -49,6 +62,7 @@ def yaml_parse(data):
             ## yaml doesn't like tabs so let's replace them with four spaces
             result += "{}\n".format(line.replace('\t', '    '))
     return yaml.safe_load(result)
+
 
 def generate_table(data):
     global qty_kernels, qty_no_kernels, qty_total_models, qty_kernels_models
@@ -63,8 +77,8 @@ def generate_table(data):
             model = element[kernel_name].get('model', default)
             if 'kernels' in element[kernel_name]:
                 qty_kernels_models += 1
-                for kernel in element[kernel_name]['kernels']:
-                    for version in kernel['versions']:
+                for kernel in element[kernel_name].get('kernels', default):
+                    for version in kernel.get('versions', default):
                         qty_kernels += 1
                         features = ""
                         i = 0
@@ -73,6 +87,8 @@ def generate_table(data):
                                 features += ", "
                             features += f
                             i += 1
+                        ## REF: https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/blob/master/nethunter-installer/build.py
+                        #build_cmd = "./build.py -d {} --{} -fs full".format( kernel.get('id', default) version.get('android', default) )
                         kernels.append("| {} | {} | {} | {} | {} | {} | {} | {} | `{}` |\n".format(
                                                                                              model,
                                                                                              kernel.get('id', default),
@@ -96,16 +112,6 @@ def generate_table(data):
 
     return table
 
-def read_file(file):
-    try:
-        print('[i] Reading: {}'.format(file))
-        with open(file) as f:
-            data = f.read()
-            f.close()
-    except Exception as e:
-        print('[-] Cannot open input file: {} - {}'.format(file, e))
-        sys.exit(1)
-    return data
 
 def write_file(data, file):
     try:
@@ -124,14 +130,16 @@ def write_file(data, file):
             f.close()
             print('[+] Writing: {}'.format(OUTPUT_FILE))
     except Exception as e:
-        print('[-] Cannot write to output file: {} - {}'.format(file, e))
+        print("[-] Cannot write to output file: {} - {}".format(file, e), file=sys.stderr)
     return 0
+
 
 def print_summary():
     print('[i] Known kernels  : {}'.format(qty_kernels))
     print('[i] Missing kernels: {}'.format(qty_no_kernels))
     print('[i] Device models with kernels   : {}'.format(qty_kernels_models))
     print('[i] Total supported device models: {}'.format(qty_total_models))
+
 
 def main(argv):
     # Assign variables

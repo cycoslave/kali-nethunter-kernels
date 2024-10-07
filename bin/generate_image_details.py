@@ -14,36 +14,50 @@ qty_no_images = 0
 ## Input:
 ##   $ cat ./devices.yml
 ##   - angler:
-##       model  : Nexus 6P
+##       model  : Google Nexus 6P
 ##       images :
-##         - id      : angler
-##           name    : Nexus 6P (Oreo)
-##           android : oreo
-##           status  : stable
-##           rootfs  : full
-##           docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
-##           note    : >-
-##                     Nexmon support<br>
-##                     **Our preferred low end device**<br>
-##         - id      : angler-los
-##           name    : Nexus 6P (LineageOS 17.1)
-##           android : ten
-##           status  : latest
-##           rootfs  : full
-##           docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
-##           note    : >-
-##                     Nexmon support<br>
-##                     **Our preferred low end device**<br>
-##                     Warning: Android Ten is still experimental
+##         - id     : angler
+##           name   : Google Nexus 6P (Oreo)
+##           android: oreo
+##           status : stable
+##           rootfs : full
+##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
+##           note   : >-
+##                    Nexmon support<br>
+##                    **Our preferred low end device**
+##         - id     : angler-los
+##           name   : Google Nexus 6P (LineageOS 17.1)
+##           android: ten
+##           status : latest
+##           rootfs : full
+##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
+##           note   : >-
+##                    Nexmon support<br>
+##                    **Our preferred low end device**<br>
+##                    Warning: Android Ten is still experimental
 
-def yaml_parse(content):
+
+def read_file(file):
+    try:
+        print('[i] Reading: {}'.format(file))
+        with open(file) as f:
+            data = f.read()
+            f.close()
+    except Exception as e:
+        print("[-] Cannot open input file: {} - {}".format(file, e), file=sys.stderr)
+        sys.exit(1)
+    return data
+
+
+def yaml_parse(data):
     result = ""
-    lines = content.split('\n')
+    lines = data.split('\n')
     for line in lines:
         if not line.startswith('#'):
             ## yaml doesn't like tabs so let's replace them with four spaces
             result += "{}\n".format(line.replace('\t', '    '))
     return yaml.safe_load(result)
+
 
 def generate_table(data):
     global qty_total_models, qty_images_models, qty_images, qty_no_images
@@ -57,13 +71,13 @@ def generate_table(data):
             qty_total_models += 1
             if 'images' in element[kernel_name]:
                 qty_images_models += 1
-                if len(element[kernel_name]['images']) > 1:
+                if len(element[kernel_name].get('images', default)) > 1:
                     print("[i]   Multiple images for: {}".format(element[kernel_name].get('model', default)))
-                for image in element[kernel_name]['images']:
+                for image in element[kernel_name].get('images', default):
                     qty_images += 1
                     docs = image.get('docs', default)
-                    if len(element[kernel_name]['images']) > 1:
-                        print("[i]     - {}".format(image['name']))
+                    if len(element[kernel_name].get('images', default)) > 1:
+                        print("[i]     - {}".format(image.get('name', default)))
                     if docs:
                         docs = "<{}>".format(docs)
                     images.append("| {} | {} | {} | {} | {} | {} | {} | {} |\n".format(
@@ -79,7 +93,7 @@ def generate_table(data):
                                                                              )
             else:
                 qty_no_images += 1
-                #print('[-] Possible issue with: {} (no images)'.format(element[kernel_name].get('model', default)))
+                #print("[-] Possible issue with: {} (no images)".format(element[kernel_name].get('model', default)), file=sys.stderr)
 
     table  = "| Display Name (Android OS) | Device | Kernel ID | [Android Version](kernel-summary.html) | Rootfs | Status | [Documentation](https://www.kali.org/docs/nethunter/) | Notes |\n"
     table += "|---------------------------|--------|-----------|----------------------------------------|--------|--------|-------------------------------------------------------|-------|\n"
@@ -89,16 +103,6 @@ def generate_table(data):
 
     return table
 
-def read_file(file):
-    try:
-        print('[i] Reading: {}'.format(file))
-        with open(file) as f:
-            data = f.read()
-            f.close()
-    except Exception as e:
-        print('[-] Cannot open input file: {} - {}'.format(file, e))
-        sys.exit(1)
-    return data
 
 def write_file(data, file):
     try:
@@ -120,8 +124,9 @@ def write_file(data, file):
             f.close()
             print('[+] Writing: {}'.format(OUTPUT_FILE))
     except Exception as e:
-        print('[-] Cannot write to output file: {} - {}'.format(file, e))
+        print("[-] Cannot write to output file: {} - {}".format(file, e), file=sys.stderr)
     return 0
+
 
 def print_summary():
     print('[i] Pre-created images              : {}'.format(qty_images))
@@ -129,6 +134,7 @@ def print_summary():
     print('[i] Non pre-created images: {}'.format(qty_no_images))
     print('[i] Total supported images: {}'.format(qty_images + qty_no_images))
     print('[i] Total supported models: {}'.format(qty_total_models))
+
 
 def main(argv):
     # Assign variables

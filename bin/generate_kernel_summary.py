@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from datetime import datetime
 import os
-import re
 import sys
 import yaml # $ python3 -m venv .env; source .env/bin/activate; python3 -m pip install pyyaml
 
@@ -18,13 +17,13 @@ qty_versions = { }
 ##   $ ls -l
 ##   ./
 ##    |---> [Android Version]/
-##        |-> [Device]/
+##        |-> [Device-ROM]/
 ##   $ cat ./devices.yml
 ##   - angler:
-##       model  : Nexus 6P
+##       model  : Google Nexus 6P
 ##       kernels:
 ##         - id         : angler
-##           description: Nexus 6P for stock Android
+##           description: Google Nexus 6P for stock Android
 ##           versions   :
 ##             - android     : nougat
 ##               linux       : 3.10
@@ -39,7 +38,7 @@ qty_versions = { }
 ##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
 ##               features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
 ##         - id         : angler-los
-##           description: Nexus 6P for LineageOS and Pixel Experience
+##           description: Google Nexus 6P for LineageOS and Pixel Experience
 ##           versions   :
 ##             - android     : ten
 ##               linux       : 3.10
@@ -65,6 +64,18 @@ qty_versions = { }
 ##           devicenames : angler
 
 
+def read_file(file):
+    try:
+        print('[i] Reading: {}'.format(file))
+        with open(file) as f:
+            data = f.read()
+            f.close()
+    except Exception as e:
+        print("[-] Cannot open input file: {} - {}".format(file, e), file=sys.stderr)
+        sys.exit(1)
+    return data
+
+
 def yaml_parse(data):
     result = ""
     lines = data.split('\n')
@@ -74,18 +85,8 @@ def yaml_parse(data):
             result += "{}\n".format(line.replace('\t', '    '))
     return yaml.safe_load(result)
 
-def read_file(file):
-    try:
-        print('[i] Reading: {}'.format(file))
-        with open(file) as f:
-            data = f.read()
-            f.close()
-    except Exception as e:
-        print('[-] Cannot open input file: {} - {}'.format(file, e))
-        sys.exit(1)
-    return data
 
-def yml_count(yml, field):
+def count_yml(yml, field):
     default = ""
     yml_kernels = []
 
@@ -112,11 +113,13 @@ def dir_count(path):
     root, dirs, files = next(os.walk(path))
     return len(dirs)
 
-def calc_kernels():
+
+def count_android_versions():
     t = 0
     for v in qty_versions:
         t += qty_versions[v]
     return t
+
 
 def get_versions():
     # Discovery directories
@@ -128,22 +131,23 @@ def get_versions():
 
     for android_version_dir in subdirectories:
         android_version_dir = android_version_dir.lower()
-        android_version_dir = re.sub(ROOT_DIR, '', android_version_dir)
+        android_version_dir = android_version_dir.replace(ROOT_DIR, '')
         path = ROOT_DIR + android_version_dir
         v = android_version_dir.title()
-        v = re.sub('kitkat', '4.4 - KitKat', v, flags=re.I)
-        v = re.sub('lollipop', '5.0 - Lollipop', v, flags=re.I)
-        v = re.sub('marshmallow', '6 - Marshmallow', v, flags=re.I)
-        v = re.sub('nougat', '7 - Nougat', v, flags=re.I)
-        v = re.sub('oreo', '8 - Oreo', v, flags=re.I)
-        v = re.sub('pie', '9 - Pie', v, flags=re.I)
-        v = re.sub('ten', '10 - Ten', v, flags=re.I)
-        v = re.sub('eleven', '11 - Eleven', v, flags=re.I)
-        v = re.sub('twelve', '12 - Twelve', v, flags=re.I)
-        v = re.sub('thirteen', '13 - Thirteen', v, flags=re.I)
-        v = re.sub('fourteen', '14 - Fourteen', v, flags=re.I)
-        v = re.sub('wearos', 'Wear OS', v, flags=re.I)
+        v = v.replace('kitkat', '4.4 - KitKat')
+        v = v.replace('lollipop', '5.0 - Lollipop')
+        v = v.replace('marshmallow', '6 - Marshmallow')
+        v = v.replace('nougat', '7 - Nougat')
+        v = v.replace('oreo', '8 - Oreo')
+        v = v.replace('pie', '9 - Pie')
+        v = v.replace('ten', '10 - Ten')
+        v = v.replace('eleven', '11 - Eleven')
+        v = v.replace('twelve', '12 - Twelve')
+        v = v.replace('thirteen', '13 - Thirteen')
+        v = v.replace('fourteen', '14 - Fourteen')
+        v = v.replace('wearos', 'Wear OS')
         qty_versions[v] = dir_count(path)
+
 
 def generate_table():
     table  = "| Android Version | Qty |\n"
@@ -153,6 +157,7 @@ def generate_table():
         table += "| {} | {} |\n".format(v.ljust(15),
                                         str(qty_versions[v]).ljust(3))
     return table
+
 
 def write_file(data, file):
     try:
@@ -173,14 +178,16 @@ def write_file(data, file):
             f.close()
             print('[+] Writing: {}'.format(OUTPUT_FILE))
     except Exception as e:
-        print('[-] Cannot write to output file: {} - {}'.format(file, e))
+        print("[-] Cannot write to output file: {} - {}".format(file, e), file=sys.stderr)
     return 0
+
 
 def print_summary():
     print('[i] Android versions count : {}'.format(len(qty_versions)))
     print('[i] Kernels in directories : {}'.format(qty_dir_kernels))
     print('[i] Kernels in YAML kernels: {}'.format(qty_kernels_kernels))
     print('[i] Kernels in YAML builds : {}'.format(qty_builds_kernels))
+
 
 def main(argv):
     global qty_dir_kernels, qty_kernels_kernels, qty_builds_kernels
@@ -195,9 +202,9 @@ def main(argv):
     get_versions()
 
     # Generate stats
-    qty_dir_kernels = calc_kernels()
-    qty_builds_kernels = yml_count(yml, 'builds')
-    qty_kernels_kernels = yml_count(yml, 'kernels')
+    qty_dir_kernels = count_android_versions()
+    qty_builds_kernels = count_yml(yml, 'builds')
+    qty_kernels_kernels = count_yml(yml, 'kernels')
 
     # Print result
     print_summary()
