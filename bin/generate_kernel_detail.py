@@ -4,7 +4,7 @@ import sys
 import yaml # $ python3 -m pip install pyyaml --user
 
 OUTPUT_FILE = "./kernels.md"
-INPUT_FILE = "./devices.cfg"
+INPUT_FILE = "./devices.yml"
 repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
 qty_total_models = 0
 qty_kernels_models = 0
@@ -12,42 +12,42 @@ qty_kernels = 0
 qty_no_kernels = 0
 
 ## Input:
-##   $ grep '##*' ./devices.cfg
-##   ##* - angler:
-##   ##*     model  : Nexus 6P
-##   ##*     kernels:
-##   ##*       - id         : angler
-##   ##*         description: Stock Android
-##   ##*         versions   :
-##   ##*           - android     : nougat
-##   ##*             linux       : 3.10
-##   ##*             description : Android 7.1
-##   ##*             author      : jcadduono
-##   ##*             source      : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
-##   ##*             features    : [CDROM, HID, Injection]
-##   ##*           - android     : oreo
-##   ##*             linux       : 3.10
-##   ##*             description : Android 8.1
-##   ##*             author      : Re4son & yesimxev
-##   ##*             source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
-##   ##*             features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
-##   ##*       - id         : angler-los
-##   ##*         description: LineageOS
-##   ##*         versions   :
-##   ##*           - android     : ten
-##   ##*             linux       : 3.10
-##   ##*             description : LineageOS 17.1 & Pixel Experience 10
-##   ##*             author      : Re4son & yesimxev
-##   ##*             source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
-##   ##*             features    : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
+##   $ cat ./devices.yml
+##   - angler:
+##       model  : Nexus 6P
+##       kernels:
+##         - id         : angler
+##           description: Nexus 6P for stock Android
+##           versions   :
+##             - android     : nougat
+##               linux       : 3.10
+##               description : Android 7.1
+##               author      : jcadduono
+##               source      : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
+##               features    : [CDROM, HID, Injection]
+##             - android     : oreo
+##               linux       : 3.10
+##               description : Android 8.1
+##               author      : Re4son & yesimxev
+##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
+##               features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
+##         - id         : angler-los
+##           description: Nexus 6P for LineageOS and Pixel Experience
+##           versions   :
+##             - android     : ten
+##               linux       : 3.10
+##               description : LineageOS 17.1 & Pixel Experience 10
+##               author      : Re4son & yesimxev
+##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
+##               features    : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
 
 def yaml_parse(data):
     result = ""
     lines = data.split('\n')
     for line in lines:
-        if line.startswith('##*'):
+        if not line.startswith('#'):
             ## yaml doesn't like tabs so let's replace them with four spaces
-            result += "{}\n".format(line.replace('\t', '    ')[3:])
+            result += "{}\n".format(line.replace('\t', '    '))
     return yaml.safe_load(result)
 
 def generate_table(data):
@@ -114,7 +114,7 @@ def write_file(data, file):
             meta += 'title: Kali NetHunter Kernel Details\n'
             meta += '---\n\n'
             stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) is using [**{}** kernels](kernel-summary.html)\n".format(str(qty_kernels))
-            stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.cfg))_\n"
+            stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.yml))_\n"
             stats += "  - These kernels can be used on **{} device models**\n".format(str(qty_total_models))
             stats += "- [Kali NetHunter Statistics Overview](index.html)\n\n"
             f.write(str(meta))

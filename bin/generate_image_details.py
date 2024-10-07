@@ -4,7 +4,7 @@ import sys
 import yaml # $ python3 -m pip install pyyaml --user
 
 OUTPUT_FILE = "./images.md"
-INPUT_FILE = "./devices.cfg"
+INPUT_FILE = "./devices.yml"
 repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
 qty_total_models = 0
 qty_images_models = 0
@@ -12,37 +12,37 @@ qty_images = 0
 qty_no_images = 0
 
 ## Input:
-##   $ grep '##*' ./devices.cfg
-##   ##* - angler:
-##   ##*     model  : Nexus 6P
-##   ##*     images :
-##   ##*       - id      : angler
-##   ##*         name    : Nexus 6P (Oreo)
-##   ##*         android : oreo
-##   ##*         status  : stable
-##   ##*         rootfs  : full
-##   ##*         docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
-##   ##*         note    : >-
-##   ##*                   Nexmon support<br>
-##   ##*                   **Our preferred low end device**<br>
-##   ##*       - id      : angler-los
-##   ##*         name    : Nexus 6P (LineageOS 17.1)
-##   ##*         android : ten
-##   ##*         status  : latest
-##   ##*         rootfs  : full
-##   ##*         docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
-##   ##*         note    : >-
-##   ##*                   Nexmon support<br>
-##   ##*                   **Our preferred low end device**<br>
-##   ##*                   Warning: Android Ten is still experimental
+##   $ cat ./devices.yml
+##   - angler:
+##       model  : Nexus 6P
+##       images :
+##         - id      : angler
+##           name    : Nexus 6P (Oreo)
+##           android : oreo
+##           status  : stable
+##           rootfs  : full
+##           docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
+##           note    : >-
+##                     Nexmon support<br>
+##                     **Our preferred low end device**<br>
+##         - id      : angler-los
+##           name    : Nexus 6P (LineageOS 17.1)
+##           android : ten
+##           status  : latest
+##           rootfs  : full
+##           docs    : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
+##           note    : >-
+##                     Nexmon support<br>
+##                     **Our preferred low end device**<br>
+##                     Warning: Android Ten is still experimental
 
 def yaml_parse(content):
     result = ""
     lines = content.split('\n')
     for line in lines:
-        if line.startswith('##*'):
+        if not line.startswith('#'):
             ## yaml doesn't like tabs so let's replace them with four spaces
-            result += "{}\n".format(line.replace('\t', '    ')[3:])
+            result += "{}\n".format(line.replace('\t', '    '))
     return yaml.safe_load(result)
 
 def generate_table(data):
@@ -107,7 +107,7 @@ def write_file(data, file):
             meta += 'title: Kali NetHunter Pre-created Images\n'
             meta += '---\n\n'
             stats  = "- The [next release](https://www.kali.org/releases/) cycle will include [**{}** Kali NetHunter pre-created images](image-summary.html) ready to [download](https://www.kali.org/get-kali/#kali-mobile)\n".format(str(qty_images))
-            stats += "  - See [here for more details about the pre-created images](images.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.cfg))_\n"
+            stats += "  - See [here for more details about the pre-created images](images.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.yml))_\n"
             stats += "  - These {} images covers **{} device models**\n".format(str(qty_images), qty_images_models)
             #stats += "  - _Another {} NetHunter images can be self-generated using the build-scripts_\n".format(qty_no_images)
             #stats += "  - _Meaning, there is a **total of {} NetHunter supported images**_\n".format(qty_images + qty_no_images)

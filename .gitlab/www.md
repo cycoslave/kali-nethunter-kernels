@@ -22,5 +22,5 @@ title: Kali NetHunter Statistics Overview
 - [Kali NetHunter Build-Scripts](https://gitlab.com/kalilinux/nethunter/build-scripts)
 - [Kali NetHunter Build-Scripts (Installer)](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/tree/master/nethunter-installer)
 - [Kali NetHunter Build-Scripts (Devices)](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)
-- [Kali NetHunter `devices.cfg`](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.cfg)
+- [Kali NetHunter `devices.yml`](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/main/devices.yml)
 - [Kali NetHunter Store](https://store.nethunter.com/)
