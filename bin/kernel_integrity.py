@@ -179,12 +179,70 @@ def compare_yml_dir(yml):
                         print("[-]   In {}, found model ({}/{}), but missing on disk: {}".format(INPUT_FILE, device_model, model, path), file=sys.stderr)
 
 
+def check_yml(yml):
+    print("[i] Checking YAML's values")
+
+    default = ""
+
+    # iterate over all device models
+    for element in yml:
+        # iterate over all model's entries in yaml file
+        for device_model in element.keys():
+
+            for key in element[device_model].keys():
+                match key:
+                    case 'model' | 'images' | 'kernels' | 'builds':
+                        continue
+                    case _:
+                        print("[-]   Found unknown value '{} -> {}': {}".format(device_model, key, element[device_model].get(key, default)), file=sys.stderr)
+
+            for image in element[device_model].get('images', default):
+                for key in list(image.keys()):
+                    match key:
+                        case 'id' | 'name' | 'android' | 'status' | 'rootfs' | 'docs' | 'note':
+                            continue
+                        case _:
+                            print("[-]   Found unknown value '{} -> images -> {}': {}".format(device_model, key, image.get(key, default)), file=sys.stderr)
+
+            for kernel in element[device_model].get('kernels', default):
+                for key in list(kernel.keys()):
+                    match key:
+                        case 'id' | 'description' | 'versions':
+                            continue
+                        case _:
+                            print("[-]   Found unknown value '{} -> kernels -> {}': {}".format(device_model, key, kernel.get(key, default)), file=sys.stderr)
+
+                for version in kernel.get('versions', default):
+                    for key in list(version.keys()):
+                        match key:
+                            case 'android' | 'linux' | 'kernel' | 'description' | 'author' | 'source' | 'features':
+                                continue
+                            case _:
+                                print("[-]   Found unknown value '{} -> kernels -> versions -> {}': {}".format(device_model, key, version.get(key, default)), file=sys.stderr)
+
+            for build in element[device_model].get('builds', default):
+                for key in list(build.keys()):
+                    match key:
+                        case 'id' | 'author' | 'arch' | 'flasher' | 'kernelstring' | 'ramdisk' | 'block' | 'devicenames' | 'resolution' | 'version' | 'supersu':
+                            continue
+                        case 'modules' | 'slot_device' :
+                            if 'flasher' in build and build['flasher'] == 'anykernel':
+                                continue
+                            else:
+                                print("[-]   Not using anykernel flasher, so can't use value '{} -> builds -> {}': {}".format(device_model, key, build.get(key, default)), file=sys.stderr)
+                        case _:
+                            print("[-]   Found unknown value '{} -> builds -> {}': {}".format(device_model, key, build.get(key, default)), file=sys.stderr)
+
+
 def main(argv):
     # Assign variables
     data = read_file(INPUT_FILE)
 
     # Get data (YAML)
     yml = yaml_parse(data)
+
+    # Check YAML keys
+    check_yml(yml)
 
     # Compare YAML to directory structure
     compare_yml_dir(yml)
