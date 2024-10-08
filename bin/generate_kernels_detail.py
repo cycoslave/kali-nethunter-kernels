@@ -16,30 +16,47 @@ qty_no_kernels = 0
 ##   - angler:
 ##       model  : Google Nexus 6P
 ##       kernels:
-##         - id         : angler
-##           description: Google Nexus 6P for stock Android
-##           versions   :
-##             - android     : nougat
-##               linux       : 3.10
-##               description : Android 7.1
-##               author      : jcadduono
-##               source      : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
-##               features    : [CDROM, HID, Injection]
-##             - android     : oreo
-##               linux       : 3.10
-##               description : Android 8.1
-##               author      : Re4son & yesimxev
-##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
-##               features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
-##         - id         : angler-los
-##           description: Google Nexus 6P for LineageOS and Pixel Experience
-##           versions   :
-##             - android     : ten
-##               linux       : 3.10
-##               description : LineageOS 17.1 & Pixel Experience 10
-##               author      : Re4son & yesimxev
-##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
-##               features    : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
+##         - id          : angler
+##           description : Google Nexus 6P for stock Android
+##           kernelstring: NetHunter kernel for Nexus 6P
+##           arch        : arm64
+##           devicenames : angler
+##           block       : /dev/block/platform/soc.0/f9824900.sdhci/by-name/boot
+##           versions    :
+##             - android    : marshmallow
+##               linux      : 3.10
+##               description: Android 6
+##               author     : Binkybear
+##               source     : 'git clone https://github.com/binkybear/AK-Angler.git'
+##               features   : [HID, Injection]
+##             - android    : nougat
+##               linux      : 3.10
+##               description: Android 7.1
+##               author     : jcadduono
+##               source     : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
+##               features   : [CDROM, HID, Injection]
+##             - android    : oreo
+##               linux      : 3.10
+##               description: Android 8.1
+##               author     : Re4son & yesimxev
+##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
+##               features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
+##         - id          : angler-los
+##           description : Google Nexus 6P for LineageOS and Pixel Experience
+##           kernelstring: NetHunter kernel for Nexus 6P
+##           arch        : arm64
+##           flasher     : anykernel
+##           modules     : 1
+##           block       : /dev/block/bootdevice/by-name/boot
+##           slot_device : 0
+##           devicenames : angler
+##           versions    :
+##             - android    : ten
+##               linux      : 3.10
+##               description: LineageOS 17.1 & Pixel Experience 10
+##               author     : Re4son & yesimxev
+##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
+##               features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
 
 
 def read_file(file):

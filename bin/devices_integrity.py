@@ -38,39 +38,33 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##                    **Our preferred low end device**<br>
 ##                    Warning: Android Ten is still experimental
 ##       kernels:
-##         - id         : angler
-##           description: Google Nexus 6P for stock Android
-##           versions   :
-##             - android     : nougat
-##               linux       : 3.10
-##               description : Android 7.1
-##               author      : jcadduono
-##               source      : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
-##               features    : [CDROM, HID, Injection]
-##             - android     : oreo
-##               linux       : 3.10
-##               description : Android 8.1
-##               author      : Re4son & yesimxev
-##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
-##               features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
-##         - id         : angler-los
-##           description: Google Nexus 6P for LineageOS and Pixel Experience
-##           versions   :
-##             - android     : ten
-##               linux       : 3.10
-##               description : LineageOS 17.1 & Pixel Experience 10
-##               author      : Re4son & yesimxev
-##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
-##               features    : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
-##       builds:
 ##         - id          : angler
-##           author      : Binkybear & jcadduono & re4son & yesimxev
+##           description : Google Nexus 6P for stock Android
 ##           kernelstring: NetHunter kernel for Nexus 6P
 ##           arch        : arm64
 ##           devicenames : angler
 ##           block       : /dev/block/platform/soc.0/f9824900.sdhci/by-name/boot
+##           versions    :
+##             - android    : marshmallow
+##               linux      : 3.10
+##               description: Android 6
+##               author     : Binkybear
+##               source     : 'git clone https://github.com/binkybear/AK-Angler.git'
+##               features   : [HID, Injection]
+##             - android    : nougat
+##               linux      : 3.10
+##               description: Android 7.1
+##               author     : jcadduono
+##               source     : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
+##               features   : [CDROM, HID, Injection]
+##             - android    : oreo
+##               linux      : 3.10
+##               description: Android 8.1
+##               author     : Re4son & yesimxev
+##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
+##               features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
 ##         - id          : angler-los
-##           author      : Re4son & yesimxev
+##           description : Google Nexus 6P for LineageOS and Pixel Experience
 ##           kernelstring: NetHunter kernel for Nexus 6P
 ##           arch        : arm64
 ##           flasher     : anykernel
@@ -78,6 +72,13 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##           block       : /dev/block/bootdevice/by-name/boot
 ##           slot_device : 0
 ##           devicenames : angler
+##           versions    :
+##             - android    : ten
+##               linux      : 3.10
+##               description: LineageOS 17.1 & Pixel Experience 10
+##               author     : Re4son & yesimxev
+##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
+##               features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
 
 
 def read_file(file):
@@ -113,7 +114,7 @@ def check_yml(yml):
 
             for key in element[device_model].keys():
                 match key:
-                    case 'model' | 'images' | 'kernels' | 'builds':
+                    case 'model' | 'images' | 'kernels':
                         continue
                     case _:
                         print("[-]   Found unknown value '{} -> {}': {}".format(device_model, key, element[device_model].get(key, default)), file=sys.stderr)
@@ -129,8 +130,13 @@ def check_yml(yml):
             for kernel in element[device_model].get('kernels', default):
                 for key in list(kernel.keys()):
                     match key:
-                        case 'id' | 'description' | 'versions':
+                        case 'id' | 'description' | 'versions' | 'arch' | 'flasher' | 'kernelstring' | 'ramdisk' | 'block' | 'devicenames' | 'resolution' | 'version' | 'supersu':
                             continue
+                        case 'modules' | 'slot_device' :
+                            if kernel.get('flasher', default) == 'anykernel':
+                                continue
+                            else:
+                                print("[-]   Not using anykernel flasher, so can't use value '{} -> kernels -> {}': {}".format(device_model, key, build.get(key, default)), file=sys.stderr)
                         case _:
                             print("[-]   Found unknown value '{} -> kernels -> {}': {}".format(device_model, key, kernel.get(key, default)), file=sys.stderr)
 
@@ -142,22 +148,9 @@ def check_yml(yml):
                             case _:
                                 print("[-]   Found unknown value '{} -> kernels -> versions -> {}': {}".format(device_model, key, version.get(key, default)), file=sys.stderr)
 
-            for build in element[device_model].get('builds', default):
-                for key in list(build.keys()):
-                    match key:
-                        case 'id' | 'author' | 'arch' | 'flasher' | 'kernelstring' | 'ramdisk' | 'block' | 'devicenames' | 'resolution' | 'version' | 'supersu':
-                            continue
-                        case 'modules' | 'slot_device' :
-                            if 'flasher' in build and build['flasher'] == 'anykernel':
-                                continue
-                            else:
-                                print("[-]   Not using anykernel flasher, so can't use value '{} -> builds -> {}': {}".format(device_model, key, build.get(key, default)), file=sys.stderr)
-                        case _:
-                            print("[-]   Found unknown value '{} -> builds -> {}': {}".format(device_model, key, build.get(key, default)), file=sys.stderr)
-
 
 def compare_yml(yml):
-    print("[i] Checking YAML's <models>: images <-> builds <-> kernels")
+    print("[i] Checking YAML's <models>: images <-> kernels")
 
     default = ""
     # iterate over all device models
@@ -166,7 +159,6 @@ def compare_yml(yml):
         for device_model in element.keys():
             image_array = []
             kernel_array = []
-            build_array = []
 
             for image in element[device_model].get('images', default):
                 image_array.append(image.get('id', default))
@@ -174,20 +166,13 @@ def compare_yml(yml):
             for kernel in element[device_model].get('kernels', default):
                 kernel_array.append(kernel.get('id', default))
 
-            for build in element[device_model].get('builds', default):
-                build_array.append(build.get('id', default))
-
             for image in image_array:
-                if image not in build_array:
-                    print("[-]   Found unknown image id, without matching build id: {} -> images -> id: {}".format(device_model, image), file=sys.stderr)
+                if image not in kernel_array:
+                    print("[-]   Found unknown image id, without matching kernel id: {} -> images -> id: {}".format(device_model, image), file=sys.stderr)
 
             for kernel in kernel_array:
-                if kernel not in build_array:
-                    print("[-]   Found unknown kernel id, without matching build id: {} -> kernels -> id: {}".format(device_model, kernel), file=sys.stderr)
-
-            for build in build_array:
-                if build not in kernel_array:
-                    print("[-]   Found unknown build id, without matching kernel id: {} -> builds -> id: {}".format(device_model, build), file=sys.stderr)
+                if kernel not in kernel_array:
+                    print("[-]   Found unknown kernel id, without matching kernel id: {} -> kernels -> id: {}".format(device_model, kernel), file=sys.stderr)
 
 
 def compare_yml_dir(yml):
@@ -277,7 +262,7 @@ def main(argv):
     # Check YAML keys
     check_yml(yml)
 
-    # Compare YAML's builds section to kernels
+    # Compare YAML's sections (images & kernels)
     compare_yml(yml)
 
     # Compare YAML to directory structure

@@ -9,8 +9,7 @@ INPUT_FILE = "./devices.yml"
 ROOT_DIR = "./"
 repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
 qty_dir_kernels = 0
-qty_kernels_kernels = 0
-qty_builds_kernels = 0
+qty_yml_kernels = 0
 qty_versions = { }
 
 ## Input:
@@ -22,39 +21,33 @@ qty_versions = { }
 ##   - angler:
 ##       model  : Google Nexus 6P
 ##       kernels:
-##         - id         : angler
-##           description: Google Nexus 6P for stock Android
-##           versions   :
-##             - android     : nougat
-##               linux       : 3.10
-##               description : Android 7.1
-##               author      : jcadduono
-##               source      : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
-##               features    : [CDROM, HID, Injection]
-##             - android     : oreo
-##               linux       : 3.10
-##               description : Android 8.1
-##               author      : Re4son & yesimxev
-##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
-##               features    : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
-##         - id         : angler-los
-##           description: Google Nexus 6P for LineageOS and Pixel Experience
-##           versions   :
-##             - android     : ten
-##               linux       : 3.10
-##               description : LineageOS 17.1 & Pixel Experience 10
-##               author      : Re4son & yesimxev
-##               source      : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
-##               features    : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
-##       builds:
 ##         - id          : angler
-##           author      : Binkybear & jcadduono & re4son & yesimxev
+##           description : Google Nexus 6P for stock Android
 ##           kernelstring: NetHunter kernel for Nexus 6P
 ##           arch        : arm64
 ##           devicenames : angler
 ##           block       : /dev/block/platform/soc.0/f9824900.sdhci/by-name/boot
+##           versions    :
+##             - android    : marshmallow
+##               linux      : 3.10
+##               description: Android 6
+##               author     : Binkybear
+##               source     : 'git clone https://github.com/binkybear/AK-Angler.git'
+##               features   : [HID, Injection]
+##             - android    : nougat
+##               linux      : 3.10
+##               description: Android 7.1
+##               author     : jcadduono
+##               source     : 'git clone https://github.com/jcadduono/android_kernel_huawei_angler -b nethunter-7.1_2'
+##               features   : [CDROM, HID, Injection]
+##             - android    : oreo
+##               linux      : 3.10
+##               description: Android 8.1
+##               author     : Re4son & yesimxev
+##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
+##               features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
 ##         - id          : angler-los
-##           author      : Re4son & yesimxev
+##           description : Google Nexus 6P for LineageOS and Pixel Experience
 ##           kernelstring: NetHunter kernel for Nexus 6P
 ##           arch        : arm64
 ##           flasher     : anykernel
@@ -62,6 +55,13 @@ qty_versions = { }
 ##           block       : /dev/block/bootdevice/by-name/boot
 ##           slot_device : 0
 ##           devicenames : angler
+##           versions    :
+##             - android    : ten
+##               linux      : 3.10
+##               description: LineageOS 17.1 & Pixel Experience 10
+##               author     : Re4son & yesimxev
+##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
+##               features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
 
 
 def read_file(file):
@@ -86,7 +86,7 @@ def yaml_parse(data):
     return yaml.safe_load(result)
 
 
-def count_yml(yml, field):
+def count_yml(yml):
     default = ""
     yml_kernels = []
 
@@ -94,17 +94,11 @@ def count_yml(yml, field):
     for element in yml:
         # iterate over all model's entries in yaml file
         for device_model in element.keys():
-            # iterate over all model's fields
-            if field == 'kernels':
-                for kernel in element[device_model].get('kernels', default):
-                    # iterate over all model kernels version's
-                    for version in kernel['versions']:
-                        android_version = version.get('android', default)
-                        yml_kernels.append(android_version)
-            elif field == 'builds':
-                for build in element[device_model].get('builds', default):
-                    build_id = build.get('id', default)
-                    yml_kernels.append(build_id)
+            for kernel in element[device_model].get('kernels', default):
+                # iterate over all model kernels version's
+                for version in kernel.get('versions', default):
+                    android_version = version.get('android', default)
+                    yml_kernels.append(android_version)
     return len(yml_kernels)
 
 
@@ -167,8 +161,7 @@ def write_file(data, file):
             meta += '---\n\n'
             stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) has a total of [**{}** kernels](kernels-summary.html) directories\n".format(str(qty_dir_kernels))
             stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.yml), [directories](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel))_\n"
-            stats += "  - **{} kernels** are in ./devices.yml\n".format(qty_builds_kernels) # See: ./bin/kernel_integrity.py
-            stats += "  - **{} kernels build profiles** are in ./devices.yml\n".format(qty_kernels_kernels)
+            stats += "  - **{} kernels build profiles** are in ./devices.yml\n".format(qty_yml_kernels)
             stats += "  - NetHunter is on **{} Android versions**\n".format(len(qty_versions))
             stats += "- [Kali NetHunter Statistics Overview](index.html)\n\n"
             f.write(str(meta))
@@ -185,12 +178,11 @@ def write_file(data, file):
 def print_summary():
     print('[i] Android versions count : {}'.format(len(qty_versions)))
     print('[i] Kernels in directories : {}'.format(qty_dir_kernels))
-    print('[i] Kernels in YAML kernels: {}'.format(qty_kernels_kernels))
-    print('[i] Kernels in YAML builds : {}'.format(qty_builds_kernels))
+    print('[i] Kernels in YAML kernels: {}'.format(qty_yml_kernels))
 
 
 def main(argv):
-    global qty_dir_kernels, qty_kernels_kernels, qty_builds_kernels
+    global qty_dir_kernels, qty_yml_kernels
 
     # Assign variables
     data = read_file(INPUT_FILE)
@@ -203,8 +195,7 @@ def main(argv):
 
     # Generate stats
     qty_dir_kernels = count_android_versions()
-    qty_builds_kernels = count_yml(yml, 'builds')
-    qty_kernels_kernels = count_yml(yml, 'kernels')
+    qty_yml_kernels = count_yml(yml)
 
     # Print result
     print_summary()
