@@ -21,7 +21,6 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##         - id     : angler
 ##           name   : Google Nexus 6P (Oreo)
 ##           android: oreo
-##           status : stable
 ##           rootfs : full
 ##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
 ##           note   : >-
@@ -30,7 +29,6 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##         - id     : angler-los
 ##           name   : Google Nexus 6P (LineageOS 17.1)
 ##           android: ten
-##           status : latest
 ##           rootfs : full
 ##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
 ##           note   : >-
@@ -122,7 +120,7 @@ def check_yml(yml):
             for image in element[device_model].get('images', default):
                 for key in list(image.keys()):
                     match key:
-                        case 'id' | 'name' | 'android' | 'status' | 'rootfs' | 'docs' | 'note':
+                        case 'id' | 'name' | 'android' | 'rootfs' | 'docs' | 'note':
                             continue
                         case _:
                             print("[-]   Found unknown value '{} -> images -> {}': {}".format(device_model, key, image.get(key, default)), file=sys.stderr)

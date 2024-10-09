@@ -19,7 +19,6 @@ qty_no_images = 0
 ##         - id     : angler
 ##           name   : Google Nexus 6P (Oreo)
 ##           android: oreo
-##           status : stable
 ##           rootfs : full
 ##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
 ##           note   : >-
@@ -28,7 +27,6 @@ qty_no_images = 0
 ##         - id     : angler-los
 ##           name   : Google Nexus 6P (LineageOS 17.1)
 ##           android: ten
-##           status : latest
 ##           rootfs : full
 ##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
 ##           note   : >-
@@ -80,13 +78,12 @@ def generate_table(data):
                         print("[i]     - {}".format(image.get('name', default)))
                     if docs:
                         docs = "<{}>".format(docs)
-                    images.append("| {} | {} | {} | {} | {} | {} | {} | {} |\n".format(
+                    images.append("| {} | {} | {} | {} | {} | {} | {} |\n".format(
                                                                                   image.get('name', default).ljust(25),
                                                                                   kernel_name.ljust(6),
                                                                                   image.get('id', default).ljust(9),
                                                                                   image.get('android', default).ljust(38),
                                                                                   image.get('rootfs', default).ljust(6),
-                                                                                  image.get('status', default).ljust(6).title(),
                                                                                   docs.ljust(53),
                                                                                   image.get('note', default).strip('<br>').ljust(5)
                                                                                  )
@@ -95,8 +92,8 @@ def generate_table(data):
                 qty_no_images += 1
                 #print("[-] Possible issue with: {} (no images)".format(element[kernel_name].get('model', default)), file=sys.stderr)
 
-    table  = "| Display Name (Android OS) | Device | Kernel ID | [Android Version](kernel-summary.html) | Rootfs | Status | [Documentation](https://www.kali.org/docs/nethunter/) | Notes |\n"
-    table += "|---------------------------|--------|-----------|----------------------------------------|--------|--------|-------------------------------------------------------|-------|\n"
+    table  = "| Display Name (Android OS) | Device | Kernel ID | [Android Version](kernel-summary.html) | Rootfs | [Documentation](https://www.kali.org/docs/nethunter/) | Notes |\n"
+    table += "|---------------------------|--------|-----------|----------------------------------------|--------|-------------------------------------------------------|-------|\n"
     # iterate over all the models
     for device in sorted(images):
         table += "{}".format(device)
