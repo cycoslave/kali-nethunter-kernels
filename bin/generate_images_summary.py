@@ -19,7 +19,6 @@ qty_no_images = 0
 ##         - id     : angler
 ##           name   : Google Nexus 6P (Oreo)
 ##           android: oreo
-##           rootfs : full
 ##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
 ##           note   : >-
 ##                    Nexmon support<br>
@@ -27,7 +26,6 @@ qty_no_images = 0
 ##         - id     : angler-los
 ##           name   : Google Nexus 6P (LineageOS 17.1)
 ##           android: ten
-##           rootfs : full
 ##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
 ##           note   : >-
 ##                    Nexmon support<br>

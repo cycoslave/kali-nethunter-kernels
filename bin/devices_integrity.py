@@ -21,7 +21,6 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##         - id     : angler
 ##           name   : Google Nexus 6P (Oreo)
 ##           android: oreo
-##           rootfs : full
 ##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
 ##           note   : >-
 ##                    Nexmon support<br>
@@ -29,7 +28,6 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##         - id     : angler-los
 ##           name   : Google Nexus 6P (LineageOS 17.1)
 ##           android: ten
-##           rootfs : full
 ##           docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
 ##           note   : >-
 ##                    Nexmon support<br>
