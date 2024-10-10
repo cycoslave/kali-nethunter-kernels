@@ -160,7 +160,7 @@ def write_file(data, file):
             meta += 'title: Kali NetHunter Kernel Summary\n'
             meta += '---\n\n'
             stats  = "- The official [Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) has a total of [**{}** kernels](kernels-summary.html) directories\n".format(str(qty_dir_kernels))
-            stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.yml), [directories](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel))_\n"
+            stats += "  - See [here for more details about the kernels](kernels.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.yml), [directories](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel-builder))_\n"
             stats += "  - **{} kernels build profiles** are in ./devices.yml\n".format(qty_yml_kernels)
             stats += "  - NetHunter is on **{} Android versions**\n".format(len(qty_versions))
             stats += "- [Kali NetHunter Statistics Overview](index.html)\n\n"
