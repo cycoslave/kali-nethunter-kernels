@@ -1,8 +1,8 @@
 # Kali NetHunter Devices
 
-[This repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) contains all the pre-compiled [kernels](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel), kernel modules, and [installation scripts](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-utils) necessary for [building an installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/tree/master/nethunter-installer) tailored for a supported device.
+[This repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) contains all the pre-compiled [kernels](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel), kernel modules, and [installation scripts](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-utils) necessary for [building an installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) tailored for a supported device.
 
-[nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/tree/master/nethunter-installer) will clone this repository when using `./bootstrap.sh` in the [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/tree/master/nethunter-installer) directory of the [main Kali NetHunter repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project).
+[kali-nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) will clone this repository when using `./bootstrap.sh`.
 
 ## How to add a new/unsupported device
 
