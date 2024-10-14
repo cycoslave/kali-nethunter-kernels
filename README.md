@@ -1,4 +1,4 @@
-# Kali NetHunter Devices
+# Kali NetHunter Kernels
 
 This repository contains all the binary files (e.g. pre-compiled kernels, kernel modules), and [custom scripts](https://gitlab.com/kalilinux/packages/nethunter-utils) necessary for [building an installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) tailored for a supported device.
 _If you are looking for our [kernel-builder, see here](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel-builder)._
@@ -187,7 +187,7 @@ They should be modified to match your device. It will make it easier to build yo
 
 The binary output from the build will be self-contained in a `build/` folder, with the kernel modules properly stripped and installed with their modprobe data in `build/lib/modules`.
 
-Using these scripts in your source tree will make it easier for others to make modifications and update your device in the future. It will also increase the likelihood your device will be accepted into the [nethunter-devices](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices) repository as an officially supported device!
+Using these scripts in your source tree will make it easier for others to make modifications and update your device in the future. It will also increase the likelihood your device will be accepted into the [nethunter-kernels](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels) repository as an officially supported device!
 
 - - -
 

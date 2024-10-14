@@ -5,7 +5,7 @@ import yaml # $ python3 -m venv .env; source .env/bin/activate; python3 -m pip i
 
 OUTPUT_FILE = "./image-summary.md"
 INPUT_FILE = "./devices.yml"
-repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
+repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
 qty_total_models = 0
 qty_images_models = 0
 qty_images = 0
@@ -98,7 +98,7 @@ def write_file(data, file):
             meta += 'title: Kali NetHunter Pre-created Images Summary\n'
             meta += '---\n\n'
             stats  = "- The [next release](https://www.kali.org/releases/) cycle will include [**{}** Kali NetHunter pre-created images](image-summary.html) ready to [download](https://www.kali.org/get-kali/#kali-mobile)\n".format(str(qty_images))
-            stats += "  - See [here for more details about the pre-created images](images.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/devices.yml))_\n"
+            stats += "  - See [here for more details about the pre-created images](images.html) _([config file](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/blob/master/devices.yml))_\n"
             #stats += "  - These {} images covers **{} device models**\n".format(str(qty_images), qty_images_models)
             stats += "  - _Another {} NetHunter images can be self-generated using the build-scripts_\n".format(qty_no_images)
             stats += "  - _Meaning, there is a **total of {} NetHunter supported images**_\n".format(qty_images + qty_no_images)
