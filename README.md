@@ -1,6 +1,6 @@
 # Kali NetHunter Kernels
 
-This repository contains all the binary files (e.g. pre-compiled kernels, kernel modules), and [custom scripts](https://gitlab.com/kalilinux/packages/nethunter-utils) necessary for [building an installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) tailored for a supported device.
+This repository contains all the binary files (e.g. pre-compiled kernels, kernel modules), [custom scripts](https://gitlab.com/kalilinux/packages/nethunter-utils) and [bootanimation](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-bootanimation/) necessary for [building an installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) tailored for a supported device.
 _If you are looking for our [kernel-builder, see here](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel-builder)._
 
 You will need to clone [kali-nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) repository before using `./build.py`. This has been automated using `./bootstrap.sh`.
@@ -205,7 +205,3 @@ For older kernels, refer to:
     - ARMv8: `$ wget https://releases.linaro.org/components/toolchain/binaries/4.9-2016.02/aarch64-linux-gnu/gcc-linaro-4.9-2016.02-x86_64_aarch64-linux-gnu.tar.xz`
 - Uber Linaro
     - `$ git clone https://bitbucket.org/UBERTC/arm-eabi-4.9.git`
-
-
-<!-- $ date -u -->
-Wed  9 Oct 2024 04:58:21 UTC
