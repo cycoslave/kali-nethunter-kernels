@@ -1,6 +1,6 @@
 # Kali NetHunter Devices
 
-This repository contains all the binary files (e.g. pre-compiled kernels, kernel modules), and [scripts](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-utils) necessary for [building an installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) tailored for a supported device.
+This repository contains all the binary files (e.g. pre-compiled kernels, kernel modules), and [custom scripts](https://gitlab.com/kalilinux/packages/nethunter-utils) necessary for [building an installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) tailored for a supported device.
 _If you are looking for our [kernel-builder, see here](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel-builder)._
 
 You will need to clone [kali-nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) repository before using `./build.py`. This has been automated using `./bootstrap.sh`.
