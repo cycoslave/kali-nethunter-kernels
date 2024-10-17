@@ -7,7 +7,8 @@ import yaml # $ python3 -m venv .env; source .env/bin/activate; python3 -m pip i
 OUTPUT_FILE = "./kernel-summary.md"
 INPUT_FILE = "./devices.yml"
 ROOT_DIR = "./"
-repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
+qty_dir_kernels = 0
+qty_yml_kernels = 0
 
 ## Input:
 ##   $ ls -l
@@ -76,7 +77,6 @@ repo_msg = "\n_This table was [generated automatically](https://gitlab.com/kalil
 ##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
 ##               features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
 
-
 def read_file(file):
     try:
         print('[i] Reading: {}'.format(file))
@@ -106,24 +106,35 @@ def check_yml(yml):
     # iterate over all device models
     for element in yml:
         # iterate over all model's entries in yaml file
-        for device_model in element.keys():
+        for codename in element.keys():
 
-            for key in element[device_model].keys():
+            for key in element[codename].keys():
                 match key:
                     case 'model' | 'images' | 'kernels':
                         continue
                     case _:
-                        print("[-]   Found unknown value '{} -> {}': {}".format(device_model, key, element[device_model].get(key, default)), file=sys.stderr)
+                        print("[-]   Found unknown value '{} -> {}': {}".format(codename, key, element[codename].get(key, default)), file=sys.stderr)
 
-            for image in element[device_model].get('images', default):
+            # Useful for troubleshoot only
+            #if len(element[codename].get('images', default)) > 1:
+            #    print("[i]   Multiple images for: {}".format(codename))
+            # Disabling as its optional to have pre-created image section - useful for troubleshoot only
+            #if not element[codename].get('images', default):
+            #    print("[-]   {} doesn't have a image section".format(codename), file=sys.stderr)
+            for image in element[codename].get('images', default):
+            # Useful for troubleshoot only
+            #    if len(element[codename].get('images', default)) > 1:
+            #        print("[i]     - {}".format(image.get('name', default)))
                 for key in list(image.keys()):
                     match key:
                         case 'id' | 'name' | 'android' | 'rootfs' | 'docs' | 'note':
                             continue
                         case _:
-                            print("[-]   Found unknown value '{} -> images -> {}': {}".format(device_model, key, image.get(key, default)), file=sys.stderr)
+                            print("[-]   Found unknown value '{} -> images -> {}': {}".format(codename, key, image.get(key, default)), file=sys.stderr)
 
-            for kernel in element[device_model].get('kernels', default):
+            if not element[codename].get('kernels', default):
+                print("[-]   {} doesn't have a kernel section".format(codename), file=sys.stderr)
+            for kernel in element[codename].get('kernels', default):
                 for key in list(kernel.keys()):
                     match key:
                         case 'id' | 'description' | 'versions' | 'arch' | 'flasher' | 'kernelstring' | 'ramdisk' | 'block' | 'devicenames' | 'resolution' | 'version' | 'supersu':
@@ -132,9 +143,9 @@ def check_yml(yml):
                             if kernel.get('flasher', default) == 'anykernel':
                                 continue
                             else:
-                                print("[-]   Not using anykernel flasher, so can't use value '{} -> kernels -> {}': {}".format(device_model, key, build.get(key, default)), file=sys.stderr)
+                                print("[-]   Not using anykernel flasher, so can't use value '{} -> kernels -> {}': {}".format(codename, key, build.get(key, default)), file=sys.stderr)
                         case _:
-                            print("[-]   Found unknown value '{} -> kernels -> {}': {}".format(device_model, key, kernel.get(key, default)), file=sys.stderr)
+                            print("[-]   Found unknown value '{} -> kernels -> {}': {}".format(codename, key, kernel.get(key, default)), file=sys.stderr)
 
                 for version in kernel.get('versions', default):
                     for key in list(version.keys()):
@@ -142,7 +153,7 @@ def check_yml(yml):
                             case 'android' | 'linux' | 'kernel' | 'description' | 'author' | 'source' | 'features':
                                 continue
                             case _:
-                                print("[-]   Found unknown value '{} -> kernels -> versions -> {}': {}".format(device_model, key, version.get(key, default)), file=sys.stderr)
+                                print("[-]   Found unknown value '{} -> kernels -> versions -> {}': {}".format(codename, key, version.get(key, default)), file=sys.stderr)
 
 
 def compare_yml(yml):
@@ -152,23 +163,24 @@ def compare_yml(yml):
     # iterate over all device models
     for element in yml:
         # iterate over all model's entries in yaml file
-        for device_model in element.keys():
+        for codename in element.keys():
             image_array = []
             kernel_array = []
 
-            for image in element[device_model].get('images', default):
+            for image in element[codename].get('images', default):
                 image_array.append(image.get('id', default))
 
-            for kernel in element[device_model].get('kernels', default):
+            for kernel in element[codename].get('kernels', default):
                 kernel_array.append(kernel.get('id', default))
 
             for image in image_array:
                 if image not in kernel_array:
-                    print("[-]   Found unknown image id, without matching kernel id: {} -> images -> id: {}".format(device_model, image), file=sys.stderr)
+                    print("[-]   Found image id, without matching kernel id: {} -> images -> id: {}".format(codename, image), file=sys.stderr)
 
-            for kernel in kernel_array:
-                if kernel not in kernel_array:
-                    print("[-]   Found unknown kernel id, without matching kernel id: {} -> kernels -> id: {}".format(device_model, kernel), file=sys.stderr)
+            # Disabling as its optional to have pre-created image section - useful for troubleshoot only
+            #for kernel in kernel_array:
+            #    if kernel not in image_array:
+            #        print("[-]   Found kernel id, without matching image id: {} -> images -> id: {}".format(codename, kernel), file=sys.stderr)
 
 
 def compare_yml_dir(yml):
@@ -178,43 +190,46 @@ def compare_yml_dir(yml):
     # iterate over all device models
     for element in yml:
         # iterate over all model's entries in yaml file
-        for device_model in element.keys():
-            model = element[device_model].get('model', default)
+        for codename in element.keys():
+            model = element[codename].get('model', default)
 
             # is there a kernel entry in the YAML file?
-            if 'kernels' not in element[device_model]:
-                print("[-]   In {}, found model ({}/{}), but is missing kernel entry".format(INPUT_FILE, device_model, model), file=sys.stderr)
+            if 'kernels' not in element[codename]:
+                print("[-]   In {}, found model ({}/{}), but is missing kernel entry".format(INPUT_FILE, codename, model), file=sys.stderr)
 
-            kernels = [x['id'] for x in element[device_model].get('kernels', default)]
+            kernels = [x['id'] for x in element[codename].get('kernels', default)]
             dup_kernels = {x for x in kernels if kernels.count(x) > 1}
             if dup_kernels:
-                print("[-]   In {}, found model ({}/{}), but has multiple kernels with the same ID: {}".format(INPUT_FILE, device_model, model, dup_kernels), file=sys.stderr)
+                print("[-]   In {}, found model ({}/{}), but has multiple kernels with the same ID: {}".format(INPUT_FILE, codename, model, dup_kernels), file=sys.stderr)
 
-            for kernel in element[device_model].get('kernels', default):
+            for kernel in element[codename].get('kernels', default):
                 kernel_id = kernel.get('id', default)
-                if not kernel_id.startswith(device_model):
-                    print("[-]   In {}, kernel_id doesn't start with model id: model: {}   kernel_id: {}".format(INPUT_FILE, device_model, kernel_id), file=sys.stderr)
+                if not kernel_id.startswith(codename):
+                    print("[-]   In {}, kernel_id doesn't start with model id: model: {}   kernel_id: {}".format(INPUT_FILE, codename, kernel_id), file=sys.stderr)
 
                 versions = [x['android'] for x in kernel.get('versions', default)]
                 dup_versions = {x for x in versions if versions.count(x) > 1}
                 if dup_versions:
-                    print("[-]   In {}, found model ({}/{}), but {} kernel id with multiple same android version: {}".format(INPUT_FILE, device_model, model, kernel_id, dup_versions), file=sys.stderr)
+                    print("[-]   In {}, found model ({}/{}), but {} kernel id with multiple same android version: {}".format(INPUT_FILE, codename, model, kernel_id, dup_versions), file=sys.stderr)
 
                 for version in kernel.get('versions', default):
                     android_version = version.get('android', default)
                     path = os.path.join(ROOT_DIR, android_version, kernel_id)
                     if not os.path.isdir(path):
-                        print("[-]   In {}, found model ({}/{}), but missing on disk: {}".format(INPUT_FILE, device_model, model, path), file=sys.stderr)
+                        print("[-]   In {}, found model ({}/{}), but missing on disk: {}".format(INPUT_FILE, codename, model, path), file=sys.stderr)
 
 
-def get_versions(yml):
+def get_dir_versions():
     # Discovery directories
     subdirectories = [ x.path for x in os.scandir(ROOT_DIR) if x.is_dir() and not x.path.startswith('{}.'.format(ROOT_DIR))]
     # Remove non Android version directories
     subdirectories.remove('{}bin'.format(ROOT_DIR))
     subdirectories.remove('{}example_scripts'.format(ROOT_DIR))
     subdirectories.remove('{}patches'.format(ROOT_DIR))
+    return subdirectories
 
+
+def compare_dir_yml(subdirectories, yml):
     for android_version_dir in subdirectories:
         android_version_dir = android_version_dir.lower()
         android_version_dir = android_version_dir.replace(ROOT_DIR, '')
@@ -222,19 +237,19 @@ def get_versions(yml):
 
         root, dirs, files = next(os.walk(android_version_dir))
         for kernel_id_dir in dirs:
-            compare_dir_yml(android_version_dir, kernel_id_dir, yml)
+            do_compare_dir_yml(android_version_dir, kernel_id_dir, yml)
 
 
-def compare_dir_yml(android_version_dir, kernel_id_dir, yml):
+def do_compare_dir_yml(android_version_dir, kernel_id_dir, yml):
     default = ""
     path = os.path.join(ROOT_DIR, android_version_dir, kernel_id_dir)
 
     # iterate over all device models
     for element in yml:
         # iterate over all model's entries in yaml file
-        for device_model in element.keys():
+        for codename in element.keys():
             # iterate over all model's kernels
-            for kernel in element[device_model].get('kernels', default):
+            for kernel in element[codename].get('kernels', default):
                 kernel_id = kernel.get('id', default)
                 # have we got a kernel id/name match?
                 if kernel_id == kernel_id_dir:
@@ -248,28 +263,84 @@ def compare_dir_yml(android_version_dir, kernel_id_dir, yml):
     print("[-]   Found on disk ({}), but hasn't be added to: {}".format(path,  INPUT_FILE), file=sys.stderr)
 
 
+def count_kernel_dir(subdirectories):
+    i = 0
+    for android_version_dir in subdirectories:
+        android_version_dir = android_version_dir.lower()
+        android_version_dir = android_version_dir.replace(ROOT_DIR, '')
+        x = android_version_dir.title()
+        x = x.replace('Kitkat', '4.4 - KitKat')
+        x = x.replace('Lollipop', '5.0 - Lollipop')
+        x = x.replace('Marshmallow', '6 - Marshmallow')
+        x = x.replace('Nougat', '7 - Nougat')
+        x = x.replace('Preo', '8 - Oreo')
+        x = x.replace('Pie', '9 - Pie')
+        x = x.replace('Ten', '10 - Ten')
+        x = x.replace('Eleven', '11 - Eleven')
+        x = x.replace('Twelve', '12 - Twelve')
+        x = x.replace('Thirteen', '13 - Thirteen')
+        x = x.replace('Fourteen', '14 - Fourteen')
+        x = x.replace('Wearos', 'Wear OS')
+        path = ROOT_DIR + android_version_dir
+        i += dir_count(path)
+    return i
+
+
+def dir_count(path):
+    print('[i] Searching in: {}'.format(path))
+    root, dirs, files = next(os.walk(path))
+    return len(dirs)
+
+
+def count_kernel_yml(yml):
+    default = ""
+    yml_kernels = []
+
+    # iterate over all the data
+    for element in yml:
+        # iterate over all the device models
+        for codename in element.keys():
+            for kernel in element[codename].get('kernels', default):
+                # iterate over all model kernels version's
+                for version in kernel.get('versions', default):
+                    android_version = version.get('android', default)
+                    yml_kernels.append(android_version)
+    return len(yml_kernels)
+
+
+def print_stats(qty_dir_kernels, qty_yml_kernels):
+    print('[i] Kernels in directories : {}'.format(qty_dir_kernels))
+    print('[i] Kernels in YAML kernels: {}'.format(qty_yml_kernels))
+
+
 def main(argv):
-    # Assign variables
+    # Read file in
     data = read_file(INPUT_FILE)
 
-    # Get data (YAML)
+    # Get YAML file
     yml = yml_parse(data)
 
-    # Check YAML keys
+    # Get directory structure
+    directories = get_dir_versions()
+
+    # Check YAML keys/values
     check_yml(yml)
 
-    # Compare YAML's sections (images & kernels)
+    # Lookup YAML's sections (images & kernels)
     compare_yml(yml)
 
     # Compare YAML to directory structure
     compare_yml_dir(yml)
 
-    # Get data (directory)
-    #   and compare directory structure to YAML
-    get_versions(yml)
+    # Compare directory structure to YAML
+    compare_dir_yml(directories, yml)
 
-    # Exit
-    exit(0)
+    # Generate stats
+    qty_dir_kernels = count_kernel_dir(directories)
+    qty_yml_kernels = count_kernel_yml(yml)
+
+    # Print stats
+    print_stats(qty_dir_kernels, qty_yml_kernels)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
