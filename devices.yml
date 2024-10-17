@@ -87,7 +87,7 @@
     model  : Xiaomi Pocophone F3
     kernels:
       - id          : alioth-los-ksu
-        description : Xiaomi Poco F3 for LineageOS w/ KernelSU
+        description : Xiaomi Pocophone F3 for LineageOS w/ KernelSU
         kernelstring: Bifr0st
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
@@ -270,7 +270,7 @@
             source     : 'git clone https://github.com/Re4son/android_kernel_lge_bullhead -b nethunter-8.1'
             features   : [HID, Injection, RTL8812AU]
 - cancro:
-    model  : Xiaomi Mi 3 / 4
+    model  : Xiaomi Mi 3 / Mi 4
     kernels:
       - id          : cancro-cm
         description : Xiaomi Mi 3 / Mi 4 for CyanogenMod
@@ -1650,7 +1650,7 @@
             linux      : 4.19
             author     : kimoc0der
 - oneplus1:
-    model  : OnePus One
+    model  : OnePlus One
     images :
       - id     : oneplus1-los
         name   : OnePlus One (LineageOS 18.1)
@@ -1753,7 +1753,7 @@
             source     : 'git clone https://github.com/binkybear/android_kernel_oneplus_msm8994.git -b cm-13.0'
             features   : [CDROM, HID, Injection]
       - id          : oneplus2-los
-        description : OnePlusTwo for LineageOS
+        description : OnePlus 2 for LineageOS
         arch        : arm64
         devicenames : A2001 A2003 A2005 OnePlus2 oneplus2
         block       : /dev/block/bootdevice/by-name/boot
@@ -1907,7 +1907,7 @@
             source     : 'git clone https://github.com/nethunteros/android_kernel_oneplus_msm8998 -b boeffla_cm14 oneplus5'
             features   : [CDROM, HID, Injection]
       - id          : oneplus5-los
-        description : OnePlus5/T for LineageOS
+        description : OnePlus 5 / 5T for LineageOS
         version     : v0.3.2
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
@@ -1933,7 +1933,7 @@
             source     : 'git clone -b v0.3.2 https://github.com/seppzer0/s0nh_kernel'
             features   : [HID, Injection, RTL88XXAU, RTL8187]
       - id          : oneplus5-los-ksu
-        description : OnePlus5/T for LineageOS w/ KernelSU
+        description : OnePlus 5 / 5T for LineageOS w/ KernelSU
         version     : v0.3.2
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
@@ -1946,7 +1946,7 @@
             source     : 'git clone -b v0.3.2 https://github.com/seppzer0/s0nh_kernel'
             features   : [HID, Injection, RTL88XXAU, RTL8187, KernelSU]
       - id          : oneplus5-pa-ksu
-        description : OnePlus5/T for Paranoid Android w/ KernelSU
+        description : OnePlus 5 / 5T for Paranoid Android w/ KernelSU
         version     : v0.3.2
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
@@ -1990,7 +1990,7 @@
             source     : 'git clone https://github.com/kimocoder/android_kernel_oneplus6 -b nethunter'
             features   : [HID-4, Injection, QCACLD, RTL8812AU, RTL8188EUS]
       - id          : oneplus6-los
-        description : OnePlus6 for Lineageos
+        description : OnePlus 6 for Lineageos
         arch        : arm64
         flasher     : anykernel
         modules     : 1
@@ -2094,7 +2094,7 @@
     model  : OnePlus X
     kernels:
       - id          : oneplusx-cm
-        description : OnePlusX for CyanogenMod
+        description : OnePlus X for CyanogenMod
         devicenames : OnePlus onyx OnePlusX oneplusx
         versions    :
           - android    : marshmallow
@@ -2124,7 +2124,7 @@
             author     : rajeshdubey293
             source     : 'git clone https://github.com/rajeshdubey293/kernel_osprey-oreo -b oreo-mr1'
             features   : [HID]
-- payton-los:
+- payton:
     model  : Motorola Moto X4
     kernels:
       - id          : payton-los
@@ -2147,7 +2147,7 @@
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_motorola_msm8998 -b lineage-20'
             features   : [HID-4, Injection, RTL88XXAU, BT_RFCOMM, Internal BT]
-- pdx201-los:
+- pdx201:
     model  : Sony Xperia 10 II
     kernels:
       - id          : pdx201-los
@@ -2260,7 +2260,7 @@
     model  : Realme 5 / 5i / 5s
     kernels:
       - id          : rmx1911-cos
-        description : Realme 5/5i/5s for Corvus OS
+        description : Realme 5 / 5i / 5s for Corvus OS
         arch        : arm64
         flasher     : anykernel
         block       : /dev/block/bootdevice/by-name/boot
@@ -2469,7 +2469,7 @@
     model  : Nothing Phone (1)
     kernels:
       - id          : spacewar
-        description : Nothin Phone (1) for AOSP/AOSPA
+        description : Nothing Phone (1) for AOSP/AOSPA
         arch        : arm64
         devicenames : A063,a063,spacewar,Spacewar
         block       : boot
@@ -2599,10 +2599,10 @@
             source     : 'git clone https://github.com/yesimxev/mobvoi-ticwatch-kernel -b nethunter'
             features   : [Injection, HID-4, NFS, Internal BT, BT_RFCOMM]
 - us996:
-    model  : LG V20 (US Version/Unlocked)
+    model  : LG V20
     kernels:
       - id          : us996
-        description : LG V20 for stock Android
+        description : LG V20 (US Version/Unlocked) for stock Android
         arch        : arm64
         devicenames : us996 LG-US996
         versions    :
@@ -2628,7 +2628,7 @@
     model  : Motorola Moto X2 (2014)
     kernels:
       - id          : victara-cm
-        description : Moto X2 for CyanogenMod
+        description : Motorola Moto X2 for CyanogenMod
         devicenames : victara
         versions    :
           - android    : nougat
