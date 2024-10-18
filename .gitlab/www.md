@@ -2,15 +2,16 @@
 title: Kali NetHunter Statistics Overview
 ---
 
-## Pre-created Images
+## Images
 
-- [Pre-created Images Details](images.html) <!-- Breakdown? Details? -->
-- [Pre-created Images Overview](image-summary.html)
+- [Pre-created Images](/images.html)
+- [Device Modules Pre-created Images](/image-models.html)
+- [Device Modules Kernels](/device-kernels.html)
 
 ## Kernels
 
-- [Kernel Details](kernels.html) <!-- Breakdown? Details? -->
-- [Kernel Summary](kernel-summary.html)
+- [Kernels](/kernels.html)
+- [Android Versions](/android-versions.html)
 
 - - -
 
