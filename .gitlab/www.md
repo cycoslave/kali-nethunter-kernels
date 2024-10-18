@@ -6,6 +6,9 @@ title: Kali NetHunter Statistics Overview
 
 - [Pre-created Images](/images.html)
 - [Device Modules Pre-created Images](/image-models.html)
+
+## Images & Kernels
+
 - [Device Modules Kernels](/device-kernels.html)
 
 ## Kernels

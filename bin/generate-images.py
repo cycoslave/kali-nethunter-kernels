@@ -106,7 +106,7 @@ def write_file(data, file):
             stats += "  - Another **{} NetHunter images can be self-generated** using the [build-scripts](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer)\n".format(qty_no_image)
             stats += "  - Meaning, there is a **total of [{} NetHunter supported device models](/device-kernels.html)**\n".format(qty_image_models + qty_no_image)
             stats += "- [Kali NetHunter Statistics Overview](/index.html)\n\n"
-            footer = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
+            footer = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
             f.write(str(meta))
             f.write(str(stats))
             f.write(str(data))

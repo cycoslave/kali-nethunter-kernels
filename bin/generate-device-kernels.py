@@ -82,15 +82,15 @@ def get_android_versions(yml):
                                                             x.ljust(23),
                                                             str(images_cnt).ljust(38),
                                                             str(kernel_cnt).ljust(11),
-                                                            str(versions_cnt).ljust(68),
+                                                            str(versions_cnt).ljust(67),
                                                           )
                                                         )
     return devices
 
 
 def generate_table(devices):
-    table  = "| Device Model (Codename) | [Qty Pre-created Images](/images.html) | Qty Kernels | [Qty Kernels Versions](/kernels.html) |\n"
-    table += "|-------------------------|----------------------------------------|-------------|---------------------------------------|\n"
+    table  = "| Device Model (Codename) | [Qty Pre-created Images](/images.html) | Qty Kernels | [Qty Kernel Versions](/kernels.html) |\n"
+    table += "|-------------------------|----------------------------------------|-------------|--------------------------------------|\n"
 
     # Iterate over all the results
     for device in sorted(devices):
@@ -105,10 +105,10 @@ def write_file(data, file):
             meta += 'title: Kali NetHunter Device Modules Kernels\n'
             meta += '---\n\n'
             stats  = "- Kali NetHunter supports [**{} device modules**](/device-kernels.html)\n".format(qty_models)
-            stats += "  - Of which [**{} devices**](/image-models.html)** have [**{} pre-created images**](/images.html)\n".format(qty_image_models, qty_images)
-            stats += "  - There is a total of **{} kernels**, made up of [**{} kernel versions**](/kernels.html) _(device module kernels * device module [Android Versions](/android-version.html))_\n".format(qty_kernels, qty_kernel_versions)
+            stats += "  - Of which [**{} devices**](/image-models.html) have [**{} pre-created images**](/images.html)\n".format(qty_image_models, qty_images)
+            stats += "  - There is a total of **{} kernels**, made up of [**{} kernel versions**](/kernels.html) _(= device modules * <!-- device modules--> kernels * <!--device module--> [Android versions](/android-version.html))_\n".format(qty_kernels, qty_kernel_versions)
             stats += "- [Kali NetHunter Statistics Overview](/index.html)\n\n"
-            footer = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
+            footer = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
             f.write(str(meta))
             f.write(str(stats))
             f.write(str(data))

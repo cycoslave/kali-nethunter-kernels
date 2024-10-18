@@ -14,7 +14,7 @@ All devices are contained in `devices.yml`. If you want to add your own device y
                             #   Note, replace <codename>
     model  :                # The device's manufacturer and product name . e.g. Nexus 6P
     images :                # This section is meant for the NetHunter team, as it handles images that will be pre-generated on kali.org
-                            #   This is used by kali-nethunter-project's generate-release.py & ./bin/generate_images_*.py
+                            #   This is used by kali-nethunter-installer's generate-release.py & ./bin/generate-image*.py
       - id     :            # Prefix is the same as <codename>, and if using a non-stock ROM, suffix will be ROM's abbreviation. e.g. angler-los
                             #   Note, <images>-<id> needs to match a <kernels>-<id>.
         name   :            # The public "friendly" name of the filename. e.g. Nexus 6P (LineageOS 17.1)
@@ -24,7 +24,7 @@ All devices are contained in `devices.yml`. If you want to add your own device y
         docs   :            # A link to any external documentation. e.g. "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
         note   :            # Any developer notes e.g. Nexmon support
     kernels:                # This section is used during building as its the metadata for any binary files placed in ./<android>/<kernel-id>
-                                #   This is used by kali-nethunter-project's build.py & ./bin/generate_kernels_*.py
+                                #   This is used by kali-nethunter-installer's build.py & ./bin/generate-*kernels.py
       - id     :            # Prefix is the same as <codename>, and if using a non-stock ROM, suffix will be ROM's abbreviation. e.g. angler-los
                             #   Note, <kernels>-<id> needs to match a <images>-<id>.
         description :       # "friendly" name of the kernel, using the format: <model> for <ROM full name> w/ anything extra. e.g. Nexus 6P for LineageOS and Pixel Experience
