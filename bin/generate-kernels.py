@@ -32,7 +32,7 @@ qty_models = 0
 ##               description: Android 8.1
 ##               author     : Re4son & yesimxev
 ##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
-##               features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
+##               features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal_BT]
 ##         - id          : angler-los
 ##           versions    :
 ##             - android    : ten
@@ -40,7 +40,7 @@ qty_models = 0
 ##               description: LineageOS 17.1 & Pixel Experience 10
 ##               author     : Re4son & yesimxev
 ##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
-##               features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
+##               features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal_BT, RTL8188EUS]
 
 def read_file(file):
     try:

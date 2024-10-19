@@ -68,7 +68,7 @@
             description: LineageOS 18.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_samsung_universal7580 -b lineage-18.1'
-            features   : [HID, Injection, RTL88XXAU, Internal BT, BT_RFCOMM]
+            features   : [HID, Injection, RTL88XXAU, Internal_BT, BT_RFCOMM]
 - ailsa-ii:
     model  : ZTE Axon 7
     kernels:
@@ -142,7 +142,7 @@
             description: Android 8.1
             author     : Re4son & yesimxev
             source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
-            features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
+            features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal_BT]
       - id          : angler-los
         description : Google Nexus 6P for LineageOS and Pixel Experience
         kernelstring: NetHunter kernel for Nexus 6P
@@ -158,7 +158,7 @@
             description: LineageOS 17.1 & Pixel Experience 10
             author     : Re4son & yesimxev
             source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
-            features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
+            features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal_BT, RTL8188EUS]
 - armani:
     model  : Redmi 1S
     kernels:
@@ -221,7 +221,7 @@
             description: Android 13
             author     : Alynx
             source     : 'git clone https://github.com/v3rb0se/alynx-nethunter/'
-            features   : [HID, Injection, BT_RFCOMM, RTL8XXX]
+            features   : [HID-4, Injection, BT_RFCOMM, RTL88XXAU, RTL8188EUS, QCACLD]
 - bramble:
     model  : Google Pixel 4a 5G
     kernels:
@@ -400,13 +400,13 @@
             description: LineageOS 18.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_nokia_sdm660 -b lineage-18.1'
-            features   : [BT_RFCOMM, HID-4, Injection, RTL88XXAU, CDROM, Internal BT, RTL8188EUS]
+            features   : [BT_RFCOMM, HID-4, Injection, RTL88XXAU, CDROM, Internal_BT, RTL8188EUS]
           - android    : thirteen
             linux      : 4.4
             description: LineageOS 20
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_nokia_sdm660 -b lineage-20'
-            features   : [BT_RFCOMM, HID-4, Injection, RTL88XXAU, CDROM, Internal BT, RTL8188EUS, RTL-BT]
+            features   : [BT_RFCOMM, HID-4, Injection, RTL88XXAU, CDROM, Internal_BT, RTL8188EUS, RTL-BT]
           - android    : fourteen
             linux      : 4.4
             description: LineageOS 21
@@ -742,13 +742,13 @@
             description: LineageOS 18.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_lge_msm8996 -b nethunter-gamma-pie'
-            features   : [HID, Injection, CDROM, RTL8188EUS, RTL88XXAU, Internal BT]
+            features   : [HID, Injection, CDROM, RTL8188EUS, RTL88XXAU, Internal_BT]
           - android    : twelve
             linux      : 4.04
             description: LineageOS 19.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_lge_msm8996 -b lineage-19.1'
-            features   : [HID, Injection, CDROM, RTL8188EUS, RTL88XXAU, Internal BT, NFS]
+            features   : [HID, Injection, CDROM, RTL8188EUS, RTL88XXAU, Internal_BT, NFS]
 - hammerhead:
     model  : Google Nexus 5
     images :
@@ -1454,19 +1454,19 @@
             description: LineageOS 18.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_xiaomi_laurel_sprout -b lineage-18.1'
-            features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal BT, RTL-BT]
+            features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal_BT, RTL-BT]
           - android    : twelve
             linux      : 4.14
             description: LineageOS 19.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_xiaomi_laurel_sprout -b lineage-18.1'
-            features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal BT, RTL-BT]
+            features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal_BT, RTL-BT]
           - android    : thirteen
             linux      : 4.14
             description: LineageOS 20
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_xiaomi_laurel_sprout -b lineage-18.1'
-            features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal BT, RTL-BT]
+            features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal_BT, RTL-BT]
 - lv517:
     model  : LG K20 Plus
     kernels:
@@ -1708,7 +1708,7 @@
             description: LineageOS 18.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_oppo_msm8974.git -b lineage-18.1 oneplus18.1'
-            features   : [BT_RFCOMM, HID, Injection, CDROM, Internal BT]
+            features   : [BT_RFCOMM, HID, Injection, CDROM, Internal_BT]
 - oneplus2:
     model  : OnePlus 2
     images :
@@ -1813,7 +1813,7 @@
             description: LineageOS 17.1 using anykernel flasher
             author     : Re4son
             source     : 'git clone https://github.com/re4son/android_kernel_oneplus_msm8996_lineageos.git -b nethunter-17.1'
-            features   : [BT_RFCOMM, CDROM, HID, Injection, RTL8812AU, Internal BT]
+            features   : [BT_RFCOMM, CDROM, HID, Injection, RTL8812AU, Internal_BT]
       - id          : oneplus3-oos
         description : OnePlus 3 for OxygenOS
         arch        : arm64
@@ -2039,7 +2039,7 @@
             description: OxygenOS 10
             author     : Re4son & yesimxev
             source     : 'git clone https://github.com/Re4son/android_kernel_oneplus_sm8150_draco -b nethunter-10.0'
-            features   : [BT_RFCOMM, HID-4, Injection, QCACLD, RTL8812AU, RTL8188EUS, Internal BT]
+            features   : [BT_RFCOMM, HID-4, Injection, QCACLD, RTL8812AU, RTL8188EUS, Internal_BT]
           - android    : eleven
             linux      : 4.14
             description: OxygenOS 11
@@ -2146,7 +2146,7 @@
             description: LineageOS 20
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_motorola_msm8998 -b lineage-20'
-            features   : [HID-4, Injection, RTL88XXAU, BT_RFCOMM, Internal BT]
+            features   : [HID-4, Injection, RTL88XXAU, BT_RFCOMM, Internal_BT]
 - pdx201:
     model  : Sony Xperia 10 II
     kernels:
@@ -2162,7 +2162,7 @@
             description: LineageOS 20
             author     : Mashopy
             source     : 'git clone https://github.com/lineageos-on-pdx201/android_kernel_sony_sm6125 -b lineage-20'
-            features   : [HID-4, Injection, RTL88XXAU, BT_RFCOMM, Internal BT]
+            features   : [HID-4, Injection, RTL88XXAU, BT_RFCOMM, Internal_BT]
 - pl2:
     model  : Nokia 6.1
     images :
@@ -2191,13 +2191,13 @@
             description: LineageOS 18.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_nokia_sdm660 -b lineage-18.1'
-            features   : [BT_RFCOMM, HID-4, Injection, RTL88XXAU, CDROM, Internal BT, RTL8188EUS]
+            features   : [BT_RFCOMM, HID-4, Injection, RTL88XXAU, CDROM, Internal_BT, RTL8188EUS]
           - android    : thirteen
             linux      : 4.4
             description: LineageOS 20
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_nokia_sdm660 -b lineage-20'
-            features   : [BT_RFCOMM, HID-4, Injection, RTL88XXAU, CDROM, Internal BT, RTL8188EUS, RTL-BT]
+            features   : [BT_RFCOMM, HID-4, Injection, RTL88XXAU, CDROM, Internal_BT, RTL8188EUS, RTL-BT]
           - android    : fourteen
             linux      : 4.4
             description: LineageOS 21
@@ -2313,7 +2313,7 @@
             description: LineageOS 17.1
             author     : Frostleaft07
             source     : 'git clone https://github.com/Frostleaft07/android_kernel_realme_mt6765 -b Nethunter'
-            features   : [Injection, RTL88XXAU, RTL8812AU, RTL8188EUS, RTL8814AU, RTL8188FU, RTL8192FU, RTL8192EU, HID-4, BT_RFCOMM, NFS, Internal BT]
+            features   : [Injection, RTL88XXAU, RTL8812AU, RTL8188EUS, RTL8814AU, RTL8188FU, RTL8192FU, RTL8192EU, HID-4, BT_RFCOMM, NFS, Internal_BT]
 - rmx3031:
     model  : Realme X7 Max 5G
     kernels:
@@ -2481,19 +2481,19 @@
             description: AOSP/AOSPA Android 12
             author     : kimocoder
             source     : 'git clone https://github.com/kimocoder/android_kernel_nothing_sm7325 -b nethunter-stable'
-            features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal BT, BT_RFCOMM, Injection]
+            features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal_BT, BT_RFCOMM, Injection]
           - android    : thirteen
             linux      : 5.4
             description: AOSP/AOSPA Android 13
             author     : kimocoder
             source     : 'git clone https://github.com/kimocoder/android_kernel_nothing_sm7325 -b nethunter-stable'
-            features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal BT, BT_RFCOMM, Injection]
+            features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal_BT, BT_RFCOMM, Injection]
           - android    : fourteen
             linux      : 5.4
             description: AOSP/AOSPA Android 14
             author     : kimocoder
             source     : 'git clone https://github.com/kimocoder/android_kernel_nothing_sm7325 -b nethunter-stable'
-            features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal BT, BT_RFCOMM, Injection]
+            features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal_BT, BT_RFCOMM, Injection]
 - star2lte:
     model  : Samsung Galaxy S9+
     kernels:
@@ -2539,7 +2539,7 @@
             description: LineageOS 20
             author     : r0ttenbeef
             source     : 'git clone https://github.com/r0ttenbeef/android_kernel_xiaomi_surya -b lineage-20'
-            features   : [HID-4, Injection, RTL8812AU, Internal BT, BT_RFCOMM]
+            features   : [HID-4, Injection, RTL8812AU, Internal_BT, BT_RFCOMM]
 - suzuran:
     model  : Sony Xperia Z5 Compact
     kernels:
@@ -2575,7 +2575,7 @@
             description: Wear OS 2.29
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/msm-catfish-9.0-wear-os'
-            features   : [Injection, HID, Internal BT, BT_RFCOMM]
+            features   : [Injection, HID, Internal_BT, BT_RFCOMM]
 - ticwatchpro3:
     model  : TicWatch Pro 3 GPS/LTE / Pro 3 Ultra GPS/LTE
     images :
@@ -2597,7 +2597,7 @@
             description: Wear OS 2.44
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/mobvoi-ticwatch-kernel -b nethunter'
-            features   : [Injection, HID-4, NFS, Internal BT, BT_RFCOMM]
+            features   : [Injection, HID-4, NFS, Internal_BT, BT_RFCOMM]
 - us996:
     model  : LG V20
     kernels:

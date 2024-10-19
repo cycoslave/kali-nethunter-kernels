@@ -59,7 +59,7 @@ qty_yml_kernels = 0
 ##               description: Android 8.1
 ##               author     : Re4son & yesimxev
 ##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
-##               features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal BT]
+##               features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal_BT]
 ##         - id          : angler-los
 ##           description : Google Nexus 6P for LineageOS and Pixel Experience
 ##           kernelstring: NetHunter kernel for Nexus 6P
@@ -75,7 +75,7 @@ qty_yml_kernels = 0
 ##               description: LineageOS 17.1 & Pixel Experience 10
 ##               author     : Re4son & yesimxev
 ##               source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
-##               features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal BT, RTL8188EUS]
+##               features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal_BT, RTL8188EUS]
 
 def read_file(file):
     try:
@@ -155,6 +155,12 @@ def check_yml(yml):
                             case _:
                                 print("[-]   Found unknown value '{} -> kernels -> versions -> {}': {}".format(codename, key, version.get(key, default)), file=sys.stderr)
 
+                    #for feature in version.get('features', default):
+                    #    match feature:
+                    #        case 'BT_RFCOMM' | 'Internal_BT' | 'RTL-BT' | 'CDROM'| 'HID' | 'HID-4' | 'Injection' | 'Nexmon' | 'QCACLD' | 'ATH9K_HTC' | 'RTL8188EUS' | 'RTL8812AU' | 'RTL88XXAU' | 'NFS' :
+                    #            continue
+                    #        case _:
+                    #            print("[-]   Found unknown value: {} -> kernels -> versions -> {} -> features -> {}".format(device_model, version.get('android', default), feature), file=sys.stderr)
 
 def compare_yml(yml):
     print("[i] Checking YAML's <models>: images <-> kernels")
