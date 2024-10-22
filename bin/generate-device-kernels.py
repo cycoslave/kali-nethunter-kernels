@@ -108,7 +108,7 @@ def write_file(data, file):
             stats += "  - Of which [**{} devices**](/image-models.html) have [**{} pre-created images**](/images.html)\n".format(qty_image_models, qty_images)
             stats += "  - There is a total of **{} kernels**, made up of [**{} kernel versions**](/kernels.html) _(= device modules * <!-- device modules--> kernels * <!--device module--> [Android versions](/android-version.html))_\n".format(qty_kernels, qty_kernel_versions)
             stats += "- [Kali NetHunter Statistics Overview](/index.html)\n\n"
-            footer = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
+            footer = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/blob/main/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
             f.write(str(meta))
             f.write(str(stats))
             f.write(str(data))

@@ -82,7 +82,7 @@ def write_file(data, file):
             stats  = "- The [next release](https://www.kali.org/releases/) cycle will pre-created images to support [**{}** model devices](/image-models.html)\n".format(qty_image_models)
             stats += "  - [**{}** pre-created images](/images.html) will able to [download](https://www.kali.org/get-kali/#kali-mobile)\n".format(qty_images)
             stats += "- [Kali NetHunter Statistics Overview](/index.html)\n\n"
-            footer = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/blob/master/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
+            footer = "\n_This table was [generated automatically](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/blob/main/.gitlab-ci.yml) on {} from the [Kali NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)_\n".format(datetime.now().strftime("%Y-%B-%d %H:%M:%S"))
             f.write(str(meta))
             f.write(str(stats))
             f.write(str(data))
