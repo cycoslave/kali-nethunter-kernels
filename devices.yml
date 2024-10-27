@@ -1438,6 +1438,14 @@
         name   : Xiaomi Mi A3 (LineageOS 20)
         android: thirteen
         docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-xiaomi-mi-a3-linageos18-1.4288889/"
+      - id     : laurel-sprout-los
+        name   : Xiaomi Mi A3 (LineageOS 21)
+        android: fourteen
+        docs   : ""
+      - id     : laurel-sprout-los
+        name   : Xiaomi Mi A3 (LineageOS 22)
+        android: fifteen
+        docs   : ""
     kernels:
       - id          : laurel-sprout-los
         description : Xiaomi Mi A3 for LineageOS
@@ -1466,6 +1474,18 @@
             description: LineageOS 20
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_xiaomi_laurel_sprout -b lineage-18.1'
+            features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal_BT, RTL-BT]
+          - android    : fourteen
+            linux      : 4.14
+            description: LineageOS 21
+            author     : yesimxev
+            source     : 'git clone https://github.com/yesimxev/android_kernel_laurel_sprout -b lineage-18.1'
+            features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal_BT, RTL-BT]
+          - android    : fifteen
+            linux      : 4.14
+            description: LineageOS 22
+            author     : yesimxev
+            source     : 'git clone https://github.com/yesimxev/android_kernel_laurel_sprout -b lineage-18.1'
             features   : [BT_RFCOMM, HID-4, CDROM, RTL88XXAU, QCACLD, RTL8818EUS, NFS, Internal_BT, RTL-BT]
 - lv517:
     model  : LG K20 Plus
