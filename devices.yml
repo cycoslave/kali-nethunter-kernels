@@ -2224,6 +2224,30 @@
             author     : rajeshdubey293
             source     : 'git clone https://github.com/rajeshdubey293/Optimus_Drunk_Potter.git -b 9.0'
             features   : [HID]
+- pyxis:
+    model  : Xiaomi Mi 9 Lite / CC9 (LineageOS 21)
+    images :
+      - id     : pyxis-los
+        name   : Xiaomi Mi 9 Lite / CC9 (LineageOS 21)
+        android: fourteen
+        rootfs : full
+        docs   : ""
+        note   : ""
+    kernels:
+      - id          : pyxis-los
+        description : Xiaomi Mi 9 Lite / CC9 for LineageOS 21
+        arch        : arm64
+        devicenames : pyxis
+        block       : /dev/block/bootdevice/by-name/boot
+        flasher     : anykernel
+        modules     : 1
+        slot_device : 1
+        versions    :
+          - android    : fourteen
+            linux      : 4.9
+            description: LineageOS 21
+            author     : yesimxev
+            source     : 'git clone https://github.com/yesimxev/android_kernel_xiaomi_sdm710 -b lineage-21'
 - r8q:
     model  : Samsung Galaxy S20 FE 5G (Snapdragon)
     kernels:
