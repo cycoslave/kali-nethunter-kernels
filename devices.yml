@@ -2245,7 +2245,7 @@
             source     : 'git clone https://github.com/rajeshdubey293/Optimus_Drunk_Potter.git -b 9.0'
             features   : [HID]
 - pyxis:
-    model  : Xiaomi Mi 9 Lite / CC9 (LineageOS 21)
+    model  : Xiaomi Mi 9 Lite / CC9
     images :
       - id     : pyxis-los
         name   : Xiaomi Mi 9 Lite / CC9 (LineageOS 21)
