@@ -1449,7 +1449,7 @@
     kernels:
       - id          : laurel-sprout-los
         description : Xiaomi Mi A3 for LineageOS
-        kernelstring: NetHunter kernel for Lineage 18.1, 19.1, 20
+        kernelstring: NetHunter kernel for Xiaomi Mi A3 Lineage 18.1, 19.1, 20
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : laurel_sprout,lineage_laurel_sprout,laurel-sprout,lineage-laurel-sprout
