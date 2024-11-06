@@ -713,10 +713,11 @@
     images :
       - id     : h990-los
         name   : LG V20 International (LineageOS 19.1)
-        android: twelve
+        android: fourteen
     kernels:
       - id          : h990
         description : LG V20 (International) for stock Android
+        kernelstring: Kali NetHunter Kernel for LG V20 (International)
         arch        : arm64
         devicenames : elsa LG-H990
         versions    :
@@ -734,6 +735,7 @@
             features   : [HID, Injection]
       - id          : h990-los
         description : LG V20 (International) for LineageOS
+        kernelstring: Kali NetHunter Kernel for LG V20 (International)
         arch        : arm64
         devicenames : elsa LG-H990
         versions    :
@@ -749,6 +751,12 @@
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_lge_msm8996 -b lineage-19.1'
             features   : [HID, Injection, CDROM, RTL8188EUS, RTL88XXAU, Internal_BT, NFS]
+          - android    : fourteen
+            linux      : 4.04
+            description: LineageOS 21
+            author     : yesimxev
+            source     : 'git clone https://github.com/yesimxev/android_kernel_lge_msm8996 -b lineage-21'
+            features   : [HID, Injection, CDROM, RTL8188EUS, RTL88XXAU, Internal_BT, NFS, RTL_BT]
 - hammerhead:
     model  : Google Nexus 5
     images :
