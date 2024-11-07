@@ -1,6 +1,10 @@
 ---
 - a37:
     model  : Oppo A37 (2016)
+    images :
+      - id     : a37-los
+        name   : Oppo A37 (2016) (LineageOS 17.1)
+        android: ten
     kernels:
       - id          : a37-los
         description : Oppo A37 (2016) for LineageOS
@@ -55,6 +59,10 @@
             features   : [HID, Injection, RTL8812AU]
 - a7xelte:
     model  : Samsung Galaxy A7 (2016)
+    images :
+      - id     : a7xelte-los
+        name   : Samsung Galaxy A7 (2016) (LineageOS 18.1)
+        android: eleven
     kernels:
       - id          : a7xelte-los
         description : Samsung Galaxy A7 (2016) for LineageOS
@@ -85,6 +93,10 @@
             features   : [CDROM, HID, Injection]
 - alioth:
     model  : Xiaomi Pocophone F3
+    images :
+      - id     : alioth-los-ksu
+        name   : Xiaomi Pocophone F3 (LineageOS 21)
+        android: fourteen
     kernels:
       - id          : alioth-los-ksu
         description : Xiaomi Pocophone F3 for LineageOS w/ KernelSU
@@ -203,6 +215,10 @@
             features   : [HID, BT_RFCOMM, Injection]
 - blueline:
     model  : Google Pixel 3
+    images :
+      - id     : blueline
+        name   : Google Pixel 3 (Thirteen)
+        android: thirteen
     kernels:
       - id          : blueline
         description : Google Pixel 3 for stock Android and PixelDust
@@ -224,6 +240,10 @@
             features   : [HID-4, Injection, BT_RFCOMM, RTL88XXAU, RTL8188EUS, QCACLD]
 - bramble:
     model  : Google Pixel 4a 5G
+    images :
+      - id     : bramble
+        name   : Google Pixel 4a 5G (Twelve)
+        android: twelve
     kernels:
       - id          : bramble
         description : Google Pixel 4a 5G for stock Android
@@ -284,9 +304,13 @@
             features   : [CDROM, HID, Injection]
 - cedric:
     model  : Motorola Moto G5
+    images :
+      - id     : cedric-los
+        name   : Motorola Moto G5 (LineageOS 15.1)
+        android: oreo
     kernels:
       - id          : cedric-los
-        description : Motorola Moto G5 for LineageOS
+        description : Motorola Moto G5 (LineageOS)
         kernelstring: NetHunter kernel for Motorola Moto G5
         arch        : arm64
         devicenames : cedric
@@ -306,6 +330,10 @@
             features   : [HID]
 - crosshatch:
     model  : Google Pixel 3 XL
+    images :
+      - id     : crosshatch
+        name   : Google Pixel 3 XL (Thirteen)
+        android: thirteen
     kernels:
       - id          : crosshatch
         description : Google Pixel 3 XL for stock Android and PixelDust
@@ -437,6 +465,10 @@
             features   : [BT_RFCOMM, CDROM, HID, Injection, RTL8812AU]
 - eva:
     model  : Huawei P9
+    images :
+      - id     : eva-los
+        name   : Huawei P9 (LineageOS 16.0)
+        android: pie
     kernels:
       - id          : eva-emui
         description : Huawei P9 for EMUI
@@ -712,7 +744,7 @@
     model  : LG V20 (International)
     images :
       - id     : h990-los
-        name   : LG V20 International (LineageOS 19.1)
+        name   : LG V20 International (LineageOS 21)
         android: fourteen
     kernels:
       - id          : h990
@@ -812,6 +844,13 @@
             features   : [HID, Injection]
 - hero2lte:
     model  : Samsung Galaxy S7 Edge
+    images :
+      - id     : hero2lte-oui
+        name   : Samsung Galaxy S7 Edge (Pie)
+        android: pie
+      - id     : hero2lte-los
+        name   : Samsung Galaxy S7 Edge (LineageOS 16.0)
+        android: pie
     kernels:
       - id          : hero2lte-tw
         description : Samsung Galaxy S7 Edge (International & Canadian Exynos) for TouchWiz & One UI
@@ -870,6 +909,13 @@
             features   : [CDROM, HID, Injection]
 - herolte:
     model  : Samsung Galaxy S7
+    images :
+      - id     : herolte-oui
+        name   : Samsung Galaxy S7 (Pie)
+        android: pie
+      - id     : herolte-los
+        name   : Samsung Galaxy S7 (LineageOS 16.0)
+        android: pie
     kernels:
       - id          : herolte-tw
         description : Samsung Galaxy S7 (International & Canadian Exynos) for TouchWiz & One UI
@@ -1183,6 +1229,10 @@
             features   : [HID, Injection]
 - j7y17lte:
     model  : Samsung Galaxy J7 Pro
+    images :
+      - id     : j7y17lte-oui
+        name   : Samsung Galaxy J7 Pro (Pie)
+        android: pie
     kernels:
       - id          : j7y17lte-oui
         description : Samsung Galaxy J7 Pro for One UI
@@ -1414,6 +1464,10 @@
             features   : [CDROM, HID, Injection]
 - kminilte:
     model  : Samsung Galaxy S5 Mini
+    images :
+      - id     : kminilte-los
+        name   : Samsung Galaxy S5 Mini (LineageOS 16.0)
+        android: pie
     kernels:
       - id          : kminilte-los
         description : Samsung Galaxy S5 Mini for LineageOS
@@ -1443,10 +1497,6 @@
     model  : Xiaomi Mi A3
     images :
       - id     : laurel-sprout-los
-        name   : Xiaomi Mi A3 (LineageOS 20)
-        android: thirteen
-        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-xiaomi-mi-a3-linageos18-1.4288889/"
-      - id     : laurel-sprout-los
         name   : Xiaomi Mi A3 (LineageOS 21)
         android: fourteen
         docs   : ""
@@ -1457,7 +1507,7 @@
     kernels:
       - id          : laurel-sprout-los
         description : Xiaomi Mi A3 for LineageOS
-        kernelstring: NetHunter kernel for Xiaomi Mi A3 Lineage 18.1, 19.1, 20
+        kernelstring: NetHunter kernel for Xiaomi Mi A3
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : laurel_sprout,lineage_laurel_sprout,laurel-sprout,lineage-laurel-sprout
@@ -1570,6 +1620,10 @@
             features   : [BT_RFCOMM, CDROM, HID, Injection]
 - markw:
     model  : Xiaomi Redmi 4 Prime
+    images :
+      - id     : markw-los
+        name   : Xiaomi Redmi 4 Prime (LineageOS 16.0)
+        android: pie
     kernels:
       - id          : markw-los
         description : Xiaomi Redmi 4 Prime for LineageOS
@@ -1611,6 +1665,10 @@
             features   : [CDROM, Injection]
 - on7xlte:
     model  : Samsung Galaxy J7 Prime
+    images :
+      - id     : on7xlte-oui
+        name   : Samsung Galaxy J7 Prime (Pie)
+        android: pie
     kernels:
       - id          : on7xlte-oui
         description : Samsung Galaxy J7 Prime for One UI
@@ -1911,6 +1969,10 @@
             features   : [Injection]
 - oneplus5:
     model  : OnePlus 5 / 5T
+    images :
+      - id     : oneplus5-los
+        name   : OnePlus 5 / 5T (LineageOS 20)
+        android: thirteen
     kernels:
       - id          : oneplus5-oos
         description : OnePlus 5 for OxygenOS
@@ -2154,6 +2216,10 @@
             features   : [HID]
 - payton:
     model  : Motorola Moto X4
+    images :
+      - id     : payton-los
+        name   : Motorola Moto X4 (LineageOS 20)
+        android: thirteen
     kernels:
       - id          : payton-los
         description : Motorola Moto X4 for LineageOS
@@ -2177,6 +2243,10 @@
             features   : [HID-4, Injection, RTL88XXAU, BT_RFCOMM, Internal_BT]
 - pdx201:
     model  : Sony Xperia 10 II
+    images :
+      - id     : pdx201-los
+        name   : Sony Xperia 10 II (LineageOS 20)
+        android: thirteen
     kernels:
       - id          : pdx201-los
         description : Sony Xperia 10 II for LineageOS
@@ -2186,7 +2256,7 @@
         devicenames : pdx201,XQ-AU52,seine
         versions    :
           - android    : thirteen
-            linux      : 4.14.19
+            linux      : 4.14
             description: LineageOS 20
             author     : Mashopy
             source     : 'git clone https://github.com/lineageos-on-pdx201/android_kernel_sony_sm6125 -b lineage-20'
@@ -2233,6 +2303,10 @@
             source     : 'git clone https://github.com/yesimxev/android_kernel_nokia_sdm660 -b lineage-21'
 - potter:
     model  : Motorola Moto G5 Plus
+    images :
+      - id     : potter-los
+        name   : Motorola Moto G5 Plus (LineageOS 16.0)
+        android: pie
     kernels:
       - id          : potter-los
         description : Motorola Moto G5 Plus for LineageOS
@@ -2258,12 +2332,10 @@
       - id     : pyxis-los
         name   : Xiaomi Mi 9 Lite / CC9 (LineageOS 21)
         android: fourteen
-        rootfs : full
-        docs   : ""
-        note   : ""
     kernels:
       - id          : pyxis-los
         description : Xiaomi Mi 9 Lite / CC9 for LineageOS 21
+        kernelstring: NetHunter kernel for Xiaomi Mi 9 Lite / CC9
         arch        : arm64
         devicenames : pyxis
         block       : /dev/block/bootdevice/by-name/boot
@@ -2278,6 +2350,10 @@
             source     : 'git clone https://github.com/yesimxev/android_kernel_xiaomi_sdm710 -b lineage-21'
 - r8q:
     model  : Samsung Galaxy S20 FE 5G (Snapdragon)
+    images :
+      - id     : r8q-oui
+        name   : Samsung Galaxy S20 FE 5G (Thirteen)
+        android: thirteen
     kernels:
       - id          : r8q-oui
         description : Samsung Galaxy S20 FE 5G (Snapdragon) for One UI
@@ -2310,6 +2386,10 @@
             features   : [BT_RFCOMM, HID-4, Injection, QCACLD, RTL8812AU, RTL8188EUS]
 - rmx1911:
     model  : Realme 5 / 5i / 5s
+    images :
+      - id     : rmx1911-cos
+        name   : Realme 5 / 5i / 5s (Corvus OS 4.1)
+        android: twelve
     kernels:
       - id          : rmx1911-cos
         description : Realme 5 / 5i / 5s for Corvus OS
@@ -2326,6 +2406,10 @@
             source     : 'git clone https://github.com/mikhailsimon/nethunter-r5x'
 - rmx1971:
     model  : Realme 5 Pro
+    images :
+      - id     : rmx1971
+        name   : Realme 5 Pro (Twelve)
+        android: twelve
     kernels:
       - id          : rmx1971
         description : Alynx NetHunter for Custom Android / stock Android
@@ -2368,6 +2452,10 @@
             features   : [Injection, RTL88XXAU, RTL8812AU, RTL8188EUS, RTL8814AU, RTL8188FU, RTL8192FU, RTL8192EU, HID-4, BT_RFCOMM, NFS, Internal_BT]
 - rmx3031:
     model  : Realme X7 Max 5G
+    images :
+      - id     : rmx3031
+        name   : Realme X7 Max 5G (Thirteen)
+        android: thirteen
     kernels:
       - id          : rmx3031
         description : NetHunter Kernel for stock Android
@@ -2401,6 +2489,10 @@
             source     : 'git clone https://github.com/nethunter-s2/android_kernel_leeco_s2.git -b cm-14.1'
 - sakura:
     model  : Xiaomi Redmi 6 Pro
+    images :
+      - id     : sakura-los
+        name   : Xiaomi Redmi 6 Pro (LineageOS 18.1)
+        android: eleven
     kernels:
       - id          : sakura-los
         description : Xiaomi Redmi 6 Pro for LineageOS
@@ -2438,6 +2530,10 @@
             source     : 'git clone https://github.com/DroidKali/santoni_kernel_nethunter.git'
 - mido:
     model  : Xiaomi Redmi Note 4X
+    images :
+      - id     : mido-pe11
+        name   : Xiaomi Redmi Note 4X (Eleven)
+        android: eleven
     kernels:
       - id          : mido-pe11
         description : Xiaomi Redmi Note 4X for Pixel Experience
@@ -2519,6 +2615,10 @@
             features   : [CDROM, HID, Injection]
 - spacewar:
     model  : Nothing Phone (1)
+    images :
+      - id     : spacewar
+        name   : Nothing Phone (1) (Fourteen)
+        android: fourteen
     kernels:
       - id          : spacewar
         description : Nothing Phone (1) for AOSP/AOSPA
@@ -2548,6 +2648,10 @@
             features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal_BT, BT_RFCOMM, Injection]
 - star2lte:
     model  : Samsung Galaxy S9+
+    images :
+      - id     : star2lte-los
+        name   : Samsung Galaxy S9+ (LineageOS 20)
+        android: thirteen
     kernels:
       - id          : star2lte-los
         description : Samsung Galaxy S9+ for LineageOS
@@ -2563,6 +2667,10 @@
             features   : [HID-4_at_android_terminal_type_setprop_sys.usb.config_hid, "Injection_monitormode_RTL8812AU", Internal_BT, BT_RFCOMM, Docker]
 - sunfish:
     model  : Google Pixel 4a
+    images :
+      - id     : sunfish
+        name   : Google Pixel 4a (Twelve)
+        android: twelve
     kernels:
       - id          : sunfish
         description : Google Pixel 4a for stock Android
@@ -2578,6 +2686,10 @@
             features   : [HID, Injection]
 - surya:
     model  : Xiaomi Poco X3 NFC
+    images :
+      - id     : surya-los
+        name   : Xiaomi Poco X3 NFC (LineageOS 20)
+        android: thirteen
     kernels:
       - id          : surya-los
         description : Xiaomi Poco X3 NFC for LineageOS
@@ -2666,6 +2778,10 @@
             features   : [HID, Injection]
 - vayu:
     model  : Xiaomi Poco X3 Pro
+    images :
+      - id     : vayu
+        name   : Xiaomi Poco X3 Pro (Eleven)
+        android: eleven
     kernels:
       - id          : vayu
         description : Xiaomi Poco X3 Pro for stock Android
