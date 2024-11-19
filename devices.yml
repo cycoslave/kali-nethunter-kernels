@@ -1741,7 +1741,7 @@
       - id     : oneplus1-los
         name   : OnePlus One (LineageOS 18.1)
         android: eleven
-        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-oneplus-one-lineageos-18-1-r.4303579/"
+        docs   : "https://xdaforums.com/t/rom-official-kali-nethunter-for-the-oneplus-one-lineageos-18-1-r.4303579/"
     kernels:
       - id          : oneplus1-cm
         description : OnePlus One for CyanogenMod
@@ -2268,7 +2268,7 @@
         name   : Nokia 6.1 (LineageOS 21)
         android: fourteen
         rootfs : minimal
-        docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-nokia-6-1-los18-1.4330657/"
+        docs   : "https://xdaforums.com/t/rom-official-kali-nethunter-for-the-nokia-6-1-los18-1.4330657/"
         note   : "Important: Built with minimal rootfs. Full is not supported."
     kernels:
       - id          : pl2-los
