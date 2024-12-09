@@ -2682,7 +2682,7 @@
             linux      : 4.14
             description: LineageOS 21
             author     : v0lk3n
-            source     : 'git clone https://github.com/v0lk3n/android_kernel_samsung_exynos9820.git -b nethunter-lineage-21'
+            source     : 'git clone https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-21'
             features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, CAN]
 - sunfish:
     model  : Google Pixel 4a
