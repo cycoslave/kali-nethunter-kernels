@@ -447,7 +447,7 @@
         android: pie
         rootfs : minimal
         docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-nokia-3-1-android-9.4157681/"
-        note   : "Important: Built with minimal rootfs. Full is not supported."
+        note   : "Built with minimal rootfs. Full is not supported."
     kernels:
       - id          : es2
         description : Nokia 3.1 for stock Android
@@ -1717,7 +1717,7 @@
       - id     : oneplus-nord-oos
         name   : OnePlus Nord AC2003 (OxygenOS 11)
         android: eleven
-        note   : "Important: NFC is not working yet."
+        note   : "NFC is not working yet"
     kernels:
       - id          : oneplus-nord-oos
         description : OnePlus Nord for OxygenOS
@@ -2101,7 +2101,7 @@
         name   : OnePlus 7 / 7 Pro / 7T / 7T Pro (OxygenOS 11)
         android: eleven
         docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-oneplus-7/"
-        note   : "Important: Update NetHunter app after flashing"
+        note   : "Update NetHunter app after flashing"
       - id     : oneplus7-v2-oos
         name   : OnePlus 7 / 7 Pro / 7T / 7T Pro (OxygenOS 11 / Custom A11)
         android: eleven
@@ -2269,7 +2269,7 @@
         android: fourteen
         rootfs : minimal
         docs   : "https://xdaforums.com/t/rom-official-kali-nethunter-for-the-nokia-6-1-los18-1.4330657/"
-        note   : "Important: Built with minimal rootfs. Full is not supported."
+        note   : "Built with minimal rootfs. Full is not supported."
     kernels:
       - id          : pl2-los
         description : Nokia 6.1 for LineageOS
@@ -2727,7 +2727,7 @@
         android: wearos
         rootfs : nano
         docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-ticwatch-pro/"
-        note   : "Uses nano fs"
+        note   : "Uses nano rootfs"
     kernels:
       - id          : ticwatchpro
         description : TicWatch Pro for Wear OS
@@ -2748,7 +2748,7 @@
         android: wearos
         rootfs : nano
         docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-ticwatch-pro3/"
-        note   : "Uses nano fs"
+        note   : "Uses nano rootfs"
     kernels:
       - id          : ticwatchpro3
         description : TicWatch Pro 3 for Wear OS
