@@ -2683,14 +2683,14 @@
             source     : 'git clone https://github.com/V3rB0se/Alynx-nethunter-sunfish'
             features   : [HID, Injection]
 - surya:
-    model  : Xiaomi Poco X3 NFC
+    model  : Xiaomi Pocophone X3 NFC
     images :
       - id     : surya-los
-        name   : Xiaomi Poco X3 NFC (LineageOS 20)
+        name   : Xiaomi Pocophone X3 NFC (LineageOS 20)
         android: thirteen
     kernels:
       - id          : surya-los
-        description : Xiaomi Poco X3 NFC for LineageOS
+        description : Xiaomi Pocophone X3 NFC for LineageOS
         kernelstring: R0ttenbeef NetHunter Kernel
         version     : 1.2
         arch        : arm64
@@ -2775,14 +2775,14 @@
             source     : 'git clone https://github.com/jcadduono/android_kernel_lge_msm8996 -b android-7.0'
             features   : [HID, Injection]
 - vayu:
-    model  : Xiaomi Poco X3 Pro
+    model  : Xiaomi Pocophone X3 Pro
     images :
       - id     : vayu
-        name   : Xiaomi Poco X3 Pro (Eleven)
+        name   : Xiaomi Pocophone X3 Pro (Eleven)
         android: eleven
     kernels:
       - id          : vayu
-        description : Xiaomi Poco X3 Pro for stock Android
+        description : Xiaomi Pocophone X3 Pro for stock Android
         arch        : arm64
         devicenames : vayu bhima
         block       : /dev/block/platform/soc/1d84000.ufshc/by-name/boot
