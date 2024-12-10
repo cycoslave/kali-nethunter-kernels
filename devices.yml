@@ -112,17 +112,17 @@
             source     : 'git clone https://github.com/Hani-K/Bifr0st.git -b 14.0-alioth'
             features   : [HID, Injection, RTL88XXAU, BT_RFCOMM, Internal_BT, NFS]
 - angler:
-    model  : Google Nexus 6P
+    model  : Google/Huawei Nexus 6P
     images :
       - id     : angler
-        name   : Google Nexus 6P (Oreo)
+        name   : Google/Huawei Nexus 6P (Oreo)
         android: oreo
         docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-android-8-1.4080807/"
         note   : >-
                  Nexmon support<br>
                  **Our preferred low end device**
       - id     : angler-los
-        name   : Google Nexus 6P (LineageOS 17.1)
+        name   : Google/Huawei Nexus 6P Nexus 6P (LineageOS 17.1)
         android: ten
         docs   : "https://forum.xda-developers.com/t/rom-official-kali-nethunter-for-the-huawei-nexus-6p-los17-1.4079087/"
         note   : >-
@@ -131,7 +131,7 @@
                  Warning: Android Ten is still experimental
     kernels:
       - id          : angler
-        description : Google Nexus 6P for stock Android
+        description : Google/Huawei Nexus 6P Nexus 6P for stock Android
         kernelstring: NetHunter kernel for Nexus 6P
         arch        : arm64
         devicenames : angler
@@ -156,7 +156,7 @@
             source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler -b nethunter-8.1'
             features   : [BT_RFCOMM, CDROM, HID, Injection, Nexmon, RTL8812AU, RTL8188EUS, Internal_BT]
       - id          : angler-los
-        description : Google Nexus 6P for LineageOS and Pixel Experience
+        description : Google/Huawei Nexus 6P Nexus 6P for LineageOS and Pixel Experience
         kernelstring: NetHunter kernel for Nexus 6P
         arch        : arm64
         flasher     : anykernel
