@@ -12,7 +12,6 @@
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : a37,a37f,a37fw
-        flasher     : anykernel
         modules     : 1
         slot_device : 0
         versions    :
@@ -27,7 +26,7 @@
       - id          : a5ulte-cm
         description : Samsung Galaxy A5 (2015) for CyanogenMod
         kernelstring: NetHunter Kernel CM
-        devicenames : a5ulte a5ultexx SM-A500FU
+        devicenames : a5ulte,a5ultexx,SM-A500FU
         versions    :
           - android    : marshmallow
             linux      : 3.10
@@ -37,7 +36,7 @@
       - id          : a5ulte-tw
         description : Samsung Galaxy A5 (2015) (Europe) for TouchWiz
         kernelstring: NetHunter Kernel TW
-        devicenames : a5ulte a5ultexx SM-A500FU
+        devicenames : a5ulte,a5ultexx,SM-A500FU
         versions    :
           - android    : marshmallow
             linux      : 3.10
@@ -49,7 +48,7 @@
     kernels:
       - id          : a5xelte-tw
         description : Samsung Galaxy A5 (2016) for TouchWiz
-        devicenames : a5xelte a5xeltexx SM-A510F
+        devicenames : a5xelte,a5xeltexx,SM-A510F
         versions    :
           - android    : nougat
             linux      : 3.10
@@ -69,7 +68,6 @@
         kernelstring: NetHunter Kernel for the Samsung Galaxy A7 (2016) LineageOS 18.1
         devicenames : a7xelte
         block       : /dev/block/platform/13540000.dwmmc0/by-name/BOOT
-        flasher     : anykernel
         versions    :
           - android    : eleven
             linux      : 3.10
@@ -83,7 +81,7 @@
       - id          : ailsa-ii
         description : ZTE Axon 7 for MiFavor
         arch        : arm64
-        devicenames : ailsa_ii ailsa-ii A2017 A2017U A2017G P996A01 P996A03 P996A04
+        devicenames : ailsa_ii,ailsa-ii,A2017,A2017U,A2017G,P996A01,P996A03,P996A04
         versions    :
           - android    : marshmallow
             linux      : 3.18
@@ -103,7 +101,7 @@
         kernelstring: Bifr0st
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
-        devicenames : alioth aliothin
+        devicenames : alioth,aliothin
         versions    :
           - android    : fourteen
             linux      : 4.19
@@ -159,7 +157,6 @@
         description : Google/Huawei Nexus 6P Nexus 6P for LineageOS and Pixel Experience
         kernelstring: NetHunter kernel for Nexus 6P
         arch        : arm64
-        flasher     : anykernel
         modules     : 1
         block       : /dev/block/bootdevice/by-name/boot
         slot_device : 0
@@ -367,7 +364,6 @@
       - id          : davinci-miui
         description : Xiaomi Mi 9T for MIUI
         arch        : arm64
-        flasher     : anykernel
         modules     : 1
         block       : /dev/block/bootdevice/by-name/boot
         slot_device : 0
@@ -399,7 +395,7 @@
       - id          : dragon
         description : Google Pixel C for stock Android
         arch        : arm64
-        devicenames : dragon ryu
+        devicenames : dragon,ryu
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -420,7 +416,6 @@
         arch        : arm64
         devicenames : DRG,DRG_sprout
         block       : /dev/block/bootdevice/by-name/boot
-        flasher     : anykernel
         modules     : 1
         versions    :
           - android    : eleven
@@ -454,7 +449,6 @@
         arch        : arm64
         devicenames : ES2,ES2_sprout,fih_mt6750_64
         block       : /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/boot
-        flasher     : anykernel
         modules     : 1
         versions    :
           - android    : pie
@@ -499,7 +493,7 @@
     kernels:
       - id          : flo
         description : Google Nexus 7 (2013) for stock Android
-        devicenames : flo deb
+        devicenames : flo,deb
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
         versions    :
           - android    : kitkat
@@ -521,7 +515,7 @@
             features   : [BT_RFCOMM, CDROM, HID, Injection]
       - id          : flo-cm
         description : Google Nexus 7 (2013) for CyanogenMod
-        devicenames : flo deb
+        devicenames : flo,deb
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
         versions    :
           - android    : marshmallow
@@ -638,7 +632,7 @@
       - id          : graceltekor
         description : Samsung Galaxy Note 7 (Korean Exynos) for Grace UI
         arch        : arm64
-        devicenames : gracelte graceltekor
+        devicenames : gracelte,graceltekor
         versions    :
           - android    : marshmallow
             linux      : 3.18
@@ -651,7 +645,7 @@
     kernels:
       - id          : grouper
         description : Google Nexus 7 (2012) for stock Android
-        devicenames : grouper tilapia
+        devicenames : grouper,tilapia
         block       : /dev/block/mmcblk0p2
         versions    :
           - android    : kitkat
@@ -672,7 +666,7 @@
       - id          : gts4llte
         description : Samsung Galaxy Tab S4 LTE for stock Android
         arch        : arm64
-        devicenames : gts4lwifi gts4lwifixx gts4llte gts4lltexx SM-T830 SM-T835
+        devicenames : gts4lwifi,gts4lwifixx,gts4llte,gts4lltexx,SM-T830,SM-T835
         versions    :
           - android    : oreo
             linux      : 4.04
@@ -690,7 +684,7 @@
       - id          : gts4lwifi
         description : Samsung Galaxy Tab S4 WiFi for stock Android
         arch        : arm64
-        devicenames : gts4lwifi gts4lwifixx
+        devicenames : gts4lwifi,gts4lwifixx
         versions    :
           - android    : oreo
             linux      : 4.04
@@ -704,7 +698,7 @@
       - id          : h830
         description : LG G5 (T-Mobile) for stock Android
         arch        : arm64
-        devicenames : h830 LG-H830
+        devicenames : h830,LG-H830
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -718,7 +712,7 @@
       - id          : h850
         description : LG G5 (International) for stock Android
         arch        : arm64
-        devicenames : h850 LG-H850
+        devicenames : h850,LG-H850
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -732,7 +726,7 @@
       - id          : h918
         description : LG V20 (T-Mobile) for stock Android
         arch        : arm64
-        devicenames : h918 LG-H918
+        devicenames : h918,LG-H918
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -751,7 +745,7 @@
         description : LG V20 (International) for stock Android
         kernelstring: Kali NetHunter Kernel for LG V20 (International)
         arch        : arm64
-        devicenames : elsa LG-H990
+        devicenames : elsa,LG-H990
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -769,7 +763,7 @@
         description : LG V20 (International) for LineageOS
         kernelstring: Kali NetHunter Kernel for LG V20 (International)
         arch        : arm64
-        devicenames : elsa LG-H990
+        devicenames : elsa,LG-H990
         versions    :
           - android    : eleven
             linux      : 3.18
@@ -855,7 +849,7 @@
       - id          : hero2lte-tw
         description : Samsung Galaxy S7 Edge (International & Canadian Exynos) for TouchWiz & One UI
         arch        : arm64
-        devicenames : hero2lte hero2ltexx hero2ltecan
+        devicenames : hero2lte,hero2ltexx,hero2ltecan
         versions    :
           - android    : marshmallow
             linux      : 3.18
@@ -871,7 +865,7 @@
             features   : [CDROM, HID, Injection]
       - id          : hero2lte-los
         description : Samsung Galaxy S7 Edge (International & Canadian Exynos) for LineageOS
-        devicenames : hero2lte hero2ltexx
+        devicenames : hero2lte,hero2ltexx
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -888,7 +882,7 @@
       - id          : hero2lte-oui
         description : Samsung Galaxy S7 Edge (International & Canadian Exynos) for One UI
         arch        : arm64
-        devicenames : hero2lte hero2ltexx
+        devicenames : hero2lte,hero2ltexx
         versions    :
           - android    : pie
             linux      : 3.18
@@ -899,7 +893,7 @@
       - id          : hero2lte-kor-tw
         description : Samsung Galaxy S7 Edge (Korean Exynos) for TouchWiz
         arch        : arm64
-        devicenames : hero2lte hero2ltekor
+        devicenames : hero2lte,hero2ltekor
         versions    :
           - android    : marshmallow
             linux      : 3.18
@@ -920,7 +914,7 @@
       - id          : herolte-tw
         description : Samsung Galaxy S7 (International & Canadian Exynos) for TouchWiz & One UI
         arch        : arm64
-        devicenames : herolte heroltexx
+        devicenames : herolte,heroltexx
         versions    :
           - android    : marshmallow
             linux      : 3.18
@@ -937,7 +931,7 @@
       - id          : herolte-los
         description : Samsung Galaxy S7 (International & Canadian Exynos) for LineageOS
         arch        : arm64
-        devicenames : herolte heroltexx
+        devicenames : herolte,heroltexx
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -954,7 +948,7 @@
       - id          : herolte-oui
         description : Samsung Galaxy S7 (International & Canadian Exynos) for One UI
         arch        : arm64
-        devicenames : herolte heroltexx heroltecan
+        devicenames : herolte,heroltexx,heroltecan
         versions    :
           - android    : pie
             linux      : 3.18
@@ -965,7 +959,7 @@
       - id          : herolte-kor-tw
         description : Samsung Galaxy S7 (Korean Exynos) for TouchWiz
         arch        : arm64
-        devicenames : herolte heroltekor
+        devicenames : herolte,heroltekor
         versions    :
           - android    : marshmallow
             linux      : 3.18
@@ -979,7 +973,7 @@
       - id          : hlte-can-cm
         description : Samsung Galaxy Note 3 (Canada, Mexico, and T-Mobile) for CyanogenMod
         kernelstring: NetHunter idleKernel can
-        devicenames : hltexx hltecan hltetmo SM-N900W8 SM-N900T
+        devicenames : hltexx,hltecan,hltetmo,SM-N900W8,SM-N900T
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -996,7 +990,7 @@
       - id          : hlte-can-tw
         description : Samsung Galaxy Note 3 (Canada, Mexico, and T-Mobile) for TouchWiz
         kernelstring: NetHunter idleKernel can
-        devicenames : hltexx hltecan hltetmo SM-N900W8 SM-N900T
+        devicenames : hltexx,hltecan,hltetmo,SM-N900W8,SM-N900T
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1007,7 +1001,7 @@
       - id          : hlte-dcm-tw
         description : Samsung Galaxy Note 3 (Japanese NTT Docomo) for TouchWiz
         kernelstring: NetHunter idleKernel dcm
-        devicenames : hltexx hltedcm SC-01F
+        devicenames : hltexx,hltedcm,SC-01F
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1018,7 +1012,7 @@
       - id          : hlte-eur-cm
         description : Samsung Galaxy Note 3 (International / European) for CyanogenMod
         kernelstring: NetHunter idleKernel eur
-        devicenames : hltexx hlte hlteeur SM-N9005
+        devicenames : hltexx,hlte,hlteeur,SM-N9005
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1035,7 +1029,7 @@
       - id          : hlte-eur-tw
         description : Samsung Galaxy Note 3 (International / European) for TouchWiz
         kernelstring: NetHunter idleKernel eur
-        devicenames : hltexx hlte hlteeur SM-N9005
+        devicenames : hltexx,hlte,hlteeur,SM-N9005
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1045,7 +1039,7 @@
             features   : [CDROM, HID, Injection]
       - id          : hlte-eur-los
         description : Samsung Galaxy Note 3 (International / European) for LineageOS
-        devicenames : hltexx hlte hlteeur SM-N9005
+        devicenames : hltexx,hlte,hlteeur,SM-N9005
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1056,7 +1050,7 @@
       - id          : hlte-kdi-tw
         description : Samsung Galaxy Note 3 (Japanese Au by KDDI) for TouchWiz
         kernelstring: NetHunter idleKernel kdi
-        devicenames : hltexx hltekdi SCL2
+        devicenames : hltexx,hltekdi,SCL2
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1067,7 +1061,7 @@
       - id          : hlte-kor-cm
         description : Samsung Galaxy Note 3 (Korean) for CyanogenMod
         kernelstring: NetHunter idleKernel kor
-        devicenames : hltexx hltekor hltektt hltelgt hlteskt SM-N900K SM-N900L SM-N900S
+        devicenames : hltexx,hltekor,hltektt,hltelgt,hlteskt,SM-N900K,SM-N900L,SM-N900S
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1084,7 +1078,7 @@
       - id          : hlte-kor-tw
         description : Samsung Galaxy Note 3 (Korean) for TouchWiz
         kernelstring: NetHunter idleKernel kor
-        devicenames : hltexx hltekor hltektt hltelgt hlteskt SM-N900K SM-N900L SM-N900S
+        devicenames : hltexx,hltekor,hltektt,hltelgt,hlteskt,SM-N900K,SM-N900L,SM-N900S
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1095,7 +1089,7 @@
       - id          : hlte-spr-cm
         description : Samsung Galaxy Note 3 (Sprint) for CyanogenMod
         kernelstring: NetHunter idleKernel spr
-        devicenames : hltexx hltespr SM-N900P
+        devicenames : hltexx,hltespr,SM-N900P
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1112,7 +1106,7 @@
       - id          : hlte-spr-tw
         description : Samsung Galaxy Note 3 (US Sprint) for TouchWiz
         kernelstring: NetHunter idleKernel spr
-        devicenames : hltexx hltespr SM-N900P
+        devicenames : hltexx,hltespr,SM-N900P
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1123,7 +1117,7 @@
       - id          : hlte-vzw-tw
         description : Samsung Galaxy Note 3 (US Verizon) for TouchWiz
         kernelstring: NetHunter idleKernel vzw
-        devicenames : hltexx hltevzw SM-N900V
+        devicenames : hltexx,hltevzw,SM-N900V
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1160,7 +1154,7 @@
       - id          : htc-pmewl
         description : HTC 10 for Sense
         arch        : arm64
-        devicenames : htc_pmewl htc-pmewl HTC 10
+        devicenames : htc_pmewl,htc-pmewl,HTC,10
         versions    :
           - android    : marshmallow
             linux      : 3.18
@@ -1237,7 +1231,7 @@
       - id          : j7y17lte-oui
         description : Samsung Galaxy J7 Pro for One UI
         arch        : arm64
-        devicenames : j7y17lte j7pro j730x
+        devicenames : j7y17lte,j7pro,j730x
         versions    :
           - android    : pie
             linux      : 3.18
@@ -1252,7 +1246,7 @@
         description : Yu Yunique for LineageOS
         kernelstring: NetHunter Kernel For Yu Yunique
         block       : /dev/block/bootdevice/by-name/boot
-        devicenames : jalebi YUNIQUE YU4711
+        devicenames : jalebi,YUNIQUE,YU4711
         versions    :
           - android    : nougat
             linux      : 3.10
@@ -1265,7 +1259,7 @@
     kernels:
       - id          : jfltexx-cm
         description : Samsung Galaxy S4 (International LTE, GSM) for CyanogenMod
-        devicenames : jflte jfltexx i9505 GT-I9505 jgedlte i9505g GT-I9505G
+        devicenames : jflte,jfltexx,i9505,GT-I9505,jgedlte,i9505g,GT-I9505G
         versions    :
           - android    : marshmallow
             linux      : 3.04
@@ -1286,7 +1280,7 @@
         kernelstring: NetHunter kernel for JIAYU S3 Advanced
         arch        : arm64
         block       : /dev/block/platform/mtk-msdc.0/by-name/boot
-        devicenames : s3_h560 s3
+        devicenames : s3_h560,s3
         versions    :
           - android    : marshmallow
             linux      : 3.10
@@ -1312,7 +1306,7 @@
     kernels:
       - id          : klte-los
         description : Samsung Galaxy S5 (GSM) for LineageOS
-        devicenames : klte kltexx klteacg klteatt kltecan kltelra kltetmo klteub klteusc kltevzw SM-G900F SM-G900R7 SM-G900A SM-G900W8 SM-G900R6 SM-G900T SM-G900M SM-G900R4 SM-G900V
+        devicenames : klte,kltexx,klteacg,klteatt,kltecan,kltelra,kltetmo,klteub,klteusc,kltevzw,SM-G900F,SM-G900R7,SM-G900A,SM-G900W8,SM-G900R6,SM-G900T,SM-G900M,SM-G900R4,SM-G900V
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1322,7 +1316,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-tw
         description : Samsung Galaxy S5 (GSM) for TouchWiz
-        devicenames : klte kltexx kltecan kltetmo klteub klteatt SM-G900F SM-G900W8 SM-G900T SM-G900M SM-G900A
+        devicenames : klte,kltexx,kltecan,kltetmo,klteub,klteatt,SM-G900F,SM-G900W8,SM-G900T,SM-G900M,SM-G900A
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1338,7 +1332,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-chn-los
         description : Samsung Galaxy S5 (China) for LineageOS
-        devicenames : klte kltexx kltechn kltezn kltezm SM-G9006V SM-G9008V
+        devicenames : klte,kltexx,kltechn,kltezn,kltezm,SM-G9006V,SM-G9008V
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1348,7 +1342,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-chnduo-los
         description : Samsung Galaxy S5 (China Duos) for LineageOS
-        devicenames : klte kltexx kltechnduo klteduoszm klteduoszn klteduosctc SM-G9006W SM-G9008W SM-G9009W
+        devicenames : klte,kltexx,kltechnduo,klteduoszm,klteduoszn,klteduosctc,SM-G9006W,SM-G9008W,SM-G9009W
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1358,7 +1352,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-duos-los
         description : Samsung Galaxy S5 (LTE Duos) for LineageOS
-        devicenames : klte kltexx klteduos klteduosxx klteduosub SM-G900FD SM-G900MD
+        devicenames : klte,kltexx,klteduos,klteduosxx,klteduosub,SM-G900FD,SM-G900MD
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1368,7 +1362,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-duos-tw
         description : Samsung Galaxy S5 (LTE Duos) for TouchWiz
-        devicenames : klte kltexx klteduos SM-G900FD
+        devicenames : klte,kltexx,klteduos,SM-G900FD
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1378,7 +1372,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-kdi-los
         description : Samsung Galaxy S5 (Japan) for LineageOS
-        devicenames : klte kltexx kltekdi kltedcm SCL23 SC-04F
+        devicenames : klte,kltexx,kltekdi,kltedcm,SCL23,SC-04F
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1388,7 +1382,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-kdi-tw
         description : Samsung Galaxy S5 (Japan) for TouchWiz
-        devicenames : klte kltexx kltekdi kltedcm SCL23 SC-04F
+        devicenames : klte,kltexx,kltekdi,kltedcm,SCL23,SC-04F
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1398,7 +1392,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-kor-los
         description : Samsung Galaxy S5 (Korea) for LineageOS
-        devicenames : klte kltexx kltektt kltelgt klteskt SM-G900K SM-G900L SM-G900S
+        devicenames : klte,kltexx,kltektt,kltelgt,klteskt,SM-G900K,SM-G900L,SM-G900S
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1408,7 +1402,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-skt-tw
         description : Samsung Galaxy S5 (Korea) for TouchWiz
-        devicenames : klte kltexx kltektt kltelgt klteskt SM-G900K SM-G900L SM-G900S
+        devicenames : klte,kltexx,kltektt,kltelgt,klteskt,SM-G900K,SM-G900L,SM-G900S
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1424,7 +1418,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-spr-los
         description : Samsung Galaxy S5 (US Sprint, UK Vodafone, and Oceanic) for LineageOS
-        devicenames : klte kltexx kltespr kltedv SM-G900P SM-G900I
+        devicenames : klte,kltexx,kltespr,kltedv,SM-G900P,SM-G900I
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1434,7 +1428,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-spr-tw
         description : Samsung Galaxy S5 (US Sprint, UK Vodafone, and Oceanic) for TouchWiz
-        devicenames : klte kltexx kltespr kltedv SM-G900P SM-G900I
+        devicenames : klte,kltexx,kltespr,kltedv,SM-G900P,SM-G900I
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1444,7 +1438,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-usc-tw
         description : Samsung Galaxy S5 (US Cellular) for TouchWiz
-        devicenames : klte kltexx klteusc SM-G900R4
+        devicenames : klte,kltexx,klteusc,SM-G900R4
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1454,7 +1448,7 @@
             features   : [CDROM, HID, Injection]
       - id          : klte-vzw-tw
         description : Samsung Galaxy S5 (US Verizon) for TouchWiz
-        devicenames : klte kltexx kltevzw SM-G900V
+        devicenames : klte,kltexx,kltevzw,SM-G900V
         versions    :
           - android    : lollipop
             linux      : 3.04
@@ -1473,7 +1467,7 @@
         description : Samsung Galaxy S5 Mini for LineageOS
         kernelstring: NetHunter Kernel for Samsung Galaxy S5 Mini
         block       : /dev/block/platform/dw_mmc.0/by-name/BOOT
-        devicenames : kminilte s5mini
+        devicenames : kminilte,s5mini
         versions    :
           - android    : nougat
             linux      : 3.04
@@ -1510,7 +1504,6 @@
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : laurel_sprout,lineage_laurel_sprout,laurel-sprout,lineage-laurel-sprout
-        flasher     : anykernel
         modules     : 1
         resolution  : 720x1440
         versions    :
@@ -1580,7 +1573,7 @@
             features   : [HID, Injection]
       - id          : mako-cm
         description : Google Nexus 4 for CyanogenMod
-        devicenames : mako occam
+        devicenames : mako,occam
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
         versions    :
           - android    : marshmallow
@@ -1672,7 +1665,7 @@
       - id          : on7xlte-oui
         description : Samsung Galaxy J7 Prime for One UI
         arch        : arm64
-        devicenames : j7prime SM-G610X
+        devicenames : j7prime,SM-G610X
         versions    :
           - android    : pie
             linux      : 3.18
@@ -1701,7 +1694,7 @@
       - id          : onem8gpe
         description : HTC One M8 Google Play Edition for stock Android
         kernelstring: Kali M8 GPE
-        devicenames : htc_m8 m8
+        devicenames : htc_m8,m8
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
         versions    :
           - android    : marshmallow
@@ -1721,7 +1714,6 @@
       - id          : oneplus-nord-oos
         description : OnePlus Nord for OxygenOS
         arch        : arm64
-        flasher     : anykernel
         modules     : 1
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : nord,avicii,Nord,oneplusnord,oneplus_nord,oneplus-nord
@@ -1744,7 +1736,7 @@
     kernels:
       - id          : oneplus1-cm
         description : OnePlus One for CyanogenMod
-        devicenames : bacon A0001 one OnePlus
+        devicenames : bacon,A0001,one,OnePlus
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
         versions    :
           - android    : lollipop
@@ -1768,7 +1760,7 @@
             features   : [BT_RFCOMM, HID, Injection]
       - id          : oneplus1-los
         description : OnePlus One for LineageOS
-        devicenames : bacon A0001 one OnePlus
+        devicenames : bacon,A0001,one,OnePlus
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
         versions    :
           - android    : oreo
@@ -1804,7 +1796,7 @@
       - id          : oneplus2-oos
         description : OnePlus 2 for OxygenOS
         arch        : arm64
-        devicenames : A2001 A2003 A2005 OnePlus2 oneplus2
+        devicenames : A2001,A2003,A2005,OnePlus2,oneplus2
         block       : /dev/block/bootdevice/by-name/boot
         versions    :
           - android    : lollipop
@@ -1822,7 +1814,7 @@
       - id          : oneplus2-cm
         description : OnePlus 2 for CyanogenMod
         arch        : arm64
-        devicenames : A2001 A2003 A2005 OnePlus2 oneplus2
+        devicenames : A2001,A2003,A2005,OnePlus2,oneplus2
         block       : /dev/block/bootdevice/by-name/boot
         versions    :
           - android    : lollipop
@@ -1840,7 +1832,7 @@
       - id          : oneplus2-los
         description : OnePlus 2 for LineageOS
         arch        : arm64
-        devicenames : A2001 A2003 A2005 OnePlus2 oneplus2
+        devicenames : A2001,A2003,A2005,OnePlus2,oneplus2
         block       : /dev/block/bootdevice/by-name/boot
         versions    :
           - android    : nougat
@@ -1875,34 +1867,33 @@
                  Warning: Android Ten is still experimental
     kernels:
       - id          : oneplus3-3t-oos
-        description : OnePlus 3 / 3T for OxygenOS using anykernel flasher
+        description : OnePlus 3 / 3T for OxygenOS
         arch        : arm64
-        devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
+        devicenames : OnePlus3,oneplus3,OnePlus3T,oneplus3T
         versions    :
           - android    : pie
             linux      : 3.18
-            description: OxygenOS 9.0 using anykernel flasher
+            description: OxygenOS 9.0
             author     : Re4son
             source     : 'git clone https://github.com/re4son/android_kernel_oneplus_msm8996.git -b nethunter-9.0'
             features   : [CDROM, HID, Injection, RTL8812AU]
       - id          : oneplus3-3t-los
-        description : OnePlus 3 / 3T for LineageOS using anykernel flasher
+        description : OnePlus 3 / 3T for LineageOS
         arch        : arm64
-        flasher     : anykernel
         block       : /dev/block/bootdevice/by-name/boot
         slot_device : 0
         devicenames : OnePlus3,oneplus3,OnePlus3T,oneplus3T
         versions    :
           - android    : ten
             linux      : 3.18
-            description: LineageOS 17.1 using anykernel flasher
+            description: LineageOS 17.1
             author     : Re4son
             source     : 'git clone https://github.com/re4son/android_kernel_oneplus_msm8996_lineageos.git -b nethunter-17.1'
             features   : [BT_RFCOMM, CDROM, HID, Injection, RTL8812AU, Internal_BT]
       - id          : oneplus3-oos
         description : OnePlus 3 for OxygenOS
         arch        : arm64
-        devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
+        devicenames : OnePlus3,oneplus3,OnePlus3T,oneplus3T
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -1913,7 +1904,7 @@
       - id          : oneplus3-v2-oos
         description : OnePlus 3 for OxygenOS (v2)
         arch        : arm64
-        devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
+        devicenames : OnePlus3,oneplus3,OnePlus3T,oneplus3T
         versions    :
           - android    : marshmallow
             linux      : 3.18
@@ -1930,7 +1921,7 @@
       - id          : oneplus3-los
         description : OnePlus 3 for LineageOS
         arch        : arm64
-        devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
+        devicenames : OnePlus3,oneplus3,OnePlus3T,oneplus3T
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -1941,7 +1932,7 @@
       - id          : oneplus3t-los
         description : OnePlus 3T for LineageOS
         arch        : arm64
-        devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
+        devicenames : OnePlus3,oneplus3,OnePlus3T,oneplus3T
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -1958,7 +1949,7 @@
       - id          : oneplus3t-oos
         description : OnePlus 3T for OxygenOS
         arch        : arm64
-        devicenames : OnePlus3 oneplus3 OnePlus3T oneplus3T
+        devicenames : OnePlus3,oneplus3,OnePlus3T,oneplus3T
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -1976,7 +1967,7 @@
       - id          : oneplus5-oos
         description : OnePlus 5 for OxygenOS
         arch        : arm64
-        devicenames : OnePlus5 oneplus5 OnePlus 5 cheeseburger
+        devicenames : OnePlus5,oneplus5,OnePlus,5,cheeseburger
         versions    :
           - android    : nougat
             linux      : 4.04
@@ -1987,7 +1978,7 @@
       - id          : oneplus5-cm
         description : OnePlus 5 for CyanogenMod
         arch        : arm64
-        devicenames : OnePlus5 oneplus5 OnePlus 5 cheeseburger
+        devicenames : OnePlus5,oneplus5,OnePlus,5,cheeseburger
         versions    :
           - android    : nougat
             linux      : 4.04
@@ -2000,7 +1991,7 @@
         version     : v0.3.2
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
-        devicenames : dumpling cheeseburger
+        devicenames : dumpling,cheeseburger
         versions    :
           - android    : thirteen
             linux      : 4.04
@@ -2013,7 +2004,7 @@
         version     : v0.3.2
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
-        devicenames : dumpling cheeseburger
+        devicenames : dumpling,cheeseburger
         versions    :
           - android    : thirteen
             linux      : 4.04
@@ -2026,7 +2017,7 @@
         version     : v0.3.2
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
-        devicenames : dumpling cheeseburger
+        devicenames : dumpling,cheeseburger
         versions    :
           - android    : thirteen
             linux      : 4.04
@@ -2039,7 +2030,7 @@
         version     : v0.3.2
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
-        devicenames : dumpling cheeseburger
+        devicenames : dumpling,cheeseburger
         versions    :
           - android    : thirteen
             linux      : 4.04
@@ -2059,7 +2050,6 @@
     kernels:
       - id          : oneplus6-oos
         arch        : arm64
-        flasher     : anykernel
         modules     : 1
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : oneplus6,op6,oneplus6t,op6t,enchilada,fajita,OnePlus6,OnePlus6T
@@ -2081,7 +2071,6 @@
       - id          : oneplus6-los
         description : OnePlus 6 for Lineageos
         arch        : arm64
-        flasher     : anykernel
         modules     : 1
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : oneplus6,op6,oneplus6t,op6t,enchilada,fajita,OnePlus6,OnePlus6T
@@ -2111,7 +2100,6 @@
       - id          : oneplus7-oos
         description : OnePlus 7 / 7 Pro / 7T / 7T Pro for OxygenOS
         arch        : arm64
-        flasher     : anykernel
         modules     : 1
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : OnePlus7,oneplus7,guacamoleb,Guacamoleb,OnePlus7Pro,GM1915,GM1910,guacamole,Guacamole,OnePlus7T,OnePlus7TPro
@@ -2138,7 +2126,6 @@
       - id          : oneplus7-v2-oos
         description : OnePlus 7 / 7 Pro / 7T / 7T Pro for OxygenOS/Custom A11 (v2)
         arch        : arm64
-        flasher     : anykernel
         modules     : 1
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : OnePlus7,oneplus7,guacamoleb,Guacamoleb,OnePlus7Pro,GM1915,GM1910,guacamole,Guacamole,OnePlus7T,OnePlus7TPro
@@ -2161,7 +2148,6 @@
       - id          : oneplus8-oos
         description : OnePlus 8 / 8T / 8 Pro for OxygenOS/Custom Axx
         arch        : arm64
-        flasher     : anykernel
         modules     : 1
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : OnePlus8,oneplus8,OnePlus8T,oneplus8t,OnePlus8Pro,oneplus8pro,instantnoodle,instantnoodlep,instantnoodlev,Kebab,kebab,Kebabt,kebabt,Kona,kona
@@ -2184,7 +2170,7 @@
     kernels:
       - id          : oneplusx-cm
         description : OnePlus X for CyanogenMod
-        devicenames : OnePlus onyx OnePlusX oneplusx
+        devicenames : OnePlus,onyx,OnePlusX,oneplusx
         versions    :
           - android    : marshmallow
             linux      : 3.04
@@ -2226,7 +2212,6 @@
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : payton
-        flasher     : anykernel
         versions    :
           - android    : ten
             linux      : 4.4
@@ -2251,7 +2236,6 @@
         description : Sony Xperia 10 II for LineageOS
         kernelstring: NetHunter kernel for Xperia 10 II
         arch        : arm64
-        flasher     : anykernel
         devicenames : pdx201,XQ-AU52,seine
         versions    :
           - android    : thirteen
@@ -2274,7 +2258,6 @@
         arch        : arm64
         devicenames : PL2,PL2_sprout
         block       : /dev/block/bootdevice/by-name/boot
-        flasher     : anykernel
         modules     : 1
         versions    :
           - android    : ten
@@ -2310,7 +2293,7 @@
         description : Motorola Moto G5 Plus for LineageOS
         kernelstring: NetHunter kernel for Motorola Moto G5 Plus
         arch        : arm64
-        devicenames : potter potter_retail
+        devicenames : potter,potter_retail
         block       : /dev/bloc/bootdevice/by-name/boot
         versions    :
           - android    : nougat
@@ -2337,7 +2320,6 @@
         arch        : arm64
         devicenames : pyxis
         block       : /dev/block/bootdevice/by-name/boot
-        flasher     : anykernel
         modules     : 1
         slot_device : 1
         versions    :
@@ -2392,7 +2374,6 @@
       - id          : rmx1911-cos
         description : Realme 5 / 5i / 5s for Corvus OS
         arch        : arm64
-        flasher     : anykernel
         block       : /dev/block/bootdevice/by-name/boot
         slot_device : 0
         devicenames : RMX1911,RMX1925,RMX1927,RMX2030
@@ -2412,7 +2393,6 @@
       - id          : rmx1971
         description : Alynx NetHunter for Custom Android / stock Android
         arch        : arm64
-        flasher     : anykernel
         block       : /dev/block/bootdevice/by-name/boot
         slot_device : 0
         devicenames : RMX1971,RMX1971CN,RMX1971EX
@@ -2434,7 +2414,6 @@
         description : Realme C15 (MTK) for LineageOS
 
         arch        : arm64
-        flasher     : anykernel
         kernelstring: NetHunter kernel for Realme C15 by Frostleaft07
         modules     : 1
         block       : /dev/block/platform/bootdevice/by-name/boot
@@ -2458,7 +2437,6 @@
       - id          : rmx3031
         description : NetHunter Kernel for stock Android
         arch        : arm64
-        flasher     : anykernel
         kernelstring: NetHunter kernel for Realme X7 Max 5G by dek0der
         modules     : 1
         block       : /dev/block/by-name/boot
@@ -2597,7 +2575,7 @@
     kernels:
       - id          : shieldtablet
         description : nVidea Shield Tablet for stock Android
-        devicenames : shieldtablet tn8
+        devicenames : shieldtablet,tn8
         versions    :
           - android    : marshmallow
             linux      : 3.10
@@ -2623,7 +2601,6 @@
         arch        : arm64
         devicenames : A063,a063,spacewar,Spacewar
         block       : boot
-        flasher     : anykernel
         modules     : 1
         versions    :
           - android    : twelve
@@ -2654,7 +2631,7 @@
       - id          : star2lte-los
         description : Samsung Galaxy S9+ for LineageOS
         kernelstring: NetHunter Kernel for the Samsung Galaxy S9+ star2lte (Exynos9810)
-        devicenames : samsung_exynos9810 star2lte SM-G965F exynos9810 Galaxy S9+ star2lte-los
+        devicenames : samsung_exynos9810,star2lte,SM-G965F,exynos9810,Galaxy,S9+,star2lte-los
         arch        : arm64
         versions    :
           - android    : thirteen
@@ -2729,7 +2706,7 @@
     kernels:
       - id          : ticwatchpro
         description : TicWatch Pro for Wear OS
-        devicenames : catfish catfish-ext catshark
+        devicenames : catfish,catfish-ext,catshark
         block       : /dev/block/bootdevice/by-name/boot
         versions    :
           - android    : wearos
@@ -2752,7 +2729,6 @@
         description : TicWatch Pro 3 for Wear OS
         devicenames : rubyfish,rover
         block       : /dev/block/bootdevice/by-name/boot
-        flasher     : anykernel
         versions    :
           - android    : wearos
             linux      : 4.09
@@ -2766,7 +2742,7 @@
       - id          : us996
         description : LG V20 (US Version/Unlocked) for stock Android
         arch        : arm64
-        devicenames : us996 LG-US996
+        devicenames : us996,LG-US996
         versions    :
           - android    : nougat
             linux      : 3.18
@@ -2784,7 +2760,7 @@
       - id          : vayu
         description : Xiaomi Pocophone X3 Pro for stock Android
         arch        : arm64
-        devicenames : vayu bhima
+        devicenames : vayu,bhima
         block       : /dev/block/platform/soc/1d84000.ufshc/by-name/boot
         versions    :
           - android    : eleven
@@ -2851,7 +2827,7 @@
         kernelstring: NetHunter CM-based kernel
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
-        devicenames : Z00E Z00R Z00E_2 Z00RD Z00ED
+        devicenames : Z00E,Z00R,Z00E_2,Z00RD,Z00ED
         versions    :
           - android    : marshmallow
             linux      : 3.10
@@ -2865,7 +2841,7 @@
       - id          : zeroflte-los
         description : Samsung Galaxy S6 (International Exynos) for LineageOS
         arch        : arm64
-        devicenames : zeroflte zerofltexx
+        devicenames : zeroflte,zerofltexx
         versions    :
           - android    : nougat
             linux      : 3.10
@@ -2875,7 +2851,7 @@
       - id          : zeroflte-tw
         description : Samsung Galaxy S6 (International Exynos) for TouchWiz
         arch        : arm64
-        devicenames : zeroflte zerofltexx
+        devicenames : zeroflte,zerofltexx
         versions    :
           - android    : nougat
             linux      : 3.10
@@ -2892,7 +2868,7 @@
       - id          : zerolte-los
         description : Samsung Galaxy S6 Edge (International Exynos) for LineageOS
         arch        : arm64
-        devicenames : zerolte zeroltexx
+        devicenames : zerolte,zeroltexx
         versions    :
           - android    : nougat
             linux      : 3.10
@@ -2902,7 +2878,7 @@
       - id          : zerolte-tw
         description : Samsung Galaxy S6 Edge (International Exynos) for TouchWiz
         arch        : arm64
-        devicenames : zerolte zeroltexx
+        devicenames : zerolte,zeroltexx
         versions    :
           - android    : nougat
             linux      : 3.10

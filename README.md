@@ -10,12 +10,12 @@ You will need to clone [kali-nethunter-installer](https://gitlab.com/kalilinux/n
 All devices are contained in `devices.yml`. If you want to add your own device you would add something like:
 
 ```yaml
-- <codename>:               # The device's model name. e.g. angler
-                            #   Note, replace <codename>
+- [codename]:               # The device's model name. e.g. angler
+                            #   Note, replace [codename]
     model  :                # The device's manufacturer and product name . e.g. Nexus 6P
     images :                # This section is meant for the NetHunter team, as it handles images that will be pre-generated on kali.org
                             #   This is used by kali-nethunter-installer's generate-release.py & ./bin/generate-image*.py
-      - id     :            # Prefix is the same as <codename>, and if using a non-stock ROM, suffix will be ROM's abbreviation. e.g. angler-los
+      - id     :            # Prefix is the same as [codename], and if using a non-stock ROM, suffix will be ROM's abbreviation. e.g. angler-los
                             #   Note, <images>-<id> needs to match a <kernels>-<id>.
         name   :            # The public "friendly" name of the filename. e.g. Nexus 6P (LineageOS 17.1)
         android:            # Which (stock) Android version name. e.g. ten
@@ -25,14 +25,13 @@ All devices are contained in `devices.yml`. If you want to add your own device y
         note   :            # Any developer notes e.g. Nexmon support
     kernels:                # This section is used during building as its the metadata for any binary files placed in ./<android>/<kernel-id>
                                 #   This is used by kali-nethunter-installer's build.py & ./bin/generate-*kernels.py
-      - id     :            # Prefix is the same as <codename>, and if using a non-stock ROM, suffix will be ROM's abbreviation. e.g. angler-los
+      - id     :            # Prefix is the same as [codename], and if using a non-stock ROM, suffix will be ROM's abbreviation. e.g. angler-los
                             #   Note, <kernels>-<id> needs to match a <images>-<id>.
         description :       # "friendly" name of the kernel, using the format: <model> for <ROM full name> w/ anything extra. e.g. Nexus 6P for LineageOS and Pixel Experience
                             #   Note, this is only used in this YAML file
         kernelstring:       # Name to call your kernel. e.g. NetHunter kernel for Nexus 6P
         devicenames :       # Which devices should this be installed on. e.g. angler
         arch        :       # Architecture of the device. e.g. arm64
-        flasher     :       # Software used to flash files to the device. e.g. anykernel
         ramdisk     :       # Set's ramdisk_compression method for flasher
         resolution  :       # Manually set the device screen resolution. e.g. 1080x2340
         block       :       # Manually set the device boot partition. e.g. /dev/block/bootdevice/by-name/boot
@@ -57,18 +56,17 @@ All devices are contained in `devices.yml`. If you want to add your own device y
 - - -
 
 It's recommended that you leave out any defaults from your device entry to keep it short.
-Here are the codename's defaults entry values:
+Here are the \[codename\]'s defaults entry values:
 
 ```yaml
-- <codename>:
+- [codename]:
     images :
         rootfs      : full
     kernels:
         kernelstring: NetHunter kernel
         devicenames : # empty, will install on any device
         arch        : armhf
-        flasher     : lazyflasher
-        ramdisk     : gzip
+        ramdisk     : auto
         resolution  : # empty
         block       : # empty, automatic searching for location
         version     : 1.0
@@ -81,41 +79,42 @@ Here are the codename's defaults entry values:
 
 - - -
 
-A reliable way to get the **codename** for your device is to run a terminal emulator or boot into recovery and do: `getprop ro.product.device`
+A reliable way to get the **\[codename\]** for your device is to run a terminal emulator or boot into recovery and do: `getprop ro.product.device`
+
+<!-- Also looking at https://www.gsmarena.com -->
 
 ```shell
 $ adb shell
 bacon:/ $ getprop ro.product.device
 A0001
 bacon:/ $
-````
+```
 
 If porting for something other than stock Android ROM, it is please append to the kernel-id (and image-id):
 
-- CyanogenMod -> `-cm` (e.g. `<codename-cm>`)
-- LineageOS -> `-los` (e.g. `<codename-los>`)
-- One UI -> `-oui` (e.g. `<codename-oui>`)
-- OxygenOS -> `-oos` (e.g. `<codename-oos>`)
-- Paranoid Android -> `-pa` (e.g. `<codename-pa>`)
-- TouchWiz -> `-tw` (e.g. `<codename-tw>`)
+- CyanogenMod -> `-cm` (e.g. `[codename-cm]`)
+- LineageOS -> `-los` (e.g. `[codename-los]`)
+- One UI -> `-oui` (e.g. `[codename-oui]`)
+- OxygenOS -> `-oos` (e.g. `[codename-oos]`)
+- Paranoid Android -> `-pa` (e.g. `[codename-pa]`)
+- TouchWiz -> `-tw` (e.g. `[codename-tw]`)
 
 - - -
 
-Some devices have more than one codename _(like the OnePlus One)_, or variants _(like the Nexus 7 2012/2013)_.
-You should add these multiple codenames to **devicenames**
-
-We also recommend adding the model name to `devicenames` as well, which you can get from: `getprop ro.product.model`
-
-You can also include: `getprop ro.product.name`
+We recommend adding the product model & name <!--(as well as ro.product.device)--> to `devicenames`, which you can get by doing:
 
 ```shell
 $ adb shell
+bacon:/ $ getprop ro.product.model
+A0001
+bacon:/ $
 bacon:/ $ getprop ro.product.name
 bacon
 bacon:/ $
 ```
 
-Keep in mind that each name is space delimited _(unless using `anykernel`, more later)_, and you can't quote them, so don't use values with spaces in them!
+Some devices may have the need for more than one \[codename\] (aka devicename) _(like the OnePlus One - `bacon` & `A0001`)_, or their are variants _(like the Nexus 7 2012/2013 - `grouper` & `flo`)_.
+For these, you should add these multiple values to **devicenames**, split by using `,` (comma). Example: `devicenames: bacon,A0001,oneplus1`
 
 - - -
 
@@ -127,12 +126,7 @@ If the installer cannot identify the **resolution** automatically, you are able 
 
 - - -
 
-It is possible to change the **flasher** to use [AnyKernel3](https://github.com/osm0sis/AnyKernel3), rather than the default of [LazyFlasher](https://github.com/jcadduono/lazyflasher).
-
-When this is done, a few new options are added to support `do.modules` (**modules**) & `is_slot_device` (**slot_device**).
-ramdisk default will also change to `auto`.
-
-At the same time, `codename` needs to be split by using `,` (comma) rather than ` ` (space).
+[AnyKernel3](https://github.com/osm0sis/AnyKernel3) has the option `do.modules`, which can be defined by using **modules**. Same with AnyKernel3's `is_slot_device`, set using **slot_device**.
 
 - - -
 
