@@ -101,7 +101,7 @@ If porting for something other than stock Android ROM, it is please append to th
 
 - - -
 
-We recommend adding the product model & name <!--(as well as ro.product.device)--> to `devicenames`, which you can get by doing:
+We recommend adding the product model & name <!--(as well as ro.product.device, ro.build.product, ro.product.vendor.device, ro.vendor.product.device)--> to `devicenames`, which you can get by doing:
 
 ```shell
 $ adb shell
