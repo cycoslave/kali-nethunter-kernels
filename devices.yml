@@ -1765,23 +1765,23 @@
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_oneplus_msm8974.git -b cm-14.1 oneplus14'
             features   : [HID, Injection]
-          - android    : oreo
-            linux      : 3.04
-            description: CyanogenMod 15.1
-            author     : yesimxev
-            source     : 'git clone https://github.com/yesimxev/android_kernel_oppo_msm8974.git -b lineage-15.1 oneplus15'
-            features   : [HID, Injection]
-          - android    : pie
-            linux      : 3.04
-            description: CyanogenMod 16
-            author     : yesimxev
-            source     : 'git clone https://github.com/yesimxev/android_kernel_oppo_msm8974.git -b lineage-16.0 oneplus16'
             features   : [BT_RFCOMM, HID, Injection]
       - id          : oneplus1-los
         description : OnePlus One for LineageOS
         devicenames : bacon A0001 one OnePlus
         block       : /dev/block/platform/msm_sdcc.1/by-name/boot
         versions    :
+          - android    : oreo
+            linux      : 3.04
+            description: LineageOS 15.1
+            author     : yesimxev
+            source     : 'git clone https://github.com/yesimxev/android_kernel_oppo_msm8974.git -b lineage-15.1 oneplus15'
+            features   : [HID, Injection]
+          - android    : pie
+            linux      : 3.04
+            description: LineageOS 16
+            author     : yesimxev
+            source     : 'git clone https://github.com/yesimxev/android_kernel_oppo_msm8974.git -b lineage-16.0 oneplus16'
           - android    : ten
             linux      : 3.04
             description: LineageOS 17.1
