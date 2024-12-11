@@ -210,6 +210,25 @@
             author     : Strix Vyxlor
             source     : 'git clone https://github.com/Strix-Vyxlor/android_kernel_xiaomi_sdm845'
             features   : [HID, BT_RFCOMM, Injection]
+- beyond1lte:
+    model  : Samsung Galaxy S10
+    images :
+      - id     : beyond1lte-los
+        name   : Samsung Galaxy S10 (LineageOS 21)
+        android: fourteen
+    kernels:
+      - id          : beyond1lte-los
+        description : Samsung Galaxy S10 for LineageOS
+        kernelstring: NetHunter Kernel for the Samsung Galaxy S10 beyond1lte (Exynos9820)
+        devicenames : samsung_exynos9820 beyond1lte SM-G973F exynos9820 Galaxy S10 beyond1lte-los
+        arch        : arm64
+        versions    :
+          - android    : fourteen
+            linux      : 4.14
+            description: LineageOS 21
+            author     : v0lk3n
+            source     : 'git clone https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-21'
+            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, CAN]
 - blueline:
     model  : Google Pixel 3
     images :
@@ -2640,25 +2659,6 @@
             author     : mylezgoose
             source     : 'git clone https://github.com/mylesgoose/android_kernel_samsung_exynos9810.git -b lineage-20'
             features   : [HID-4_at_android_terminal_type_setprop_sys.usb.config_hid, "Injection_monitormode_RTL8812AU", Internal_BT, BT_RFCOMM, Docker]
-- beyond1lte:
-    model  : Samsung Galaxy S10
-    images :
-      - id     : beyond1lte-los
-        name   : Samsung Galaxy S10 (LineageOS 21)
-        android: fourteen
-    kernels:
-      - id          : beyond1lte-los
-        description : Samsung Galaxy S10 for LineageOS
-        kernelstring: NetHunter Kernel for the Samsung Galaxy S10 beyond1lte (Exynos9820)
-        devicenames : samsung_exynos9820 beyond1lte SM-G973F exynos9820 Galaxy S10 beyond1lte-los
-        arch        : arm64
-        versions    :
-          - android    : fourteen
-            linux      : 4.14
-            description: LineageOS 21
-            author     : v0lk3n
-            source     : 'git clone https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-21'
-            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, CAN]
 - sunfish:
     model  : Google Pixel 4a
     images :
