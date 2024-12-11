@@ -64,7 +64,6 @@ qty_yml_kernels = 0
 ##           description : Google Nexus 6P for LineageOS and Pixel Experience
 ##           kernelstring: NetHunter kernel for Nexus 6P
 ##           arch        : arm64
-##           flasher     : anykernel
 ##           modules     : 1
 ##           block       : /dev/block/bootdevice/by-name/boot
 ##           slot_device : 0
@@ -137,13 +136,8 @@ def check_yml(yml):
             for kernel in element[codename].get('kernels', default):
                 for key in list(kernel.keys()):
                     match key:
-                        case 'id' | 'description' | 'versions' | 'arch' | 'flasher' | 'kernelstring' | 'ramdisk' | 'block' | 'devicenames' | 'resolution' | 'version' | 'supersu':
+                        case 'id' | 'description' | 'versions' | 'arch' | 'modules' | 'slot_device' | 'kernelstring' | 'ramdisk' | 'block' | 'devicenames' | 'resolution' | 'version' | 'supersu':
                             continue
-                        case 'modules' | 'slot_device' :
-                            if kernel.get('flasher', default) == 'anykernel':
-                                continue
-                            else:
-                                print("[-]   Not using anykernel flasher, so can't use value '{} -> kernels -> {}': {}".format(codename, key, build.get(key, default)), file=sys.stderr)
                         case _:
                             print("[-]   Found unknown value '{} -> kernels -> {}': {}".format(codename, key, kernel.get(key, default)), file=sys.stderr)
 
