@@ -2621,6 +2621,29 @@
             author     : kimocoder
             source     : 'git clone https://github.com/kimocoder/android_kernel_nothing_sm7325 -b nethunter-stable'
             features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal_BT, BT_RFCOMM, Injection]
+- starlte:
+    model  : Samsung Galaxy S9
+    images :
+      - id     : starlte-los
+        name   : Samsung Galaxy S9 (LineageOS 20)
+        android: thirteen
+    kernels:
+      - id          : starlte-los
+        description : Samsung Galaxy S9 for LineageOS
+        kernelstring: NetHunter Kernel Samsung Galaxy S9
+        arch        : arm64
+        flasher     : anykernel
+        block       : /dev/block/by-name/BOOT
+        devicenames : samsung_exynos9810 starlte SM-G960F exynos9810 Galaxy S9 starlte-los
+        modules     : 1
+        slot_device : 0
+        versions    :
+          - android    : thirteen
+            linux      : 4.9
+            description: LineageOS 20
+            author     : v0lk3n
+            source     : 'git clone https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9810.git -b nethunter-lineage-20'
+            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4_setprop, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, CAN]
 - star2lte:
     model  : Samsung Galaxy S9+
     images :
