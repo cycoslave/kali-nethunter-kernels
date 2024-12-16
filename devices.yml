@@ -1732,7 +1732,7 @@
       - id     : oneplus1-los
         name   : OnePlus One (LineageOS 18.1)
         android: eleven
-        docs   : "https://xdaforums.com/t/rom-official-kali-nethunter-for-the-oneplus-one-lineageos-18-1-r.4303579/"
+        docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-oneplus-one/"
     kernels:
       - id          : oneplus1-cm
         description : OnePlus One for CyanogenMod
