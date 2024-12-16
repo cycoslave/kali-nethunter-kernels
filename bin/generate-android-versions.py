@@ -69,6 +69,7 @@ def get_android_versions(yml):
                     android_version = android_version.replace('Twelve', '12 - Twelve')
                     android_version = android_version.replace('Thirteen', '13 - Thirteen')
                     android_version = android_version.replace('Fourteen', '14 - Fourteen')
+                    android_version = android_version.replace('Fifteen', '15 - Fifteen')
                     android_version = android_version.replace('Wearos', 'Wear OS')
                     if android_version not in yml_kernels:
                         yml_kernels[android_version] = 0
