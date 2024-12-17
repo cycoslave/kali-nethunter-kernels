@@ -1,14 +1,14 @@
 ---
 - a37:
-    model  : Oppo A37 (2016)
+    model  : OPPO A37 (2016)
     images :
       - id     : a37-los
-        name   : Oppo A37 (2016) (LineageOS 17.1)
+        name   : OPPO A37 (2016) (LineageOS 17.1)
         android: ten
     kernels:
       - id          : a37-los
-        description : Oppo A37 (2016) for LineageOS
-        kernelstring: NetHunter Kernel Oppo A37fw
+        description : OPPO A37 (2016) for LineageOS
+        kernelstring: NetHunter Kernel OPPO A37fw
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : a37,a37f,a37fw
