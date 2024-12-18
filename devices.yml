@@ -1,14 +1,14 @@
 ---
 - a37:
-    model  : Oppo A37 (2016)
+    model  : OPPO A37 (2016)
     images :
       - id     : a37-los
-        name   : Oppo A37 (2016) (LineageOS 17.1)
+        name   : OPPO A37 (2016) (LineageOS 17.1)
         android: ten
     kernels:
       - id          : a37-los
-        description : Oppo A37 (2016) for LineageOS
-        kernelstring: NetHunter Kernel Oppo A37fw
+        description : OPPO A37 (2016) for LineageOS
+        kernelstring: NetHunter Kernel OPPO A37fw
         arch        : arm64
         block       : /dev/block/bootdevice/by-name/boot
         devicenames : a37,a37f,a37fw
@@ -1751,7 +1751,7 @@
       - id     : oneplus1-los
         name   : OnePlus One (LineageOS 18.1)
         android: eleven
-        docs   : "https://xdaforums.com/t/rom-official-kali-nethunter-for-the-oneplus-one-lineageos-18-1-r.4303579/"
+        docs   : "https://www.kali.org/docs/nethunter/installing-nethunter-on-the-oneplus-one/"
     kernels:
       - id          : oneplus1-cm
         description : OnePlus One for CyanogenMod
@@ -1775,7 +1775,6 @@
             description: CyanogenMod 14.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_oneplus_msm8974.git -b cm-14.1 oneplus14'
-            features   : [HID, Injection]
             features   : [BT_RFCOMM, HID, Injection]
       - id          : oneplus1-los
         description : OnePlus One for LineageOS
@@ -2640,6 +2639,28 @@
             author     : kimocoder
             source     : 'git clone https://github.com/kimocoder/android_kernel_nothing_sm7325 -b nethunter-stable'
             features   : [CDROM, HID-4, RTL88XXAU, NFS, Internal_BT, BT_RFCOMM, Injection]
+- starlte:
+    model  : Samsung Galaxy S9
+    images :
+      - id     : starlte-los
+        name   : Samsung Galaxy S9 (LineageOS 20)
+        android: thirteen
+    kernels:
+      - id          : starlte-los
+        description : Samsung Galaxy S9 for LineageOS
+        kernelstring: NetHunter Kernel Samsung Galaxy S9
+        arch        : arm64
+        block       : /dev/block/by-name/BOOT
+        devicenames : samsung_exynos9810 starlte SM-G960F exynos9810 Galaxy S9 starlte-los
+        modules     : 1
+        slot_device : 0
+        versions    :
+          - android    : thirteen
+            linux      : 4.9
+            description: LineageOS 20
+            author     : v0lk3n
+            source     : 'git clone https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9810.git -b nethunter-lineage-20'
+            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4_setprop, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, CAN]
 - star2lte:
     model  : Samsung Galaxy S9+
     images :
