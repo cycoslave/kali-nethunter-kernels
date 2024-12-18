@@ -2632,7 +2632,6 @@
         description : Samsung Galaxy S9 for LineageOS
         kernelstring: NetHunter Kernel Samsung Galaxy S9
         arch        : arm64
-        flasher     : anykernel
         block       : /dev/block/by-name/BOOT
         devicenames : samsung_exynos9810 starlte SM-G960F exynos9810 Galaxy S9 starlte-los
         modules     : 1
