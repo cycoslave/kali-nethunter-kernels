@@ -1756,7 +1756,6 @@
             description: CyanogenMod 14.1
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_oneplus_msm8974.git -b cm-14.1 oneplus14'
-            features   : [HID, Injection]
             features   : [BT_RFCOMM, HID, Injection]
       - id          : oneplus1-los
         description : OnePlus One for LineageOS
