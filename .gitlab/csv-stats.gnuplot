@@ -5,7 +5,7 @@
 ## $ gnuplot ./csv-stats.gnuplot
 
 ## Labels
-set title 'Kali NetHunter'
+set title 'Kali NetHunter Graph'
 set xlabel 'NetHunter Version'
 
 ## CSV Input file contains tab-separated fields
@@ -16,7 +16,7 @@ set key autotitle columnhead
 
 ## PNG image output 
 set term png
-set output 'csv-stats.gnuplot.png'
+set output 'csv-stats.png'
 ## Console ascii image outputs (DEBUG)
 #set term dumb
 

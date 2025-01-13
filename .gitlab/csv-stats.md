@@ -2,6 +2,12 @@
 title: Kali NetHunter Graph
 ---
 
-![CSV Stats](csv-stats.png)
+![](csv-stats.png)
 
 [RAW CSV](csv-stats.csv)
+
+- - -
+
+## Links
+
+- [Kali NetHunter Overview](/)

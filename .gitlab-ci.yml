@@ -19,6 +19,8 @@ variables:
 .setup_for_graph: &setup_for_graph |
   #apt-get update
   apt-get --yes --no-install-recommends install gnuplot
+  pip install gitpython requests pyyaml
+  git fetch --tags origin main
 
 linting:
   stage: linting
