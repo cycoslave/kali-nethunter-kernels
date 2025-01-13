@@ -16,6 +16,10 @@ variables:
   apt-get update
   apt-get --yes --no-install-recommends install pandoc
 
+.setup_for_graph: &setup_for_graph |
+  #apt-get update
+  apt-get --yes --no-install-recommends install gnuplot
+
 linting:
   stage: linting
   allow_failure: yes
@@ -51,22 +55,31 @@ pages:
   before_script:
     - *install_prerequesites_pip
     - *setup_for_html
+    - *setup_for_graph
   script:
+    - mkdir -pv ./public/
+    - cp -v ./.gitlab/404.html ./public/
+    # <setup_for_graph>
+    - ./bin/csv-stats.py | tee ./csv-stats.csv
+    - gnuplot ./.gitlab/csv-stats.gnuplot
+    - cp -v csv-stats.* ./public/
+    # </setup_for_graph>
+    # <setup_for_html>
     - ./bin/generate-android-versions.py
     - ./bin/generate-device-kernels.py
     - ./bin/generate-image-models.py
     - ./bin/generate-images.py
     - ./bin/generate-kernels.py
-    - mkdir -pv ./public/
-    - cp -v ./.gitlab/404.html   ./public/
     - cp -v ./.gitlab/public.css ./public/
-    - pandoc --standalone ./.gitlab/www.md      --css=public.css --include-in-header=./.gitlab/header.html --output=./public/index.html
-    - pandoc --standalone ./android-versions.md --css=public.css --include-in-header=./.gitlab/header.html --output=./public/android-versions.html
-    - pandoc --standalone ./device-kernels.md   --css=public.css --include-in-header=./.gitlab/header.html --output=./public/device-kernels.html
-    - pandoc --standalone ./image-models.md     --css=public.css --include-in-header=./.gitlab/header.html --output=./public/image-models.html
-    - pandoc --standalone ./images.md           --css=public.css --include-in-header=./.gitlab/header.html --output=./public/images.html
-    - pandoc --standalone ./kernels.md          --css=public.css --include-in-header=./.gitlab/header.html --output=./public/kernels.html
+    - pandoc --standalone ./.gitlab/www.md       --css=public.css --include-in-header=./.gitlab/header.html --output=./public/index.html
+    - pandoc --standalone ./android-versions.md  --css=public.css --include-in-header=./.gitlab/header.html --output=./public/android-versions.html
+    - pandoc --standalone ./device-kernels.md    --css=public.css --include-in-header=./.gitlab/header.html --output=./public/device-kernels.html
+    - pandoc --standalone ./image-models.md      --css=public.css --include-in-header=./.gitlab/header.html --output=./public/image-models.html
+    - pandoc --standalone ./images.md            --css=public.css --include-in-header=./.gitlab/header.html --output=./public/images.html
+    - pandoc --standalone ./kernels.md           --css=public.css --include-in-header=./.gitlab/header.html --output=./public/kernels.html
+    - pandoc --standalone ./.gitlab/csv-stats.md --css=public.css --include-in-header=./.gitlab/header.html --output=./public/csv-stats.html
     - find public/ -type f -name '*.html' -print -exec sed -i -E 's_<table( |>)_<table id="pretty"\1_' {} +
+    # </setup_for_html>
   artifacts:
     paths:
       - ./public
