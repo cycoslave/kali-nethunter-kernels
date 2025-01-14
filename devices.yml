@@ -2757,6 +2757,24 @@
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/mobvoi-ticwatch-kernel -b nethunter'
             features   : [Injection, HID-4, NFS, Internal_BT, BT_RFCOMM]
+- tulip:
+    model  : Xiaomi Redmi Note 6 Pro
+    images :
+    kernels:
+      - id          : tulip
+        name   : Redmi Note 6 Pro
+        description : Xiaomi Redmi Note 6 Pro For custom roms
+        arch        : arm64
+        devicenames : tulip, twolip
+        resolution  : 1080x2160
+        modules     : 1
+        slot_device : 0
+        versions :
+          - android    : eleven
+            linux      : 4.4
+            description: Android 11
+            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS]
+            author  : TheKidBaby
 - us996:
     model  : LG V20
     kernels:
