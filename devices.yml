@@ -2766,7 +2766,6 @@
         description : Xiaomi Redmi Note 6 Pro For custom roms
         arch        : arm64
         devicenames : tulip, twolip
-        resolution  : 1080x2160
         modules     : 1
         slot_device : 0
         versions :
