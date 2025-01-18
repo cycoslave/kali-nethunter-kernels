@@ -2760,9 +2760,11 @@
 - tulip:
     model  : Xiaomi Redmi Note 6 Pro
     images :
+      - id     : tulip
+        name   : Xiaomi Redmi Note 6 Pro (tulip)
+        android: eleven
     kernels:
       - id          : tulip
-        name   : Redmi Note 6 Pro
         description : Xiaomi Redmi Note 6 Pro For custom roms
         arch        : arm64
         devicenames : tulip, twolip
