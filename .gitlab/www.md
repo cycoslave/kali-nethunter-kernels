@@ -16,6 +16,10 @@ title: Kali NetHunter Statistics Overview
 - [Kernels](/kernels.html)
 - [Android Versions](/android-versions.html)
 
+## Graphs
+
+- [CSV Stats](/csv-stats.html)
+
 - - -
 
 ## Links

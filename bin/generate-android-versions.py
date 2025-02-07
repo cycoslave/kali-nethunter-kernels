@@ -58,6 +58,8 @@ def get_android_versions(yml):
                     android_version = version.get('android', default)
                     # Make the name a little bit more end-user friendly
                     android_version = android_version.title()
+                    # If updating, make sure to update: ./kali-docs/nethunter/installing-nethunter/index.md
+                    #                                   ./kali-nethunter-kernels/bin/generate-android-versions.py
                     android_version = android_version.replace('Kitkat', '4.4 - KitKat')
                     android_version = android_version.replace('Lollipop', '5.0 - Lollipop')
                     android_version = android_version.replace('Marshmallow', '6 - Marshmallow')
