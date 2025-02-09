@@ -214,11 +214,11 @@
     model  : Samsung Galaxy S10
     images :
       - id     : beyond1lte-los
-        name   : Samsung Galaxy S10 (LineageOS 21)
-        android: fourteen
+        name   : Samsung Galaxy S10
+        android: fifteen
     kernels:
       - id          : beyond1lte-los
-        description : Samsung Galaxy S10 for LineageOS
+        description : Samsung Galaxy S10 for LineageOS 21
         kernelstring: NetHunter Kernel for the Samsung Galaxy S10 beyond1lte (Exynos9820)
         devicenames : samsung_exynos9820 beyond1lte SM-G973F exynos9820 Galaxy S10 beyond1lte-los
         arch        : arm64
@@ -228,6 +228,18 @@
             description: LineageOS 21
             author     : v0lk3n
             source     : 'git clone --recurse-submodules https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-21'
+            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, CAN]
+      - id          : beyond1lte-los
+        description : Samsung Galaxy S10 for LineageOS 22.1
+        kernelstring: NetHunter Kernel for the Samsung Galaxy S10 beyond1lte (Exynos9820)
+        devicenames : samsung_exynos9820 beyond1lte SM-G973F exynos9820 Galaxy S10 beyond1lte-los
+        arch        : arm64
+        versions    :
+          - android    : fifteen
+            linux      : 4.14
+            description: LineageOS 22.1
+            author     : v0lk3n
+            source     : 'git clone --recurse-submodules https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-22.1'
             features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, CAN]
 - blueline:
     model  : Google Pixel 3
