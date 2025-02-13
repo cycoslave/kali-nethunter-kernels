@@ -106,12 +106,8 @@ kernel/drivers/bluetooth/bfusb.ko
 kernel/drivers/bluetooth/btusb.ko
 kernel/drivers/bluetooth/btsdio.ko
 kernel/drivers/bluetooth/btintel.ko
-kernel/drivers/bluetooth/ath3k.ko
-kernel/drivers/bluetooth/btmrvl.ko
-kernel/drivers/bluetooth/btmrvl_sdio.ko
 kernel/drivers/bluetooth/btbcm.ko
 kernel/drivers/bluetooth/btrtl.ko
-kernel/drivers/bluetooth/btqca.ko
 kernel/drivers/char/hw_random/rng-core.ko
 kernel/drivers/char/hw_random/exyswd-rng.ko
 kernel/drivers/char/hw_random/cavium-rng.ko
@@ -514,6 +510,9 @@ kernel/sound/soc/samsung/abox/abox_adaptation.ko
 kernel/sound/usb/snd-usb-audio.ko
 kernel/sound/usb/snd-usbmidi-lib.ko
 kernel/net/bluetooth/bluetooth.ko
+kernel/net/bluetooth/bnep/bnep.ko
+kernel/net/bluetooth/hidp/hidp.ko
+kernel/net/bluetooth/rfcomm/rfcomm.ko
 kernel/net/can/can.ko
 kernel/net/can/can-raw.ko
 kernel/net/can/can-bcm.ko
