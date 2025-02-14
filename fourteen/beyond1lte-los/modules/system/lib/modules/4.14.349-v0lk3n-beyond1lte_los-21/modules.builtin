@@ -112,6 +112,7 @@ kernel/drivers/bluetooth/bcm203x.ko
 kernel/drivers/bluetooth/bpa10x.ko
 kernel/drivers/bluetooth/bfusb.ko
 kernel/drivers/bluetooth/btusb.ko
+kernel/drivers/bluetooth/btsdio.ko
 kernel/drivers/bluetooth/btintel.ko
 kernel/drivers/bluetooth/btbcm.ko
 kernel/drivers/bluetooth/btrtl.ko
@@ -647,6 +648,9 @@ kernel/sound/soc/samsung/abox/abox_mmapfd.ko
 kernel/sound/usb/snd-usb-audio.ko
 kernel/sound/usb/snd-usbmidi-lib.ko
 kernel/net/bluetooth/bluetooth.ko
+kernel/net/bluetooth/bnep/bnep.ko
+kernel/net/bluetooth/hidp/hidp.ko
+kernel/net/bluetooth/rfcomm/rfcomm.ko
 kernel/net/can/can.ko
 kernel/net/can/can-raw.ko
 kernel/net/can/can-bcm.ko
