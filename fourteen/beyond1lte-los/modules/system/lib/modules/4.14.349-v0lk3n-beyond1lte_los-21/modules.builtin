@@ -599,10 +599,6 @@ kernel/drivers/usb/serial/ftdi_sio.ko
 kernel/drivers/usb/serial/pl2303.ko
 kernel/drivers/usb/storage/usb-storage.ko
 kernel/drivers/usb/typec/typec.ko
-kernel/drivers/usb/usbip/usbip-core.ko
-kernel/drivers/usb/usbip/vhci-hcd.ko
-kernel/drivers/usb/usbip/usbip-host.ko
-kernel/drivers/usb/usbip/usbip-vudc.ko
 kernel/drivers/video/backlight/lcd.ko
 kernel/drivers/video/backlight/backlight.ko
 kernel/drivers/video/fbdev/core/fb.ko
