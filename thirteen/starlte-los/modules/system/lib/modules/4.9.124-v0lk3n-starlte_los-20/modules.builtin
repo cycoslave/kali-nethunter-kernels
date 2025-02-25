@@ -120,6 +120,7 @@ kernel/drivers/extcon/extcon-core.ko
 kernel/drivers/extcon/extcon-madera.ko
 kernel/drivers/fingerprint/et5xx-spi.ko
 kernel/drivers/fingerprint/et5xx-spi_data_transfer.ko
+kernel/drivers/gator_5.27/gator.ko
 kernel/drivers/gud/gud-exynos9810/MobiCoreDriver/mcDrvModule.ko
 kernel/drivers/gud/gud-exynos9810/TlcTui/TlcTui.ko
 kernel/drivers/hid/hid.ko
@@ -248,6 +249,7 @@ kernel/drivers/media/dvb-frontends/rtl2832.ko
 kernel/drivers/media/dvb-frontends/rtl2832_sdr.ko
 kernel/drivers/media/tuners/msi001.ko
 kernel/drivers/media/usb/airspy/airspy.ko
+kernel/drivers/media/usb/gspca/gspca_main.ko
 kernel/drivers/media/usb/hackrf/hackrf.ko
 kernel/drivers/media/usb/msi2500/msi2500.ko
 kernel/drivers/media/v4l2-core/videodev.ko
@@ -277,6 +279,14 @@ kernel/drivers/net/veth.ko
 kernel/drivers/net/can/vcan.ko
 kernel/drivers/net/can/slcan.ko
 kernel/drivers/net/can/can-dev.ko
+kernel/drivers/net/can/grcan.ko
+kernel/drivers/net/can/xilinx_can.ko
+kernel/drivers/net/can/c_can/c_can.ko
+kernel/drivers/net/can/cc770/cc770.ko
+kernel/drivers/net/can/ifi_canfd/ifi_canfd.ko
+kernel/drivers/net/can/m_can/m_can.ko
+kernel/drivers/net/can/sja1000/sja1000.ko
+kernel/drivers/net/can/softing/softing.ko
 kernel/drivers/net/can/spi/mcp251x.ko
 kernel/drivers/net/can/usb/ems_usb.ko
 kernel/drivers/net/can/usb/esd_usb2.ko
@@ -517,6 +527,7 @@ kernel/net/can/can.ko
 kernel/net/can/can-raw.ko
 kernel/net/can/can-bcm.ko
 kernel/net/can/can-gw.ko
+kernel/net/core/devlink.ko
 kernel/net/dns_resolver/dns_resolver.ko
 kernel/net/ipv4/ip_tunnel.ko
 kernel/net/ipv4/ip_vti.ko
@@ -529,6 +540,8 @@ kernel/net/ipv4/tcp_diag.ko
 kernel/net/ipv4/udp_diag.ko
 kernel/net/ipv4/tcp_bic.ko
 kernel/net/ipv4/tcp_cubic.ko
+kernel/net/ipv4/tcp_westwood.ko
+kernel/net/ipv4/tcp_htcp.ko
 kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko
 kernel/net/ipv4/netfilter/nf_nat_ipv4.ko
 kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko
@@ -654,7 +667,9 @@ kernel/net/netfilter/xt_string.ko
 kernel/net/netfilter/xt_time.ko
 kernel/net/netfilter/xt_u32.ko
 kernel/net/netfilter/xt_domainfilter.ko
+kernel/net/netlink/netlink_diag.ko
 kernel/net/packet/af_packet.ko
+kernel/net/packet/af_packet_diag.ko
 kernel/net/phonet/phonet.ko
 kernel/net/phonet/pn_pep.ko
 kernel/net/rfkill/rfkill.ko
@@ -668,9 +683,11 @@ kernel/net/sched/cls_u32.ko
 kernel/net/sched/cls_basic.ko
 kernel/net/sched/cls_cgroup.ko
 kernel/net/sched/em_u32.ko
+kernel/net/sched/em_canid.ko
 kernel/net/sunrpc/sunrpc.ko
 kernel/net/sunrpc/auth_gss/auth_rpcgss.ko
 kernel/net/unix/unix.ko
+kernel/net/vmw_vsock/vsock.ko
 kernel/net/wireless/cfg80211.ko
 kernel/net/xfrm/xfrm_algo.ko
 kernel/net/xfrm/xfrm_user.ko
