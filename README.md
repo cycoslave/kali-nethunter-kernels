@@ -98,6 +98,7 @@ If porting for something other than stock Android ROM, it is please append to th
 - OxygenOS -> `-oos` (e.g. `[codename-oos]`)
 - Paranoid Android -> `-pa` (e.g. `[codename-pa]`)
 - TouchWiz -> `-tw` (e.g. `[codename-tw]`)
+- VoltageOS -> `-vos` (e.g. `[codename-vos]`)
 
 - - -
 
