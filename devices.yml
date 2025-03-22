@@ -2540,7 +2540,7 @@
             linux      : 4.9.227
             description: VoltageOS 2.x (A13)
             author     : MomboteQ
-            source     : git clone https://github.com/MomboteQ/hackphone_kernel_xiaomi_msm8937 -b 13
+            source     : 'git clone https://github.com/MomboteQ/hackphone_kernel_xiaomi_msm8937 -b 13'
             features   : [Injection, HID-4, CDROM, BT_RFCOMM, RTL88XXAU, Internal BT]
 - mido:
     model  : Xiaomi Redmi Note 4X
