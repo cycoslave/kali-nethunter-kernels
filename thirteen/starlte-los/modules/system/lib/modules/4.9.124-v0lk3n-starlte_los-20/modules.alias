@@ -1,6 +1,8 @@
 # Aliases extracted from modules themselves.
 alias can-proto-6 can_isotp
 alias tty-ldisc-N_ELMCAN elmcan
+alias tty-ldisc-17 hlcan
+alias tty-ldisc-17 slcan
 alias usb:v0BDAp8179d*dc*dsc*dp*ic*isc*ip*in* 8188eu
 alias usb:v0BDAp0179d*dc*dsc*dp*ic*isc*ip*in* 8188eu
 alias usb:v07B8p8179d*dc*dsc*dp*ic*isc*ip*in* 8188eu

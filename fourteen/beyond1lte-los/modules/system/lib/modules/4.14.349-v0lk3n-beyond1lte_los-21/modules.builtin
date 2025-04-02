@@ -424,7 +424,6 @@ kernel/drivers/net/tun.ko
 kernel/drivers/net/veth.ko
 kernel/drivers/net/can/vcan.ko
 kernel/drivers/net/can/vxcan.ko
-kernel/drivers/net/can/slcan.ko
 kernel/drivers/net/can/can-dev.ko
 kernel/drivers/net/can/grcan.ko
 kernel/drivers/net/can/xilinx_can.ko
