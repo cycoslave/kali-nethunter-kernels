@@ -168,6 +168,20 @@
             author     : Re4son & yesimxev
             source     : 'git clone https://github.com/Re4son/android_kernel_huawei_angler_pixel -b nethunter-10.0'
             features   : [BT_RFCOMM, HID, Injection, Nexmon, RTL8812AU, Internal_BT, RTL8188EUS]
+- spes_matrixx:
+    model  : Redmi Note 11 spes
+    kernels:
+      - id          : spes_matrixx
+        description : Redmi Note 11 for Matrixx AOSPA
+        kernelstring: NetHunter Kernel For spes
+        arch        : arm64
+        versions    :
+          - android    : fifteen
+            linux      : 4.19.325
+            description: Matrixx 11.2.5-6
+            author     : Madara273
+            source     : 'git clone https://github.com/Madara273/Redmi-Note-11-Kernel -b main'
+            features   : [HID, Injection, BT, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL8814AU, NFS, CAN, AIRSPY, HACKRF AND MSI2500]
 - armani:
     model  : Redmi 1S
     kernels:
