@@ -1,7 +1,0 @@
-kernel/drivers/net/wireless/realtek/rtl8812au/88XXau.ko:
-kernel/drivers/net/wireless/realtek/rtl8188eus/8188eu.ko:
-kernel/drivers/net/wireless/realtek/rtl8188fu/rtl8188fu.ko:
-kernel/drivers/net/wireless/realtek/rtl8192eu/8192eu.ko:
-kernel/drivers/net/wireless/realtek/rtl8192fu/8192fu.ko:
-kernel/drivers/net/wireless/realtek/rtl8822bu/88x2bu.ko:
-kernel/drivers/net/wireless/realtek/rtl8814au/8814au.ko:
