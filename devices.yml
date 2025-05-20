@@ -2441,22 +2441,22 @@
             author     : Alynx
             source     : 'git clone https://github.com/V3rB0se/Alynx-RMX1971'
             features   : [HID, Injection]
-- rmx2185:
+- rmx2180:
     model  : Realme C15 Mediatek
     images :
-      - id     : rmx2185-los
+      - id     : rmx2180-los-ksun
         name   : Realme C15 (LineageOS 17.1)
         android: ten
     kernels:
-      - id          : rmx2185-los
+      - id          : rmx2180-los-ksun
         description : Realme C15 (MTK) for LineageOS
 
         arch        : arm64
-        kernelstring: NetHunter kernel for Realme C15 by Frostleaft07
+        kernelstring: NetHunter kernel + KernelSU-Next v1.0.6 for Realme C15 by Frostleaft07
         modules     : 1
         block       : /dev/block/platform/bootdevice/by-name/boot
         slot_device : 0
-        devicenames : RMX2185
+        devicenames : RMX2180
         resolution  : 720x1600
         versions    :
           - android    : ten
@@ -2464,7 +2464,7 @@
             description: LineageOS 17.1
             author     : Frostleaft07
             source     : 'git clone https://github.com/Frostleaft07/android_kernel_realme_mt6765 -b Nethunter'
-            features   : [Injection, RTL88XXAU, RTL8812AU, RTL8188EUS, RTL8814AU, RTL8188FU, RTL8192FU, RTL8192EU, HID-4, BT_RFCOMM, NFS, Internal_BT]
+            features   : [Injection, RTL88XXAU, RTL8812AU, RTL8188EUS, NFS, CDROM, BT_RFCOMM, ATH9K_HTC, CAN]
 - rmx3031:
     model  : Realme X7 Max 5G
     images :
