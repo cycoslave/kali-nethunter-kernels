@@ -2576,6 +2576,26 @@
             author     : linlinger
             source     : 'git clone https://github.com/linlinger/kernel_xiaomi_mido.git -b nethunter-pe'
             features   : [HID, Injection, RTL88XAU]
+- mido:
+    model  : Xiaomi Redmi Note 4X
+    images :
+      - id     : mido-los
+        name   : Xiaomi Redmi Note 4X (fourteen)
+        android: fourteen
+    kernels:
+      - id          : mido-los
+        description : Xiaomi Redmi Note 4X for LineageOS
+        devicenames : mido
+        kernelstring: NetHunter Kernel For Xiaomi Redmi Note 4X
+        arch        : arm64
+        block       : /dev/block/mmcblk0p21
+        versions    :
+          - android    : fourteen
+            linux      : 4.9
+            description: LineageOS kernel with NetHunter features enabled
+            author     : Serp3n7
+            source     : 'git clone https://github.com/Serp3n7/kernel_xiaomi_mido.git'
+            features   : [HID, Injection, RTL88XAU, RTL8188EUS, MT7901U, INTERNAL_BT]
 - shamu:
     model  : Google Nexus 6
     images :
