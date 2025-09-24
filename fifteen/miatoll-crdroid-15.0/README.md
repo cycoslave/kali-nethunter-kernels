@@ -44,4 +44,4 @@ Use a flashing method that respects the requirements above (e.g., modified **Any
 
 ---
 
-✨ Designed for **NetHunter power users** who want to use the miatoll device as an advanced testing platform.  
+✨ Designed for **NetHunter power users** who want to use the miatoll device as an advanced testing platform. 
