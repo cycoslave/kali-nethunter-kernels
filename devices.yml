@@ -1305,6 +1305,28 @@
             author     : Satyabrat Sahoo
             source     : 'git clone https://github.com/thelazyindian/kernel_8916.git -b cm-14.1-nethunter'
             features   : [HID, Injection]
+- jasmine-sprout:
+    model  : Xiaomi Mi A2
+    images :
+      - id     : jasmine-sprout-los
+        name   : Xiaomi Mi A2 (LineageOS 22.1)
+        android: fifteen
+    kernels:
+      - id          : jasmine-sprout-los
+        description : Xiaomi Mi A2 for LineageOS
+        kernelstring: NetHunter kernel for Xiaomi Mi A2
+        arch        : arm64
+        block       : /dev/block/bootdevice/by-name/boot
+        devicenames : jasmine_sprout,lineage_jasmine_sprout,jasmine-sprout,lineage-jasmine-sprout
+        modules     : 0
+        resolution  : 1080x2160
+        versions    :
+          - android    : fifteen
+            linux      : 4.19
+            description: LineageOS 22.1
+            author     : mr00k3
+            features   : [HID-4, CDROM, RTL88XXAU, RTL8818EUS, Internal_BT, RTL-BT]
+            source     : 'git clone https://github.com/mr00k3/jasmine_sprout_nethunter -b nethunter-los-22.1'
 - jflte:
     model  : Samsung Galaxy S4
     kernels:
