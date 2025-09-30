@@ -1325,7 +1325,7 @@
             linux      : 4.19
             description: LineageOS 22.1
             author     : mr00k3
-            features   : [HID-4, CDROM, RTL88XXAU, RTL8818EUS, Internal_BT, RTL-BT]
+            features   : [HID-4, CDROM, RTL88XXAU, RTL8818EUS, Internal_BT, RTL-BT, Injection]
             source     : 'git clone https://github.com/mr00k3/jasmine_sprout_nethunter -b nethunter-los-22.1'
 - jflte:
     model  : Samsung Galaxy S4
