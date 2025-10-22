@@ -1758,7 +1758,8 @@
     model  : OnePlus Nord
     images :
       - id     : oneplus-nord
-        name   : OnePlus Nord AC2003
+        name   : OnePlus Nord AC2003 (OxygenOS 11)
+        android: sixteen
         note   : "NFC is not working yet"
     kernels:
       - id          : oneplus-nord
@@ -1771,16 +1772,16 @@
         versions    :
           - android    : eleven
             linux      : 4.19
-            description: OxygenOS 11
+            description: Android 11
             author     : kimocoder
           - android    : twelve
             linux      : 4.19
-            description: OxygenOS 12
+            description: Android 12
             author     : kimocoder
           - android    : sixteen
-            description: LineageOS 23
-            author     : kimocoder
             linux      : 4.19
+            description: Android 16
+            author     : kimocoder
 - oneplus1:
     model  : OnePlus One
     images :
