@@ -265,6 +265,8 @@ kernel/drivers/media/common/videobuf2/videobuf2-v4l2.ko
 kernel/drivers/media/common/videobuf2/videobuf2-memops.ko
 kernel/drivers/media/common/videobuf2/videobuf2-vmalloc.ko
 kernel/drivers/media/dvb-core/dvb-core.ko
+kernel/drivers/media/platform/msm/dvb/adapter/mpq-adapter.ko
+kernel/drivers/media/platform/msm/dvb/demux/mpq-dmx-hw-plugin.ko
 kernel/drivers/media/platform/msm/npu/msm_npu.ko
 kernel/drivers/media/tuners/tuner-xc2028.ko
 kernel/drivers/media/tuners/tuner-simple.ko
@@ -498,6 +500,7 @@ kernel/drivers/soc/oplus/system/oplus_project/gki/oplus_project.ko
 kernel/drivers/soc/oplus/system/oplus_saupwk/oplus_saupwk.ko
 kernel/drivers/soc/oplus/system/project_info/boot_mode.ko
 kernel/drivers/soc/oplus/system/qcom_pmicwd/oplus_pmicwd.ko
+kernel/drivers/soc/oplus/system/rt_info/rt_info.ko
 kernel/drivers/soc/oplus/system/shutdown_detect/shutdown_detect.ko
 kernel/drivers/soc/oplus/system/theia/black_screen_check.ko
 kernel/drivers/soc/oplus/system/theia/bright_screen_check.ko
@@ -513,6 +516,7 @@ kernel/drivers/soc/qcom/llcc-slice.ko
 kernel/drivers/soc/qcom/llcc-lito.ko
 kernel/drivers/soc/qcom/llcc-orchid.ko
 kernel/drivers/soc/qcom/llcc-lagoon.ko
+kernel/drivers/soc/qcom/llcc_perfmon.ko
 kernel/drivers/soc/qcom/boot_stats.ko
 kernel/drivers/soc/qcom/subsys-pil-tz.ko
 kernel/drivers/soc/qcom/eud.ko
@@ -671,6 +675,7 @@ kernel/drivers/usb/usbip/usbip-core.ko
 kernel/drivers/usb/usbip/vhci-hcd.ko
 kernel/drivers/usb/usbip/usbip-host.ko
 kernel/drivers/usb/usbip/usbip-vudc.ko
+kernel/drivers/video/backlight/lcd.ko
 kernel/drivers/video/backlight/backlight.ko
 kernel/drivers/video/backlight/generic_bl.ko
 kernel/drivers/video/backlight/qcom-spmi-wled.ko
