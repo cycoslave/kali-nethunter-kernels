@@ -2457,6 +2457,26 @@
             author     : Alynx
             source     : 'git clone https://github.com/V3rB0se/Alynx-RMX1971'
             features   : [HID, Injection]
+- rmx1971:
+    model  : Realme 5 Pro
+    images :
+      - id     : rmx1971
+        name   : Realme 5 Pro (RUI2)
+        android: sixteen
+    kernels:
+      - id          : rmx1971
+        description : Halfclub NetHunter Kernel for Custom ROMs based on RUI2
+        arch        : arm64
+        block       : /dev/block/bootdevice/by-name/boot
+        slot_device : 0
+        devicenames : RMX1971,RMX1971CN,RMX1971EX
+        versions    :
+          - android    : sixteen
+            linux      : 4.9
+            description: Android 16 (RUI2)
+            author     : halfclub
+            source     : 'git clone https://github.com/halfclub58/rmx1971_kernel.git -b rmx1971-nethunter'
+            features   : [HID, QCACLD, WCN3998, RTL8821AU, AR9271, MT7601U, CSR-BT, RT5572]            
 - rmx2180:
     model  : Realme C15 Mediatek
     images :
