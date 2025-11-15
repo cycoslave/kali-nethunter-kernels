@@ -3050,6 +3050,10 @@
             source     : 'git clone https://github.com/XXH3X/Ultimate-Kali'
 - salami:
     model  : OnePlus 11 5G
+    images :
+      - id     : salami-oos
+        name   : OnePlus 11 5G (OxygenOS 15)
+        android: fifteen
     kernels:
       - id     : salami-oos
         description : OnePlus 11 EmberHeart kernel with Nethunter, KerneISU-Next and SuSFS for OOS15
