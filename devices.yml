@@ -224,6 +224,24 @@
             author     : Strix Vyxlor
             source     : 'git clone https://github.com/Strix-Vyxlor/android_kernel_xiaomi_sdm845'
             features   : [HID, BT_RFCOMM, Injection]
+- beyond0lte:
+    model  : Samsung Galaxy S10e
+    images :
+      - id     : beyond0lte-los
+        name   : Samsung Galaxy S10e (A16)
+    kernels:
+      - id          : beyond0lte-los
+        description : Samsung Galaxy S10e for LineageOS
+        kernelstring: NetHunter Kernel for the Samsung Galaxy S10e beyond0lte (Exynos9820)
+        devicenames : samsung_exynos9820 beyond0lte SM-G970 exynos9820 Galaxy S10e beyond0lte-los
+        arch        : arm64
+        versions    :
+          - android    : sixteen
+            linux      : 4.14
+            description: LineageOS 23.0
+            author     : yesimxev and v0lk3n
+            source     : 'git clone --recurse-submodules https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-23.0'
+            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, RTL88X2BU, NFS, CAN, Nexmon]
 - beyond1lte:
     model  : Samsung Galaxy S10
     images :
