@@ -224,24 +224,6 @@
             author     : Strix Vyxlor
             source     : 'git clone https://github.com/Strix-Vyxlor/android_kernel_xiaomi_sdm845'
             features   : [HID, BT_RFCOMM, Injection]
-- beyondx:
-    model  : Samsung Galaxy S10 5G
-    images :
-      - id     : beyondx-los
-        name   : Samsung Galaxy S10 5G (A16)
-    kernels:
-      - id          : beyondx-los
-        description : Samsung Galaxy S10 for LineageOS
-        kernelstring: NetHunter Kernel for the Samsung Galaxy S10 5G beyondx (Exynos9820)
-        devicenames : samsung_exynos9820 beyondx SM-G977 exynos9820 Galaxy S10 5G beyondx-los
-        arch        : arm64
-        versions    :
-          - android    : sixteen
-            linux      : 4.14
-            description: LineageOS 23.0
-            author     : yesimxev and v0lk3n
-            source     : 'git clone --recurse-submodules https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-23.0'
-            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, RTL88X2BU, NFS, CAN, Nexmon]
 - beyond1lte:
     model  : Samsung Galaxy S10
     images :
@@ -270,6 +252,42 @@
             linux      : 4.14
             description: LineageOS 23.0
             author     : v0lk3n
+            source     : 'git clone --recurse-submodules https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-23.0'
+            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, RTL88X2BU, NFS, CAN, Nexmon]
+- beyond2lte:
+    model  : Samsung Galaxy S10+
+    images :
+      - id     : beyond2lte-los
+        name   : Samsung Galaxy S10+ (A16)
+    kernels:
+      - id          : beyond2lte-los
+        description : Samsung Galaxy S10+ for LineageOS
+        kernelstring: NetHunter Kernel for the Samsung Galaxy S10+ beyond2lte (Exynos9820)
+        devicenames : samsung_exynos9820 beyond2lte SM-G975 exynos9820 Galaxy S10+ beyond2lte-los
+        arch        : arm64
+        versions    :
+          - android    : sixteen
+            linux      : 4.14
+            description: LineageOS 23.0
+            author     : yesimxev and v0lk3n
+            source     : 'git clone --recurse-submodules https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-23.0'
+            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, RTL88X2BU, NFS, CAN, Nexmon]
+- beyondx:
+    model  : Samsung Galaxy S10 5G
+    images :
+      - id     : beyondx-los
+        name   : Samsung Galaxy S10 5G (A16)
+    kernels:
+      - id          : beyondx-los
+        description : Samsung Galaxy S10 5G for LineageOS
+        kernelstring: NetHunter Kernel for the Samsung Galaxy S10 5G beyondx (Exynos9820)
+        devicenames : samsung_exynos9820 beyondx SM-G977 exynos9820 Galaxy S10 5G beyondx-los
+        arch        : arm64
+        versions    :
+          - android    : sixteen
+            linux      : 4.14
+            description: LineageOS 23.0
+            author     : yesimxev and v0lk3n
             source     : 'git clone --recurse-submodules https://github.com/v0lk3n/nethunter_kernel_samsung_exynos9820.git -b nethunter-lineage-23.0'
             features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, RTL88X2BU, NFS, CAN, Nexmon]
 - blueline:
