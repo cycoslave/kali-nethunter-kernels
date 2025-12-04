@@ -3071,14 +3071,14 @@
             source     : wget https://github.com/0x-br0k3n/EmberHeart_OnePlus11/releases/latest/download/EmberHeart_boot.img
             features   : [BT_RFCOMM, Internal_BT, HID, Injection, RTL8812AU, RTW88, ATH9K_HTC, ATH10K, QCACLD, AIRSPY, MT7XXX, HACKRF, MemKernel by POCO (for r/w to physical memory from userspace applications), CAN]
 - cepheus:
-    model  :  Xiaomi Mi 9 cepheus (PixelOS 15)
+    model  : Xiaomi Mi 9 cepheus (PixelOS 15)
     images :
-      - id     :  cepheus-pos
-        name   :  Xiaomi Mi 9 - cepheus (PixelOS 15)
-        android:  fifteen
-        rootfs :  full
+      - id     : cepheus-pos
+        name   : Xiaomi Mi 9 - cepheus (PixelOS 15)
+        android: fifteen
+        rootfs : full
     kernels:
-      - id     :  cepheus-pos
+      - id     : cepheus-pos
         description : NetHunter Kernel for the Xiaomi MI9 cepheus
         kernelstring: NetHunter Kernel for the Xiaomi MI9 cepheusP
         devicenames : cepheus
@@ -3090,9 +3090,9 @@
         modules     : 1
         slot_device : 0
         versions    :
-          - android    :  fifteen
-            linux      :  4.14.353-openela
-            description:  Xiaomi Mi9 cepheus PixelOS 15
-            author     :  k0d14k
-            source     :  git clone https://github.com/k0d14k/kernel_xiaomi_cepheus -b fifteen
-            features   :  [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500]
+          - android    : fifteen
+            linux      : 4.14.353-openela
+            description: Xiaomi Mi9 cepheus PixelOS 15
+            author     : k0d14k
+            source     : git clone https://github.com/k0d14k/kernel_xiaomi_cepheus -b fifteen
+            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500]
