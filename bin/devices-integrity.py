@@ -131,6 +131,11 @@ def check_yml(yml):
                         case _:
                             print("[-]   Found unknown value '{} -> images -> {}': {}".format(codename, key, image.get(key, default)), file=sys.stderr)
 
+                required = ["id", "name", "android"]
+                for key in required:
+                    if not image.get(key, default):
+                        print(f"[-]   {codename} doesn't have a {key} in image section", file=sys.stderr)
+
             if not element[codename].get('kernels', default):
                 print("[-]   {} doesn't have a kernel section".format(codename), file=sys.stderr)
             for kernel in element[codename].get('kernels', default):
