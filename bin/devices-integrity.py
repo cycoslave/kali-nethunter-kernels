@@ -182,6 +182,17 @@ def compare_yml(yml):
                 if image not in kernel_array:
                     print("[-]   Found image id, without matching kernel id: {} -> images -> id: {}".format(codename, image), file=sys.stderr)
 
+            kernel_android_versions = [
+                v["android"]
+                for kernel in element[codename].get('kernels', default)
+                for v in kernel["versions"]
+            ]
+            image_android_versions = [img["android"] for img in element[codename].get('images', default)]
+
+            for img_ver in image_android_versions:
+                if not img_ver in kernel_android_versions:
+                    print("[-]   Image android ({}) isn't found in the kernel for {}".format(img_ver, codename), file=sys.stderr)
+
             # Disabling as its optional to have pre-created image section - useful for troubleshoot only
             #for kernel in kernel_array:
             #    if kernel not in image_array:
