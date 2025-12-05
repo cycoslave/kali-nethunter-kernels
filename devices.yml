@@ -229,6 +229,7 @@
     images :
       - id     : beyond0lte-los
         name   : Samsung Galaxy S10e (A16)
+        android: sixteen
     kernels:
       - id          : beyond0lte-los
         description : Samsung Galaxy S10e for LineageOS
@@ -247,6 +248,7 @@
     images :
       - id     : beyond1lte-los
         name   : Samsung Galaxy S10 (A15)
+        android: sixteen
     kernels:
       - id          : beyond1lte-los
         description : Samsung Galaxy S10 for LineageOS
@@ -277,6 +279,7 @@
     images :
       - id     : beyond2lte-los
         name   : Samsung Galaxy S10+ (A16)
+        android: sixteen
     kernels:
       - id          : beyond2lte-los
         description : Samsung Galaxy S10+ for LineageOS
@@ -295,6 +298,7 @@
     images :
       - id     : beyondx-los
         name   : Samsung Galaxy S10 5G (A16)
+        android: sixteen
     kernels:
       - id          : beyondx-los
         description : Samsung Galaxy S10 5G for LineageOS

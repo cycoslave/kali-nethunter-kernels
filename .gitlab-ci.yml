@@ -22,7 +22,7 @@ variables:
   pip install gitpython requests pyyaml
   git fetch --tags origin main
 
-linting:
+yamllint:
   stage: linting
   allow_failure: yes
   rules:
@@ -35,7 +35,7 @@ linting:
   script:
     - yamllint devices.yml
 
-kernel_integrity:
+devices_integrity:
   stage: linting
   allow_failure: yes
   rules:
