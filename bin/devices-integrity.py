@@ -104,9 +104,9 @@ def check_yml(yml):
     print("[i] Checking YAML's values")
 
     default = ""
-    # iterate over all device models
+    # Iterate over all device models
     for element in yml:
-        # iterate over all model's entries in yaml file
+        # Iterate over all model's entries in yaml file
         for codename in element.keys():
 
             for key in element[codename].keys():
@@ -167,9 +167,9 @@ def compare_yml(yml):
     print("[i] Checking YAML's <models>: images <-> kernels")
 
     default = ""
-    # iterate over all device models
+    # Iterate over all device models
     for element in yml:
-        # iterate over all model's entries in yaml file
+        # Iterate over all model's entries in yaml file
         for codename in element.keys():
             image_array = []
             kernel_array = []
@@ -205,9 +205,9 @@ def compare_yml_dir(yml):
     print("[i] Comparing YAML: {} -> {}*".format(INPUT_FILE, ROOT_DIR))
 
     default = ""
-    # iterate over all device models
+    # Iterate over all device models
     for element in yml:
-        # iterate over all model's entries in yaml file
+        # Iterate over all model's entries in yaml file
         for codename in element.keys():
             model = element[codename].get('model', default)
 
@@ -262,16 +262,16 @@ def do_compare_dir_yml(android_version_dir, kernel_id_dir, yml):
     default = ""
     path = os.path.join(ROOT_DIR, android_version_dir, kernel_id_dir)
 
-    # iterate over all device models
+    # Iterate over all device models
     for element in yml:
-        # iterate over all model's entries in yaml file
+        # Iterate over all model's entries in yaml file
         for codename in element.keys():
-            # iterate over all model's kernels
+            # Iterate over all model's kernels
             for kernel in element[codename].get('kernels', default):
                 kernel_id = kernel.get('id', default)
                 # have we got a kernel id/name match?
                 if kernel_id == kernel_id_dir:
-                    # iterate over all model kernels version's
+                    # Iterate over all model kernels version's
                     for version in kernel.get('versions', default):
                         android_version = version.get('android', default)
                         # have we got a kernel version match?
@@ -314,12 +314,12 @@ def count_kernel_yml(yml):
     default = ""
     yml_kernels = []
 
-    # iterate over all the data
+    # Iterate over all the data
     for element in yml:
-        # iterate over all the device models
+        # Iterate over all the device models
         for codename in element.keys():
             for kernel in element[codename].get('kernels', default):
-                # iterate over all model kernels version's
+                # Iterate over all model kernels version's
                 for version in kernel.get('versions', default):
                     android_version = version.get('android', default)
                     yml_kernels.append(android_version)
