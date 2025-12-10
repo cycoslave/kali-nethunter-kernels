@@ -2363,6 +2363,12 @@
             author     : yesimxev
             source     : 'git clone https://github.com/yesimxev/android_kernel_motorola_msm8998 -b lineage-20'
             features   : [HID-4, Injection, RTL88XXAU, BT_RFCOMM, Internal_BT]
+          - android    : fifteen
+            linux      : 4.4
+            description: LineageOS 22.2
+            author     : yesimxev
+            source     : 'git clone https://github.com/yesimxev/android_kernel_motorola_msm8998 -b lineage-22.2'
+            features   : [HID-4, Injection, RTL88XXAU, BT_RFCOMM, Internal_BT, NFS, RTL8188EUS, RTL-BT, CAN]
 - pdx201:
     model  : Sony Xperia 10 II
     images :
