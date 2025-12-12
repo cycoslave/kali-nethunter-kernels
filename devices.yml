@@ -40,7 +40,7 @@
         versions    :
           - android    : marshmallow
             linux      : 3.10
-            description: TouchWiz 6
+            description: TouchWiz 6.0
             author     : DeadSquirrel01
             source     : 'git clone https://github.com/DeadSquirrel01/nethunter-kernel-a5ulte.git -b touchwiz-6.0'
 - a5xelte:
@@ -178,7 +178,7 @@
         versions    :
           - android    : fifteen
             linux      : 4.19.325
-            description: Matrixx 11.2.5-6
+            description: AOSPA
             author     : Madara273
             source     : 'git clone https://github.com/Madara273/Redmi-Note-11-Kernel -b main'
             features   : [HID, Injection, BT, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL8814AU, NFS, CAN, AIRSPY, HACKRF AND MSI2500]
@@ -449,7 +449,7 @@
         versions    :
           - android    : fifteen
             linux      : 4.14.353-openela
-            description: Xiaomi Mi9 cepheus PixelOS 15
+            description: PixelOS 15
             author     : k0d14k
             source     : git clone https://github.com/k0d14k/kernel_xiaomi_cepheus -b fifteen
             features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500]
@@ -1676,7 +1676,7 @@
         versions    :
           - android    : nougat
             linux      : 3.18
-            description: Lineage OS 14.1
+            description: LineageOS 14.1
             author     : robnew
             source     : 'git clone https://github.com/robnew/NetHunter_K20plus_arm64_Kernel.git'
 - mako:
@@ -1849,15 +1849,15 @@
         versions    :
           - android    : eleven
             linux      : 4.19
-            description: Android 11
+            description: OxygenOS 11
             author     : kimocoder
           - android    : twelve
             linux      : 4.19
-            description: Android 12
+            description: OxygenOS 12
             author     : kimocoder
           - android    : sixteen
             linux      : 4.19
-            description: Android 16
+            description: OxygenOS 16
             author     : kimocoder
 - oneplus1:
     model  : OnePlus One
@@ -1933,13 +1933,13 @@
         versions    :
           - android    : lollipop
             linux      : 3.10
-            description: OxygenOS
+            description: OxygenOS 2
             author     : Binkybear
             source     : 'git clone https://github.com/binkybear/android_kernel_oneplus_msm8994.git -b boeffla_oos3'
             features   : [Injection]
           - android    : marshmallow
             linux      : 3.10
-            description: OxygenOS
+            description: OxygenOS 3
             author     : Binkybear
             source     : 'git clone https://github.com/binkybear/android_kernel_oneplus_msm8994.git -b 6.0.1-oos'
             features   : [CDROM, HID, Injection]
@@ -2029,7 +2029,7 @@
         versions    :
           - android    : nougat
             linux      : 3.18
-            description: OnePlus 3 OxygenOS
+            description: OxygenOS 4
             author     : zanezam
             source     : 'git clone https://github.com/zanezam/boeffla-kernel-oos-oneplus3.git -b t_boeffla_cm14_nethunter-V1_aa64u541'
             features   : [Injection]
@@ -2040,7 +2040,7 @@
         versions    :
           - android    : marshmallow
             linux      : 3.18
-            description: OxygenOS
+            description: OxygenOS 3
             author     : Binkybear
             source     : 'git clone https://github.com/binkybear/android_kernel_oneplus_msm8996.git -b ElementalX'
             features   : [CDROM, HID, Injection]
@@ -2074,7 +2074,7 @@
             features   : [Injection]
           - android    : oreo
             linux      : 3.18
-            description: OnePlus 3T LineageOS 15.1
+            description: LineageOS 15.1
             author     : flypatriot
             source     : 'git clone https://github.com/flypatriot/boeffla-kernel-los-nethunter-oneplus3T.git -b t_boeffla_lineage15_nethunter'
             features   : [CDROM, HID, Injection]
@@ -2085,7 +2085,7 @@
         versions    :
           - android    : nougat
             linux      : 3.18
-            description: OxygenOS OnePlus 3T
+            description: OxygenOS 4
             author     : zanezam
             source     : 'git clone https://github.com/zanezam/boeffla-kernel-oos-oneplus3.git -b t_boeffla_cm14_nethunter-V1_aa64u541'
             features   : [Injection]
@@ -2524,7 +2524,7 @@
         versions    :
           - android    : twelve
             linux      : 4.14
-            description: Android 12L Corvus vS4.1-Eclipse
+            description: Corvus vS4.1-Eclipse
             author     : Mikhail Simon
             source     : 'git clone https://github.com/mikhailsimon/nethunter-r5x'
 - rmx1971:
@@ -2678,7 +2678,7 @@
         versions    :
           - android    : eleven
             linux      : 4.9
-            description: Pixel Experience kernel with NetHunter features enabled
+            description: Pixel Experience
             author     : linlinger
             source     : 'git clone https://github.com/linlinger/kernel_xiaomi_mido.git -b nethunter-pe'
             features   : [HID, Injection, RTL88XAU]
