@@ -1839,7 +1839,7 @@
         android: sixteen
         note   : "NFC is not working yet"
     kernels:
-      - id          : oneplus-nord-oss
+      - id          : oneplus-nord-oos
         description : OnePlus Nord for OxygenOS
         arch        : arm64
         modules     : 1
