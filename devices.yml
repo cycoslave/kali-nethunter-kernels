@@ -184,16 +184,16 @@
             features   : [HID, Injection, BT, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL8814AU, NFS, CAN, AIRSPY, HACKRF AND MSI2500]
 - ikteach:
     model  : Redmi note 8
-      - id     : ikteach
-        name   : Redmi note 8
+      - id     : ginkgo
+        name   : Redmi note 8 (A13)
     kernels:
-        description : Redmi note 8 for LineageOS 11-13 Version
+        description : Redmi note 8 for LineageOS 11 to 13 Version
         kernelstring: NetHunter Kernel for the Redmi note 8
         devicenames : Redmi note 8 ginkgo
         arch        : arm64
         versions    :
-          - android    : 13
-            linux      : 4.14.256
+          - android    : thirteen
+            linux      : 4.14
             description: LineageOS 18 To 20 Supported
             author     : ikteach (ikram)
             source     : 'git clone https://github.com/ikteach/ginkgo_Kernel -b mian'
