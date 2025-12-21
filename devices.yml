@@ -182,7 +182,7 @@
             author     : Madara273
             source     : 'git clone https://github.com/Madara273/Redmi-Note-11-Kernel -b main'
             features   : [HID, Injection, BT, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL8814AU, NFS, CAN, AIRSPY, HACKRF AND MSI2500]
-- ikteach:
+- ginkgo:
     model  : Redmi Note 8
     images :
       - id     : ginkgo
