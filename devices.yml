@@ -456,7 +456,7 @@
     kernels:
       - id     : cepheus-pos
         description : NetHunter Kernel for the Xiaomi MI9 cepheus
-        kernelstring: NetHunter Kernel for the Xiaomi MI9 cepheusP
+        kernelstring: NetHunter Kernel for the Xiaomi MI9 cepheus
         devicenames : cepheus
         arch        : arm64
         ramdisk     : auto
@@ -471,7 +471,7 @@
             description: PixelOS 15
             author     : k0d14k
             source     : git clone https://github.com/k0d14k/kernel_xiaomi_cepheus -b fifteen
-            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500]
+            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500, CAN]
 - crosshatch:
     model  : Google Pixel 3 XL
     images :
