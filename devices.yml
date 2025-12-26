@@ -182,6 +182,25 @@
             author     : Madara273
             source     : 'git clone https://github.com/Madara273/Redmi-Note-11-Kernel -b main'
             features   : [HID, Injection, BT, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL8814AU, NFS, CAN, AIRSPY, HACKRF AND MSI2500]
+- ginkgo:
+    model  : Redmi Note 8
+    images :
+      - id     : ginkgo
+        name   : Redmi Note 8 (A13)
+        android: thirteen
+    kernels:
+      - id          : ginkgo
+        description : Redmi Note 8 for LineageOS
+        kernelstring: NetHunter Kernel for the Redmi Note 8 (ginkgo)
+        devicenames : Redmi Note 8
+        arch        : arm64
+        versions    :
+          - android    : thirteen
+            linux      : 4.14
+            description: LineageOS 20.0
+            author     : ikram
+            source     : 'git clone https://github.com/ikteach/ginkgo_kernel.git -b main'
+            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8814AU, RTL88XXAU, RTL88X2BU, NFS, CAN, AIRSPY, HACKRF OR MSI2500]
 - armani:
     model  : Redmi 1S
     kernels:
@@ -437,7 +456,7 @@
     kernels:
       - id     : cepheus-pos
         description : NetHunter Kernel for the Xiaomi MI9 cepheus
-        kernelstring: NetHunter Kernel for the Xiaomi MI9 cepheusP
+        kernelstring: NetHunter Kernel for the Xiaomi MI9 cepheus
         devicenames : cepheus
         arch        : arm64
         ramdisk     : auto
@@ -452,7 +471,7 @@
             description: PixelOS 15
             author     : k0d14k
             source     : git clone https://github.com/k0d14k/kernel_xiaomi_cepheus -b fifteen
-            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500]
+            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500, CAN]
 - crosshatch:
     model  : Google Pixel 3 XL
     images :
@@ -1861,7 +1880,7 @@
         android: sixteen
         note   : "NFC is not working yet"
     kernels:
-      - id          : oneplus-nord-oss
+      - id          : oneplus-nord-oos
         description : OnePlus Nord for OxygenOS
         arch        : arm64
         modules     : 1

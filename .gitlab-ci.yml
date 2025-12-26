@@ -24,7 +24,7 @@ variables:
 
 yamllint:
   stage: linting
-  allow_failure: yes
+  #allow_failure: yes
   rules:
     - if: $CI_MERGE_REQUEST_ID                      # Execute jobs in merge request context
       when: always
@@ -37,7 +37,7 @@ yamllint:
 
 devices_integrity:
   stage: linting
-  allow_failure: yes
+  #allow_failure: yes
   rules:
     - if: $CI_MERGE_REQUEST_ID                      # Execute jobs in merge request context
       when: always
