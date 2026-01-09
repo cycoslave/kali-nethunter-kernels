@@ -22,9 +22,9 @@ variables:
   pip install gitpython requests pyyaml
   git fetch --tags origin main
 
-linting:
+yamllint:
   stage: linting
-  allow_failure: yes
+  #allow_failure: yes
   rules:
     - if: $CI_MERGE_REQUEST_ID                      # Execute jobs in merge request context
       when: always
@@ -35,9 +35,9 @@ linting:
   script:
     - yamllint devices.yml
 
-kernel_integrity:
+devices_integrity:
   stage: linting
-  allow_failure: yes
+  #allow_failure: yes
   rules:
     - if: $CI_MERGE_REQUEST_ID                      # Execute jobs in merge request context
       when: always

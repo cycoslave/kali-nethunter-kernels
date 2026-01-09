@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# $ python3 -m venv .env; source .env/bin/activate; python3 -m pip install pyyaml
+# $ ./$0
 from datetime import datetime
 import os
 import sys
@@ -102,9 +104,9 @@ def check_yml(yml):
     print("[i] Checking YAML's values")
 
     default = ""
-    # iterate over all device models
+    # Iterate over all device models
     for element in yml:
-        # iterate over all model's entries in yaml file
+        # Iterate over all model's entries in yaml file
         for codename in element.keys():
 
             for key in element[codename].keys():
@@ -130,6 +132,11 @@ def check_yml(yml):
                             continue
                         case _:
                             print("[-]   Found unknown value '{} -> images -> {}': {}".format(codename, key, image.get(key, default)), file=sys.stderr)
+
+                required = ["id", "name", "android"]
+                for key in required:
+                    if not image.get(key, default):
+                        print(f"[-]   {codename} doesn't have a {key} in image section", file=sys.stderr)
 
             if not element[codename].get('kernels', default):
                 print("[-]   {} doesn't have a kernel section".format(codename), file=sys.stderr)
@@ -160,9 +167,9 @@ def compare_yml(yml):
     print("[i] Checking YAML's <models>: images <-> kernels")
 
     default = ""
-    # iterate over all device models
+    # Iterate over all device models
     for element in yml:
-        # iterate over all model's entries in yaml file
+        # Iterate over all model's entries in yaml file
         for codename in element.keys():
             image_array = []
             kernel_array = []
@@ -177,6 +184,17 @@ def compare_yml(yml):
                 if image not in kernel_array:
                     print("[-]   Found image id, without matching kernel id: {} -> images -> id: {}".format(codename, image), file=sys.stderr)
 
+            kernel_android_versions = [
+                v["android"]
+                for kernel in element[codename].get('kernels', default)
+                for v in kernel["versions"]
+            ]
+            image_android_versions = [img["android"] for img in element[codename].get('images', default)]
+
+            for img_ver in image_android_versions:
+                if not img_ver in kernel_android_versions:
+                    print("[-]   Image android ({}) isn't found in the kernel for {}".format(img_ver, codename), file=sys.stderr)
+
             # Disabling as its optional to have pre-created image section - useful for troubleshoot only
             #for kernel in kernel_array:
             #    if kernel not in image_array:
@@ -187,9 +205,9 @@ def compare_yml_dir(yml):
     print("[i] Comparing YAML: {} -> {}*".format(INPUT_FILE, ROOT_DIR))
 
     default = ""
-    # iterate over all device models
+    # Iterate over all device models
     for element in yml:
-        # iterate over all model's entries in yaml file
+        # Iterate over all model's entries in yaml file
         for codename in element.keys():
             model = element[codename].get('model', default)
 
@@ -244,16 +262,16 @@ def do_compare_dir_yml(android_version_dir, kernel_id_dir, yml):
     default = ""
     path = os.path.join(ROOT_DIR, android_version_dir, kernel_id_dir)
 
-    # iterate over all device models
+    # Iterate over all device models
     for element in yml:
-        # iterate over all model's entries in yaml file
+        # Iterate over all model's entries in yaml file
         for codename in element.keys():
-            # iterate over all model's kernels
+            # Iterate over all model's kernels
             for kernel in element[codename].get('kernels', default):
                 kernel_id = kernel.get('id', default)
                 # have we got a kernel id/name match?
                 if kernel_id == kernel_id_dir:
-                    # iterate over all model kernels version's
+                    # Iterate over all model kernels version's
                     for version in kernel.get('versions', default):
                         android_version = version.get('android', default)
                         # have we got a kernel version match?
@@ -296,12 +314,12 @@ def count_kernel_yml(yml):
     default = ""
     yml_kernels = []
 
-    # iterate over all the data
+    # Iterate over all the data
     for element in yml:
-        # iterate over all the device models
+        # Iterate over all the device models
         for codename in element.keys():
             for kernel in element[codename].get('kernels', default):
-                # iterate over all model kernels version's
+                # Iterate over all model kernels version's
                 for version in kernel.get('versions', default):
                     android_version = version.get('android', default)
                     yml_kernels.append(android_version)
