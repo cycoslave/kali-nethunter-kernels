@@ -2139,55 +2139,29 @@
             features   : [CDROM, HID, Injection]
       - id          : oneplus5-los
         description : OnePlus 5 / 5T for LineageOS
-        version     : v0.3.2
+        version     : v0.6.4
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
         devicenames : dumpling,cheeseburger
         versions    :
-          - android    : thirteen
+          - android    : fifteen
             linux      : 4.04
-            description: LineageOS 20.0
+            description: LineageOS 22.2
             author     : seppzer0
-            source     : 'git clone -b v0.3.2 https://github.com/seppzer0/s0nh_kernel'
-            features   : [HID, Injection, RTL88XXAU, RTL8187]
-      - id          : oneplus5-pa
-        description : OnePlus 5 for Paranoid Android
-        version     : v0.3.2
-        kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
-        arch        : arm64
-        devicenames : dumpling,cheeseburger
-        versions    :
-          - android    : thirteen
-            linux      : 4.04
-            description: Paranoid Android Topaz 8
-            author     : seppzer0
-            source     : 'git clone -b v0.3.2 https://github.com/seppzer0/s0nh_kernel'
+            source     : 'git clone -b v0.6.4 https://github.com/seppzer0/zero-kernel'
             features   : [HID, Injection, RTL88XXAU, RTL8187]
       - id          : oneplus5-los-ksu
         description : OnePlus 5 / 5T for LineageOS w/ KernelSU
-        version     : v0.3.2
+        version     : v0.6.4
         kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
         arch        : arm64
         devicenames : dumpling,cheeseburger
         versions    :
-          - android    : thirteen
+          - android    : fifteen
             linux      : 4.04
-            description: LineageOS 20.0
+            description: LineageOS 22.2
             author     : seppzer0
-            source     : 'git clone -b v0.3.2 https://github.com/seppzer0/s0nh_kernel'
-            features   : [HID, Injection, RTL88XXAU, RTL8187, KernelSU]
-      - id          : oneplus5-pa-ksu
-        description : OnePlus 5 / 5T for Paranoid Android w/ KernelSU
-        version     : v0.3.2
-        kernelstring: NetHunter Kernel for OnePlus 5/T by @seppzer0
-        arch        : arm64
-        devicenames : dumpling,cheeseburger
-        versions    :
-          - android    : thirteen
-            linux      : 4.04
-            description: Paranoid Android Topaz 8
-            author     : seppzer0
-            source     : 'git clone -b v0.3.2 https://github.com/seppzer0/s0nh_kernel'
+            source     : 'git clone -b v0.6.4 https://github.com/seppzer0/zero-kernel'
             features   : [HID, Injection, RTL88XXAU, RTL8187, KernelSU]
 - oneplus6:
     model  : OnePlus 6 / 6T
