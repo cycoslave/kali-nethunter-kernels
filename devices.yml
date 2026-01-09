@@ -2112,8 +2112,8 @@
     model  : OnePlus 5 / 5T
     images :
       - id     : oneplus5-los
-        name   : OnePlus 5 / 5T (LineageOS 20)
-        android: thirteen
+        name   : OnePlus 5 / 5T (LineageOS 22)
+        android: fifteen
     kernels:
       - id          : oneplus5-oos
         description : OnePlus 5 for OxygenOS
