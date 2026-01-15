@@ -2233,12 +2233,6 @@
             author     : kimocoder
             source     : 'git clone https://github.com/kimocoder/android_kernel_oneplus6 -b nethunter'
             features   : [HID-4, Injection, QCACLD, RTL8812AU, RTL8188EUS]
-          - android    : fifteen
-            linux      : 4.09
-            description: Lineageos 22.2
-            author     : v0lk3n
-            source     : 'git clone --recurse-submodules https://github.com/V0lk3n/nethunter_kernel_oneplus_sdm845.git -b nethunter-lineage-22.2'
-            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, QCACLD-3, RTL8812AU, CAN, NFS]
 - oneplus7:
     model  : OnePlus 7 / 7 Pro / 7T / 7T Pro
     images :
