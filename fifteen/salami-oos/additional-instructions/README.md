@@ -4,7 +4,7 @@
 - Flash Wireless Firmware for Nethunter provided in the releases or use the one here
 - Download and Unzip kernel modules in internal storage and load them using `insmod module_name.ko`
 
-Release link : https://github.com/0x-br0k3n/EmberHeart_OnePlus11/releases/latest
+Release link : https://github.com/nullptr-t-oss/EmberHeart_OnePlus11/releases/tag/v1.5.12-r12
 
 ---
 
@@ -27,4 +27,4 @@ If you have unzipped all the drivers in internal storage and want to load driver
 
 Tested wifi adaptors : [TP-Link Archer T2U Plus](https://amzn.in/d/76Ka5nB)
 
-REPO LINK : https://github.com/0x-br0k3n/EmberHeart_OnePlus11
+REPO LINK : https://github.com/nullptr-t-oss/EmberHeart_OnePlus11
