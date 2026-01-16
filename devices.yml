@@ -198,7 +198,7 @@
           - android    : thirteen
             linux      : 4.14
             description: LineageOS 20.0
-            author     : Ikteach
+            author     : ikram
             source     : 'git clone https://github.com/ikteach/ginkgo_kernel.git -b main'
             features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8814AU, RTL88XXAU, RTL88X2BU, NFS, CAN, AIRSPY, HACKRF OR MSI2500]
 - ginkgo:
@@ -217,9 +217,9 @@
           - android    : sixteen
             linux      : 4.14
             description: LineageOS 23.0
-            author     : Ikteach
+            author     : ikram
             source     : 'git clone https://github.com/ikteach/ginkgo_nethunter_kernel.git -b main'
-            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID, Injection, ATH9K_HTC, RTL8188EUS, RTL8814AU, RTL88XXAU, RTL88X2BU, NFS, CAN, AIRSPY, HACKRF OR MSI2500]
+            features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID, Injection, ATH9K_HTC, RTL8188EUS, RTL8814AU, RTL88XXAU, RTL88X2BU, CAN, AIRSPY, HACKRF OR MSI2500]
 - armani:
     model  : Redmi 1S
     kernels:
@@ -475,7 +475,7 @@
     kernels:
       - id     : cepheus-pos
         description : NetHunter Kernel for the Xiaomi MI9 cepheus
-        kernelstring: NetHunter Kernel for the Xiaomi MI9 cepheusP
+        kernelstring: NetHunter Kernel for the Xiaomi MI9 cepheus
         devicenames : cepheus
         arch        : arm64
         ramdisk     : auto
@@ -490,7 +490,7 @@
             description: PixelOS 15
             author     : k0d14k
             source     : git clone https://github.com/k0d14k/kernel_xiaomi_cepheus -b fifteen
-            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500]
+            features   : [BT_RFCOMM, Internal_BT, RTL-BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8812AU, RTL88XXAU, NFS, AIRSPY, HACKRF AND MSI2500, CAN]
 - crosshatch:
     model  : Google Pixel 3 XL
     images :
