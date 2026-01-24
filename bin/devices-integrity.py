@@ -104,10 +104,15 @@ def check_yml(yml):
     print("[i] Checking YAML's values")
 
     default = ""
+    seen = set()
     # Iterate over all device models
     for element in yml:
         # Iterate over all model's entries in yaml file
         for codename in element.keys():
+            if codename in seen:
+                print(f"[-] Duplicate codename: {codename}", file=sys.stderr)
+            else:
+                seen.add(codename)
 
             for key in element[codename].keys():
                 match key:

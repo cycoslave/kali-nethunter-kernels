@@ -185,11 +185,14 @@
 - ginkgo:
     model  : Redmi Note 8
     images :
-      - id     : ginkgo
+      - id     : ginkgoa13
         name   : Redmi Note 8 (A13)
         android: thirteen
+      - id     : ginkgoa16
+        name   : Redmi Note 8 (A16)
+        android: sixteen
     kernels:
-      - id          : ginkgo
+      - id          : ginkgoa13
         description : Redmi Note 8 for LineageOS
         kernelstring: NetHunter Kernel for the Redmi Note 8 (ginkgo)
         devicenames : Redmi Note 8
@@ -201,14 +204,7 @@
             author     : ikram
             source     : 'git clone https://github.com/ikteach/ginkgo_kernel.git -b main'
             features   : [BT_RFCOMM, INTERNAL_BT, RTL_BT, HID-4, Injection, ATH9K_HTC, RTL8188EUS, RTL8814AU, RTL88XXAU, RTL88X2BU, NFS, CAN, AIRSPY, HACKRF OR MSI2500]
-- ginkgo:
-    model  : Redmi Note 8
-    images :
-      - id     : ginkgo
-        name   : Redmi Note 8 (A16)
-        android: sixteen
-    kernels:
-      - id          : ginkgo
+      - id          : ginkgoa16
         description : Redmi Note 8 for LineageOS
         kernelstring: NetHunter Kernel for the Redmi Note 8 (ginkgo)
         devicenames : Redmi Note 8
@@ -2722,6 +2718,9 @@
       - id     : mido-pe11
         name   : Xiaomi Redmi Note 4X (Eleven)
         android: eleven
+      - id     : mido-los
+        name   : Xiaomi Redmi Note 4X (Fourteen)
+        android: fourteen
     kernels:
       - id          : mido-pe11
         description : Xiaomi Redmi Note 4X for Pixel Experience
@@ -2736,13 +2735,6 @@
             author     : linlinger
             source     : 'git clone https://github.com/linlinger/kernel_xiaomi_mido.git -b nethunter-pe'
             features   : [HID, Injection, RTL88XAU]
-- mido:
-    model  : Xiaomi Redmi Note 4X
-    images :
-      - id     : mido-los
-        name   : Xiaomi Redmi Note 4X (fourteen)
-        android: fourteen
-    kernels:
       - id          : mido-los
         description : Xiaomi Redmi Note 4X for LineageOS
         devicenames : mido
