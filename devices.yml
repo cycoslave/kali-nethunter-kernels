@@ -3124,6 +3124,7 @@
             description: Android 7.0
             author     : XXH3X
             source     : 'git clone https://github.com/XXH3X/Ultimate-Kali'
+
 - salami:
     model  : OnePlus 11 5G
     images :
@@ -3155,3 +3156,22 @@
             author     : nullptr-t-oss
             source     : wget https://github.com/nullptr-t-oss/EmberHeart_OnePlus11/releases/download/v2.0.0-r2/EmberHeart_boot.img
             features   : [BT_RFCOMM, Internal_BT, HID, Injection, RTL8812AU, RTW88, ATH9K_HTC, ATH10K, QCACLD, AIRSPY, MT7XXX, HACKRF, MemKernel by POCO (for r/w to physical memory from userspace applications), CAN]
+
+- miatoll:
+    model: Xiaomi Redmi Note 9S/Pro
+    kernels:
+      - id: miatoll-crdroid-15.0
+        description: Xiaomi Miatoll for crDroid 15.0
+        kernelstring: AvilaKernel NetHunter for Redmi Note Miatoll Family
+        arch: arm64
+        devicenames: [miatoll, curtana, joyeuse, excalibur, gram]
+        block: /dev/block/bootdevice/by-name/boot
+        slot_device: 0
+        modules: 1
+        versions:
+          - android: fifteen
+            linux: "4.14"
+            description: crDroid 15.0
+            author: jolucas245
+            source: 'git clone https://github.com/crdroidandroid/android_kernel_xiaomi_sm6250.git -b 15.0'
+            features: [HID, Injection, RTL88XXAU, BT_RFCOMM, Internal_BT]
