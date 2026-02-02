@@ -2532,6 +2532,17 @@
             author     : Svirusx
             source     : 'git clone https://github.com/Svirusx/Nethunter-Kernel-S20_FE_5G.git -b nethunter-13.0'
             features   : [BT_RFCOMM, HID-4, Injection, QCACLD, RTL8812AU, RTL8188EUS]
+      - id          : r8q-los
+        description : Samsung Galaxy S20 FE 5G (Snapdragon) for LineageOS 23.0
+        arch        : arm64
+        devicenames : r8q
+        versions    :
+          - android    : sixteen
+            linux      : 4.19
+            description: LineageOS 23.0
+            author     : Svirusx
+            source     : 'git clone https://github.com/Svirusx/Nethunter_LineageOS_Samsung_S20FE5G_sm8250.git -b Nethunter-16-lineage-23.0'
+            features   : [BT_RFCOMM, HID-4, Injection, QCACLD, RTL8812AU, RTL8188EUS]
 - rmx1911:
     model  : Realme 5 / 5i / 5s
     images :
