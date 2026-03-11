@@ -107,6 +107,18 @@
             author       : Re4son
             source       : 'git clone https://github.com/Re4son/android_kernel_samsung-a5xelte -b nethunter-7.0'
             features     : [HID, Injection, RTL8812AU]
+- a5y17lte:
+    model   : Samsung Galaxy A5 (2017)
+    kernels :
+      - id          : a5y17lte
+        description : Galaxy A5 (2017) for LineageOS 18.1
+        versions    :
+          - android      : eleven
+            linux        : '3.18'
+            description  : LineageOS 18.1
+            author       : cycoslave
+            source       : 'git clone https://github.com/cycoslave/android_kernel_samsung_universal7880 -b lineage-18.1'
+            features     : []            
 - a7xelte:
     model   : Samsung Galaxy A7 (2016)
     kernels :
